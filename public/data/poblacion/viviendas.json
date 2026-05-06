@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "id": "poblacion-viviendas",
+    "title": "Stock Habitacional y Viviendas — Mendoza",
+    "category": "Población",
+    "subcategory": "Viviendas",
+    "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
+    "date": "2026-05-06"
+  },
+  "kpis": [
+    {
+      "id": "total-viviendas",
+      "label": "Total de viviendas",
+      "value": 702009,
+      "formatted": "702.009"
+    },
+    {
+      "id": "viviendas-particulares",
+      "label": "Viviendas particulares",
+      "value": 701357,
+      "formatted": "701.357",
+      "comparison": "652 colectivas"
+    },
+    {
+      "id": "pct-casas",
+      "label": "% de casas (sobre vivienda particular)",
+      "value": 84.21538051189104,
+      "formatted": "84,2%",
+      "comparison": "524.122 casas vs 98.237 departamentos"
+    },
+    {
+      "id": "departamentos-viv",
+      "label": "Departamentos (vivienda)",
+      "value": 98237,
+      "formatted": "98.237"
+    }
+  ],
+  "charts": [
+    {
+      "id": "tipo-vivienda",
+      "type": "pie",
+      "title": "Tipo de vivienda particular ocupada",
+      "sectionId": "tipos",
+      "data": [
+        {
+          "id": "Casa",
+          "value": 524122
+        },
+        {
+          "id": "Departamento",
+          "value": 98237
+        },
+        {
+          "id": "Rancho",
+          "value": 7857
+        },
+        {
+          "id": "Casilla",
+          "value": 2356
+        }
+      ]
+    },
+    {
+      "id": "rank-viviendas",
+      "type": "bar",
+      "title": "Total de viviendas por departamento",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "Guaymallén",
+          "Viviendas": 107382
+        },
+        {
+          "id": "San Rafael",
+          "Viviendas": 81403
+        },
+        {
+          "id": "Las Heras",
+          "Viviendas": 72614
+        },
+        {
+          "id": "Godoy Cruz",
+          "Viviendas": 71740
+        },
+        {
+          "id": "Maipú",
+          "Viviendas": 67524
+        },
+        {
+          "id": "Luján de Cuyo",
+          "Viviendas": 58537
+        },
+        {
+          "id": "Capital",
+          "Viviendas": 58152
+        },
+        {
+          "id": "San Martín",
+          "Viviendas": 44496
+        },
+        {
+          "id": "Rivadavia",
+          "Viviendas": 20923
+        },
+        {
+          "id": "Tunuyán",
+          "Viviendas": 19807
+        },
+        {
+          "id": "General Alvear",
+          "Viviendas": 19706
+        },
+        {
+          "id": "Lavalle",
+          "Viviendas": 14879
+        },
+        {
+          "id": "Junín",
+          "Viviendas": 14841
+        },
+        {
+          "id": "San Carlos",
+          "Viviendas": 13523
+        },
+        {
+          "id": "Tupungato",
+          "Viviendas": 13249
+        },
+        {
+          "id": "Malargüe",
+          "Viviendas": 12388
+        },
+        {
+          "id": "Santa Rosa",
+          "Viviendas": 6484
+        },
+        {
+          "id": "La Paz",
+          "Viviendas": 4361
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    },
+    {
+      "id": "mapa-viviendas",
+      "type": "map",
+      "title": "Mapa: total de viviendas por departamento",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "50007",
+          "value": 58152
+        },
+        {
+          "id": "50014",
+          "value": 19706
+        },
+        {
+          "id": "50021",
+          "value": 71740
+        },
+        {
+          "id": "50028",
+          "value": 107382
+        },
+        {
+          "id": "50035",
+          "value": 14841
+        },
+        {
+          "id": "50042",
+          "value": 4361
+        },
+        {
+          "id": "50049",
+          "value": 72614
+        },
+        {
+          "id": "50056",
+          "value": 14879
+        },
+        {
+          "id": "50063",
+          "value": 58537
+        },
+        {
+          "id": "50070",
+          "value": 67524
+        },
+        {
+          "id": "50077",
+          "value": 12388
+        },
+        {
+          "id": "50084",
+          "value": 20923
+        },
+        {
+          "id": "50091",
+          "value": 13523
+        },
+        {
+          "id": "50098",
+          "value": 44496
+        },
+        {
+          "id": "50105",
+          "value": 81403
+        },
+        {
+          "id": "50112",
+          "value": 6484
+        },
+        {
+          "id": "50119",
+          "value": 19807
+        },
+        {
+          "id": "50126",
+          "value": 13249
+        }
+      ]
+    }
+  ],
+  "rankings": [
+    {
+      "id": "rank-viv",
+      "title": "Departamentos por viviendas totales",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 107382
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 81403
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 72614
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 71740
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 67524
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 58537
+        },
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 58152
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 44496
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 20923
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 19807
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 19706
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 14879
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 14841
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 13523
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 13249
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 12388
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 6484
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 4361
+        }
+      ],
+      "order": "desc"
+    }
+  ],
+  "mapData": [
+    {
+      "municipioId": "50",
+      "municipioNombre": "Mendoza",
+      "value": 702009,
+      "formatted": "702.009",
+      "caption": "Viviendas totales en Mendoza · Censo 2022",
+      "label": "702.009 · Viviendas totales en Mendoza · Censo 2022"
+    }
+  ]
+}

@@ -1,0 +1,802 @@
+{
+  "meta": {
+    "id": "poblacion-estructura",
+    "title": "Estructura por Sexo y Edad — Mendoza",
+    "category": "Población",
+    "subcategory": "Estructura",
+    "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
+    "date": "2026-05-06"
+  },
+  "kpis": [
+    {
+      "id": "pob-2022",
+      "label": "Población 2022",
+      "value": 2043540,
+      "formatted": "2.043.540",
+      "unit": "hab",
+      "status": "good",
+      "comparison": "Variación 2010-2022: 17,5%"
+    },
+    {
+      "id": "var-abs",
+      "label": "Crecimiento absoluto 2010-2022",
+      "value": 304611,
+      "formatted": "+304.611",
+      "unit": "hab",
+      "status": "good",
+      "comparison": "17,5% respecto a 2010"
+    },
+    {
+      "id": "densidad",
+      "label": "Densidad provincial",
+      "value": 13.7,
+      "formatted": "13,7",
+      "unit": "hab/km²",
+      "comparison": "Superficie: 149.069 km²"
+    },
+    {
+      "id": "edad-mediana",
+      "label": "Edad mediana",
+      "value": 32,
+      "formatted": "32",
+      "unit": "años",
+      "comparison": "Mujeres: 33 · Varones: 31"
+    },
+    {
+      "id": "mujeres",
+      "label": "Mujeres",
+      "value": 1053938,
+      "formatted": "1.053.938",
+      "comparison": "Índice de feminidad: 107"
+    },
+    {
+      "id": "varones",
+      "label": "Varones",
+      "value": 989471,
+      "formatted": "989.471",
+      "comparison": "Población total: 2.043.409"
+    }
+  ],
+  "charts": [
+    {
+      "id": "piramide-etaria",
+      "type": "pyramid",
+      "title": "Pirámide etaria — Mendoza 2022",
+      "sectionId": "estructura",
+      "data": [
+        {
+          "grupo": "0-4",
+          "mujeres": 64677,
+          "varones": 66372
+        },
+        {
+          "grupo": "5-9",
+          "mujeres": 84174,
+          "varones": 86768
+        },
+        {
+          "grupo": "10-14",
+          "mujeres": 82721,
+          "varones": 85303
+        },
+        {
+          "grupo": "15-19",
+          "mujeres": 77518,
+          "varones": 78150
+        },
+        {
+          "grupo": "20-24",
+          "mujeres": 76458,
+          "varones": 76785
+        },
+        {
+          "grupo": "25-29",
+          "mujeres": 80273,
+          "varones": 78224
+        },
+        {
+          "grupo": "30-34",
+          "mujeres": 78400,
+          "varones": 76215
+        },
+        {
+          "grupo": "35-39",
+          "mujeres": 72821,
+          "varones": 70295
+        },
+        {
+          "grupo": "40-44",
+          "mujeres": 73357,
+          "varones": 69852
+        },
+        {
+          "grupo": "45-49",
+          "mujeres": 64686,
+          "varones": 59802
+        },
+        {
+          "grupo": "50-54",
+          "mujeres": 55905,
+          "varones": 50337
+        },
+        {
+          "grupo": "55-59",
+          "mujeres": 49624,
+          "varones": 43815
+        },
+        {
+          "grupo": "60-64",
+          "mujeres": 46837,
+          "varones": 40640
+        },
+        {
+          "grupo": "65-69",
+          "mujeres": 43705,
+          "varones": 36731
+        },
+        {
+          "grupo": "70-74",
+          "mujeres": 38108,
+          "varones": 29995
+        },
+        {
+          "grupo": "75-79",
+          "mujeres": 28778,
+          "varones": 20396
+        }
+      ]
+    },
+    {
+      "id": "rank-poblacion",
+      "type": "bar",
+      "title": "Población 2022 por departamento",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "Guaymallén",
+          "Población": 321966
+        },
+        {
+          "id": "Las Heras",
+          "Población": 234401
+        },
+        {
+          "id": "Maipú",
+          "Población": 219402
+        },
+        {
+          "id": "San Rafael",
+          "Población": 215020
+        },
+        {
+          "id": "Godoy Cruz",
+          "Población": 195159
+        },
+        {
+          "id": "Luján de Cuyo",
+          "Población": 175056
+        },
+        {
+          "id": "San Martín",
+          "Población": 139792
+        },
+        {
+          "id": "Capital",
+          "Población": 127160
+        },
+        {
+          "id": "Rivadavia",
+          "Población": 63724
+        },
+        {
+          "id": "Tunuyán",
+          "Población": 60171
+        },
+        {
+          "id": "General Alvear",
+          "Población": 52584
+        },
+        {
+          "id": "Lavalle",
+          "Población": 47167
+        },
+        {
+          "id": "Junín",
+          "Población": 46604
+        },
+        {
+          "id": "Tupungato",
+          "Población": 41280
+        },
+        {
+          "id": "San Carlos",
+          "Población": 39869
+        },
+        {
+          "id": "Malargüe",
+          "Población": 32717
+        },
+        {
+          "id": "Santa Rosa",
+          "Población": 19382
+        },
+        {
+          "id": "La Paz",
+          "Población": 12086
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    },
+    {
+      "id": "rank-densidad",
+      "type": "bar",
+      "title": "Densidad poblacional por departamento (hab/km²)",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "Godoy Cruz",
+          "Densidad": 2461
+        },
+        {
+          "id": "Capital",
+          "Densidad": 2412.9
+        },
+        {
+          "id": "Guaymallén",
+          "Densidad": 1985
+        },
+        {
+          "id": "Maipú",
+          "Densidad": 352.1
+        },
+        {
+          "id": "Junín",
+          "Densidad": 171.1
+        },
+        {
+          "id": "San Martín",
+          "Densidad": 92.8
+        },
+        {
+          "id": "Luján de Cuyo",
+          "Densidad": 36.3
+        },
+        {
+          "id": "Rivadavia",
+          "Densidad": 30.2
+        },
+        {
+          "id": "Las Heras",
+          "Densidad": 26.3
+        },
+        {
+          "id": "Tunuyán",
+          "Densidad": 17.8
+        },
+        {
+          "id": "Tupungato",
+          "Densidad": 16.8
+        },
+        {
+          "id": "San Rafael",
+          "Densidad": 6.9
+        },
+        {
+          "id": "Lavalle",
+          "Densidad": 4.7
+        },
+        {
+          "id": "General Alvear",
+          "Densidad": 3.6
+        },
+        {
+          "id": "San Carlos",
+          "Densidad": 3.4
+        },
+        {
+          "id": "Santa Rosa",
+          "Densidad": 2.2
+        },
+        {
+          "id": "La Paz",
+          "Densidad": 1.6
+        },
+        {
+          "id": "Malargüe",
+          "Densidad": 0.8
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    },
+    {
+      "id": "mapa-poblacion",
+      "type": "map",
+      "title": "Mapa: población por departamento",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "50007",
+          "value": 127160
+        },
+        {
+          "id": "50014",
+          "value": 52584
+        },
+        {
+          "id": "50021",
+          "value": 195159
+        },
+        {
+          "id": "50028",
+          "value": 321966
+        },
+        {
+          "id": "50035",
+          "value": 46604
+        },
+        {
+          "id": "50042",
+          "value": 12086
+        },
+        {
+          "id": "50049",
+          "value": 234401
+        },
+        {
+          "id": "50056",
+          "value": 47167
+        },
+        {
+          "id": "50063",
+          "value": 175056
+        },
+        {
+          "id": "50070",
+          "value": 219402
+        },
+        {
+          "id": "50077",
+          "value": 32717
+        },
+        {
+          "id": "50084",
+          "value": 63724
+        },
+        {
+          "id": "50091",
+          "value": 39869
+        },
+        {
+          "id": "50098",
+          "value": 139792
+        },
+        {
+          "id": "50105",
+          "value": 215020
+        },
+        {
+          "id": "50112",
+          "value": 19382
+        },
+        {
+          "id": "50119",
+          "value": 60171
+        },
+        {
+          "id": "50126",
+          "value": 41280
+        }
+      ]
+    }
+  ],
+  "rankings": [
+    {
+      "id": "rank-pob",
+      "title": "Departamentos por población 2022",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Guaymallén",
+          "value": 321966,
+          "municipioId": "50028"
+        },
+        {
+          "name": "Las Heras",
+          "value": 234401,
+          "municipioId": "50049"
+        },
+        {
+          "name": "Maipú",
+          "value": 219402,
+          "municipioId": "50070"
+        },
+        {
+          "name": "San Rafael",
+          "value": 215020,
+          "municipioId": "50105"
+        },
+        {
+          "name": "Godoy Cruz",
+          "value": 195159,
+          "municipioId": "50021"
+        },
+        {
+          "name": "Luján de Cuyo",
+          "value": 175056,
+          "municipioId": "50063"
+        },
+        {
+          "name": "San Martín",
+          "value": 139792,
+          "municipioId": "50098"
+        },
+        {
+          "name": "Capital",
+          "value": 127160,
+          "municipioId": "50007"
+        },
+        {
+          "name": "Rivadavia",
+          "value": 63724,
+          "municipioId": "50084"
+        },
+        {
+          "name": "Tunuyán",
+          "value": 60171,
+          "municipioId": "50119"
+        },
+        {
+          "name": "General Alvear",
+          "value": 52584,
+          "municipioId": "50014"
+        },
+        {
+          "name": "Lavalle",
+          "value": 47167,
+          "municipioId": "50056"
+        },
+        {
+          "name": "Junín",
+          "value": 46604,
+          "municipioId": "50035"
+        },
+        {
+          "name": "Tupungato",
+          "value": 41280,
+          "municipioId": "50126"
+        },
+        {
+          "name": "San Carlos",
+          "value": 39869,
+          "municipioId": "50091"
+        },
+        {
+          "name": "Malargüe",
+          "value": 32717,
+          "municipioId": "50077"
+        },
+        {
+          "name": "Santa Rosa",
+          "value": 19382,
+          "municipioId": "50112"
+        },
+        {
+          "name": "La Paz",
+          "value": 12086,
+          "municipioId": "50042"
+        }
+      ],
+      "order": "desc"
+    },
+    {
+      "id": "rank-var",
+      "title": "Departamentos por variación 2010-2022 (%)",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Luján de Cuyo",
+          "value": 46,
+          "municipioId": "50063"
+        },
+        {
+          "name": "Lavalle",
+          "value": 28.4,
+          "municipioId": "50056"
+        },
+        {
+          "name": "Maipú",
+          "value": 27.3,
+          "municipioId": "50070"
+        },
+        {
+          "name": "Tupungato",
+          "value": 26.9,
+          "municipioId": "50126"
+        },
+        {
+          "name": "Junín",
+          "value": 23.1,
+          "municipioId": "50035"
+        },
+        {
+          "name": "San Carlos",
+          "value": 22.2,
+          "municipioId": "50091"
+        },
+        {
+          "name": "Tunuyán",
+          "value": 21.7,
+          "municipioId": "50119"
+        },
+        {
+          "name": "La Paz",
+          "value": 20.7,
+          "municipioId": "50042"
+        },
+        {
+          "name": "Santa Rosa",
+          "value": 18.4,
+          "municipioId": "50112"
+        },
+        {
+          "name": "Malargüe",
+          "value": 18.3,
+          "municipioId": "50077"
+        },
+        {
+          "name": "San Martín",
+          "value": 18.2,
+          "municipioId": "50098"
+        },
+        {
+          "name": "Las Heras",
+          "value": 15.1,
+          "municipioId": "50049"
+        },
+        {
+          "name": "San Rafael",
+          "value": 14.4,
+          "municipioId": "50105"
+        },
+        {
+          "name": "Guaymallén",
+          "value": 13.4,
+          "municipioId": "50028"
+        },
+        {
+          "name": "General Alvear",
+          "value": 13.3,
+          "municipioId": "50014"
+        },
+        {
+          "name": "Rivadavia",
+          "value": 13,
+          "municipioId": "50084"
+        },
+        {
+          "name": "Capital",
+          "value": 10.5,
+          "municipioId": "50007"
+        },
+        {
+          "name": "Godoy Cruz",
+          "value": 1.7,
+          "municipioId": "50021"
+        }
+      ],
+      "order": "desc"
+    },
+    {
+      "id": "rank-densidad",
+      "title": "Departamentos por densidad (hab/km²)",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Godoy Cruz",
+          "value": 2461,
+          "municipioId": "50021"
+        },
+        {
+          "name": "Capital",
+          "value": 2412.9,
+          "municipioId": "50007"
+        },
+        {
+          "name": "Guaymallén",
+          "value": 1985,
+          "municipioId": "50028"
+        },
+        {
+          "name": "Maipú",
+          "value": 352.1,
+          "municipioId": "50070"
+        },
+        {
+          "name": "Junín",
+          "value": 171.1,
+          "municipioId": "50035"
+        },
+        {
+          "name": "San Martín",
+          "value": 92.8,
+          "municipioId": "50098"
+        },
+        {
+          "name": "Luján de Cuyo",
+          "value": 36.3,
+          "municipioId": "50063"
+        },
+        {
+          "name": "Rivadavia",
+          "value": 30.2,
+          "municipioId": "50084"
+        },
+        {
+          "name": "Las Heras",
+          "value": 26.3,
+          "municipioId": "50049"
+        },
+        {
+          "name": "Tunuyán",
+          "value": 17.8,
+          "municipioId": "50119"
+        },
+        {
+          "name": "Tupungato",
+          "value": 16.8,
+          "municipioId": "50126"
+        },
+        {
+          "name": "San Rafael",
+          "value": 6.9,
+          "municipioId": "50105"
+        },
+        {
+          "name": "Lavalle",
+          "value": 4.7,
+          "municipioId": "50056"
+        },
+        {
+          "name": "General Alvear",
+          "value": 3.6,
+          "municipioId": "50014"
+        },
+        {
+          "name": "San Carlos",
+          "value": 3.4,
+          "municipioId": "50091"
+        },
+        {
+          "name": "Santa Rosa",
+          "value": 2.2,
+          "municipioId": "50112"
+        },
+        {
+          "name": "La Paz",
+          "value": 1.6,
+          "municipioId": "50042"
+        },
+        {
+          "name": "Malargüe",
+          "value": 0.8,
+          "municipioId": "50077"
+        }
+      ],
+      "order": "desc"
+    },
+    {
+      "id": "rank-edad",
+      "title": "Departamentos por edad mediana (años)",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Capital",
+          "value": 35,
+          "municipioId": "50007"
+        },
+        {
+          "name": "Godoy Cruz",
+          "value": 35,
+          "municipioId": "50021"
+        },
+        {
+          "name": "General Alvear",
+          "value": 34,
+          "municipioId": "50014"
+        },
+        {
+          "name": "Junín",
+          "value": 33,
+          "municipioId": "50035"
+        },
+        {
+          "name": "San Rafael",
+          "value": 33,
+          "municipioId": "50105"
+        },
+        {
+          "name": "Guaymallén",
+          "value": 32,
+          "municipioId": "50028"
+        },
+        {
+          "name": "Luján de Cuyo",
+          "value": 32,
+          "municipioId": "50063"
+        },
+        {
+          "name": "Maipú",
+          "value": 32,
+          "municipioId": "50070"
+        },
+        {
+          "name": "Las Heras",
+          "value": 31,
+          "municipioId": "50049"
+        },
+        {
+          "name": "Rivadavia",
+          "value": 31,
+          "municipioId": "50084"
+        },
+        {
+          "name": "San Martín",
+          "value": 31,
+          "municipioId": "50098"
+        },
+        {
+          "name": "La Paz",
+          "value": 30,
+          "municipioId": "50042"
+        },
+        {
+          "name": "Malargüe",
+          "value": 30,
+          "municipioId": "50077"
+        },
+        {
+          "name": "San Carlos",
+          "value": 30,
+          "municipioId": "50091"
+        },
+        {
+          "name": "Santa Rosa",
+          "value": 30,
+          "municipioId": "50112"
+        },
+        {
+          "name": "Tunuyán",
+          "value": 30,
+          "municipioId": "50119"
+        },
+        {
+          "name": "Lavalle",
+          "value": 28,
+          "municipioId": "50056"
+        },
+        {
+          "name": "Tupungato",
+          "value": 28,
+          "municipioId": "50126"
+        }
+      ],
+      "order": "desc"
+    }
+  ],
+  "mapData": [
+    {
+      "municipioId": "50",
+      "municipioNombre": "Mendoza",
+      "value": 2043540,
+      "formatted": "2.043.540",
+      "caption": "Habitantes Mendoza · Censo 2022",
+      "label": "2.043.540 · Habitantes Mendoza · Censo 2022"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# Datos raw del INDEC — no se suben a Vercel.
+# Los JSONs procesados viven en public/data/ y sí se publican.
+Poblacion/
+
+# Archivos de desarrollo
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build local
+dist/
+.vercel/
+
+# TS build info
+tsconfig.tsbuildinfo
+
+# Claude Code config local
+.claude/settings.local.json

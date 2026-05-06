@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "id": "poblacion-educacion",
+    "title": "Educación — Mendoza",
+    "category": "Población",
+    "subcategory": "Educación",
+    "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
+    "date": "2026-05-06"
+  },
+  "kpis": [
+    {
+      "id": "pob-edu",
+      "label": "Población en viviendas particulares",
+      "value": 2030773,
+      "formatted": "2.030.773"
+    },
+    {
+      "id": "pct-asiste",
+      "label": "% que asiste actualmente",
+      "value": 33.92048249607416,
+      "formatted": "33,9%",
+      "status": "good",
+      "comparison": "688.848 personas"
+    },
+    {
+      "id": "pct-nunca",
+      "label": "% que nunca asistió",
+      "value": 5.595701735250567,
+      "formatted": "5,6%",
+      "status": "warning",
+      "comparison": "113.636 personas (incluye <4 años)"
+    },
+    {
+      "id": "universitario",
+      "label": "Cursando universitario de grado",
+      "value": 81784,
+      "formatted": "81.784"
+    },
+    {
+      "id": "secundario",
+      "label": "Cursando secundario",
+      "value": 195077,
+      "formatted": "195.077"
+    },
+    {
+      "id": "pob-5mas",
+      "label": "Población 5 años y más",
+      "value": 1899849,
+      "formatted": "1.899.849"
+    }
+  ],
+  "charts": [
+    {
+      "id": "nivel-educativo",
+      "type": "bar",
+      "title": "Población que asiste por nivel educativo",
+      "sectionId": "niveles",
+      "data": [
+        {
+          "nivel": "Inicial (jardín)",
+          "cantidad": 87307
+        },
+        {
+          "nivel": "Primario",
+          "cantidad": 255997
+        },
+        {
+          "nivel": "Secundario",
+          "cantidad": 195077
+        },
+        {
+          "nivel": "Terciario",
+          "cantidad": 56045
+        },
+        {
+          "nivel": "Universitario",
+          "cantidad": 81784
+        },
+        {
+          "nivel": "Posgrado",
+          "cantidad": 12638
+        }
+      ],
+      "config": {
+        "xAxis": "nivel",
+        "layout": "horizontal"
+      }
+    }
+  ],
+  "rankings": [],
+  "mapData": [
+    {
+      "municipioId": "50",
+      "municipioNombre": "Mendoza",
+      "value": 33.92048249607416,
+      "formatted": "33,9%",
+      "caption": "Población que asiste a un establecimiento educativo",
+      "label": "33,9% · Población que asiste a un establecimiento educativo"
+    }
+  ]
+}

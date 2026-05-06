@@ -1,0 +1,350 @@
+{
+  "meta": {
+    "id": "poblacion-habitacional-personas",
+    "title": "Condiciones Habitacionales de la Población — Mendoza",
+    "category": "Población",
+    "subcategory": "Habitacional Personas",
+    "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
+    "date": "2026-05-06"
+  },
+  "kpis": [
+    {
+      "id": "pob-particulares",
+      "label": "Población en viviendas particulares",
+      "value": 2030773,
+      "formatted": "2.030.773",
+      "unit": "hab"
+    },
+    {
+      "id": "agua-canieria",
+      "label": "Acceso a agua por cañería",
+      "value": 94.5853130802901,
+      "formatted": "94,6%",
+      "status": "good"
+    },
+    {
+      "id": "gas-red",
+      "label": "Cocina con gas de red",
+      "value": 60.654538936651214,
+      "formatted": "60,7%",
+      "status": "good",
+      "comparison": "1.231.756 personas"
+    },
+    {
+      "id": "garrafa",
+      "label": "Cocina con garrafa",
+      "value": 33.584206605071074,
+      "formatted": "33,6%",
+      "status": "warning",
+      "comparison": "682.019 personas"
+    }
+  ],
+  "charts": [
+    {
+      "id": "procedencia-agua",
+      "type": "pie",
+      "title": "Procedencia del agua — Mendoza",
+      "sectionId": "agua",
+      "data": [
+        {
+          "id": "Red pública (agua corriente)",
+          "value": 1866746
+        },
+        {
+          "id": "Perforación con bomba a motor",
+          "value": 86295
+        },
+        {
+          "id": "Perforación con bomba manual",
+          "value": 9872
+        },
+        {
+          "id": "Pozo sin bomba",
+          "value": 14399
+        },
+        {
+          "id": "Transporte por cisterna, agua ",
+          "value": 28797
+        },
+        {
+          "id": "Otra procedencia",
+          "value": 24664
+        }
+      ]
+    },
+    {
+      "id": "rank-gas-red",
+      "type": "bar",
+      "title": "% de población con gas de red por departamento",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "Godoy Cruz",
+          "% Gas red": 82.68836382139938
+        },
+        {
+          "id": "Capital",
+          "% Gas red": 78.43592127066242
+        },
+        {
+          "id": "Malargüe",
+          "% Gas red": 72.35243588170329
+        },
+        {
+          "id": "Guaymallén",
+          "% Gas red": 70.26312754970066
+        },
+        {
+          "id": "Las Heras",
+          "% Gas red": 63.9119223055179
+        },
+        {
+          "id": "Luján de Cuyo",
+          "% Gas red": 62.92478022841118
+        },
+        {
+          "id": "La Paz",
+          "% Gas red": 58.44566483607922
+        },
+        {
+          "id": "Maipú",
+          "% Gas red": 57.81065115790339
+        },
+        {
+          "id": "General Alvear",
+          "% Gas red": 55.014414173619194
+        },
+        {
+          "id": "Rivadavia",
+          "% Gas red": 51.423988425671105
+        },
+        {
+          "id": "San Rafael",
+          "% Gas red": 51.32455301026248
+        },
+        {
+          "id": "Tunuyán",
+          "% Gas red": 47.338758087107315
+        },
+        {
+          "id": "Junín",
+          "% Gas red": 46.82819762437597
+        },
+        {
+          "id": "San Carlos",
+          "% Gas red": 45.212819480780844
+        },
+        {
+          "id": "San Martín",
+          "% Gas red": 44.55547107011176
+        },
+        {
+          "id": "Tupungato",
+          "% Gas red": 37.776914108045084
+        },
+        {
+          "id": "Santa Rosa",
+          "% Gas red": 33.319572733371174
+        },
+        {
+          "id": "Lavalle",
+          "% Gas red": 22.180690651148964
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    },
+    {
+      "id": "mapa-gas-red",
+      "type": "map",
+      "title": "Mapa: % de población con gas de red",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "50007",
+          "value": 78.43592127066242
+        },
+        {
+          "id": "50014",
+          "value": 55.014414173619194
+        },
+        {
+          "id": "50021",
+          "value": 82.68836382139938
+        },
+        {
+          "id": "50028",
+          "value": 70.26312754970066
+        },
+        {
+          "id": "50035",
+          "value": 46.82819762437597
+        },
+        {
+          "id": "50042",
+          "value": 58.44566483607922
+        },
+        {
+          "id": "50049",
+          "value": 63.9119223055179
+        },
+        {
+          "id": "50056",
+          "value": 22.180690651148964
+        },
+        {
+          "id": "50063",
+          "value": 62.92478022841118
+        },
+        {
+          "id": "50070",
+          "value": 57.81065115790339
+        },
+        {
+          "id": "50077",
+          "value": 72.35243588170329
+        },
+        {
+          "id": "50084",
+          "value": 51.423988425671105
+        },
+        {
+          "id": "50091",
+          "value": 45.212819480780844
+        },
+        {
+          "id": "50098",
+          "value": 44.55547107011176
+        },
+        {
+          "id": "50105",
+          "value": 51.32455301026248
+        },
+        {
+          "id": "50112",
+          "value": 33.319572733371174
+        },
+        {
+          "id": "50119",
+          "value": 47.338758087107315
+        },
+        {
+          "id": "50126",
+          "value": 37.776914108045084
+        }
+      ]
+    }
+  ],
+  "rankings": [
+    {
+      "id": "rank-gas",
+      "title": "Departamentos por % de gas de red",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 82.68836382139938
+        },
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 78.43592127066242
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 72.35243588170329
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 70.26312754970066
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 63.9119223055179
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 62.92478022841118
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 58.44566483607922
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 57.81065115790339
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 55.014414173619194
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 51.423988425671105
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 51.32455301026248
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 47.338758087107315
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 46.82819762437597
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 45.212819480780844
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 44.55547107011176
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 37.776914108045084
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 33.319572733371174
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 22.180690651148964
+        }
+      ],
+      "order": "desc"
+    }
+  ],
+  "mapData": [
+    {
+      "municipioId": "50",
+      "municipioNombre": "Mendoza",
+      "value": 60.654538936651214,
+      "formatted": "60,7%",
+      "caption": "Población con gas de red en Mendoza",
+      "label": "60,7% · Población con gas de red en Mendoza"
+    }
+  ]
+}

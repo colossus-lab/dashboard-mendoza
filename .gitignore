@@ -1,0 +1,16 @@
+node_modules
+dist
+.vercel
+.DS_Store
+*.log
+npm-debug.log*
+.env
+.env.*
+!.env.example
+tsconfig.tsbuildinfo
+
+# Claude Code — settings locales del usuario (no compartir)
+.claude/settings.local.json
+
+# Datos raw del INDEC (se commitean los JSON procesados en public/data/)
+/Poblacion/

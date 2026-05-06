@@ -1,0 +1,895 @@
+{
+  "meta": {
+    "id": "seguridad-snic",
+    "title": "Seguridad Ciudadana — Mendoza (SNIC 2000-2024)",
+    "category": "Seguridad",
+    "subcategory": "SNIC Provincial",
+    "source": "Sistema Nacional de Información Criminal (SNIC) — Ministerio de Seguridad de la Nación",
+    "date": "2026-05-06"
+  },
+  "kpis": [
+    {
+      "id": "hechos-ult",
+      "label": "Hechos delictivos 2024",
+      "value": 185458,
+      "formatted": "185.458",
+      "comparison": "-2,8% vs 2023",
+      "status": "good"
+    },
+    {
+      "id": "tasa-total",
+      "label": "Tasa total 2024 (/100K hab)",
+      "value": 8967.263898021,
+      "formatted": "8967,3 / 100K"
+    },
+    {
+      "id": "var-5y",
+      "label": "Variación 5 años (2019→2024)",
+      "value": 35.097649278466164,
+      "formatted": "+35,1%",
+      "status": "warning"
+    },
+    {
+      "id": "patrimoniales",
+      "label": "% Delitos patrimoniales",
+      "value": 28.13035835606984,
+      "formatted": "28,1%",
+      "comparison": "52.170 robos + hurtos"
+    },
+    {
+      "id": "homicidios",
+      "label": "Homicidios dolosos 2024",
+      "value": 69,
+      "formatted": "69",
+      "status": "critical",
+      "comparison": "Tasa: 3,3 / 100K"
+    },
+    {
+      "id": "pos-tasa-pais",
+      "label": "Posición tasa hechos vs provincias",
+      "value": 4,
+      "formatted": "4° de 24",
+      "comparison": "Posiciones más altas = mayor tasa"
+    },
+    {
+      "id": "pos-hom",
+      "label": "Posición tasa homicidios",
+      "value": 11,
+      "formatted": "11° de 24"
+    },
+    {
+      "id": "estafas",
+      "label": "Estafas y defraudaciones 2024",
+      "value": 18908,
+      "formatted": "18.908",
+      "status": "warning"
+    },
+    {
+      "id": "victimas-fem",
+      "label": "Víctimas mujeres 2024",
+      "value": 99,
+      "formatted": "99",
+      "comparison": "0,3% del total · 350 varones"
+    }
+  ],
+  "charts": [
+    {
+      "id": "serie-hechos",
+      "type": "line",
+      "title": "Evolución de hechos delictivos totales — Mendoza (2000-2024)",
+      "sectionId": "panorama",
+      "data": [
+        {
+          "id": "Hechos",
+          "data": [
+            {
+              "x": "2000",
+              "y": 92601
+            },
+            {
+              "x": "2001",
+              "y": 99099
+            },
+            {
+              "x": "2002",
+              "y": 108334
+            },
+            {
+              "x": "2003",
+              "y": 109399
+            },
+            {
+              "x": "2004",
+              "y": 104188
+            },
+            {
+              "x": "2005",
+              "y": 108849
+            },
+            {
+              "x": "2006",
+              "y": 121356
+            },
+            {
+              "x": "2007",
+              "y": 123052
+            },
+            {
+              "x": "2008",
+              "y": 124825
+            },
+            {
+              "x": "2009",
+              "y": 125258
+            },
+            {
+              "x": "2010",
+              "y": 124775
+            },
+            {
+              "x": "2011",
+              "y": 138056
+            },
+            {
+              "x": "2012",
+              "y": 137957
+            },
+            {
+              "x": "2013",
+              "y": 143258
+            },
+            {
+              "x": "2014",
+              "y": 152086
+            },
+            {
+              "x": "2015",
+              "y": 149430
+            },
+            {
+              "x": "2016",
+              "y": 137398
+            },
+            {
+              "x": "2017",
+              "y": 121205
+            },
+            {
+              "x": "2018",
+              "y": 126331
+            },
+            {
+              "x": "2019",
+              "y": 137277
+            },
+            {
+              "x": "2020",
+              "y": 130553
+            },
+            {
+              "x": "2021",
+              "y": 156569
+            },
+            {
+              "x": "2022",
+              "y": 158380
+            },
+            {
+              "x": "2023",
+              "y": 190733
+            },
+            {
+              "x": "2024",
+              "y": 185458
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "serie-tasa-total",
+      "type": "line",
+      "title": "Tasa de hechos cada 100K — Mendoza vs promedio país",
+      "sectionId": "panorama",
+      "data": [
+        {
+          "id": "Mendoza",
+          "data": [
+            {
+              "x": "2000",
+              "y": 5835.3
+            },
+            {
+              "x": "2001",
+              "y": 6170.5
+            },
+            {
+              "x": "2002",
+              "y": 6671
+            },
+            {
+              "x": "2003",
+              "y": 6662.2
+            },
+            {
+              "x": "2004",
+              "y": 6274.9
+            },
+            {
+              "x": "2005",
+              "y": 6483.2
+            },
+            {
+              "x": "2006",
+              "y": 7148.4
+            },
+            {
+              "x": "2007",
+              "y": 7168.3
+            },
+            {
+              "x": "2008",
+              "y": 7191.9
+            },
+            {
+              "x": "2009",
+              "y": 7137.4
+            },
+            {
+              "x": "2010",
+              "y": 7031.3
+            },
+            {
+              "x": "2011",
+              "y": 7682.3
+            },
+            {
+              "x": "2012",
+              "y": 7582.3
+            },
+            {
+              "x": "2013",
+              "y": 7778.8
+            },
+            {
+              "x": "2014",
+              "y": 8160.8
+            },
+            {
+              "x": "2015",
+              "y": 7926
+            },
+            {
+              "x": "2016",
+              "y": 7205.6
+            },
+            {
+              "x": "2017",
+              "y": 6286.5
+            },
+            {
+              "x": "2018",
+              "y": 6481.8
+            },
+            {
+              "x": "2019",
+              "y": 6969.4
+            },
+            {
+              "x": "2020",
+              "y": 6560.2
+            },
+            {
+              "x": "2021",
+              "y": 7789
+            },
+            {
+              "x": "2022",
+              "y": 7802.7
+            },
+            {
+              "x": "2023",
+              "y": 9307.6
+            },
+            {
+              "x": "2024",
+              "y": 8967.3
+            }
+          ]
+        },
+        {
+          "id": "Promedio país",
+          "data": [
+            {
+              "x": "2000",
+              "y": 3668.6
+            },
+            {
+              "x": "2001",
+              "y": 4238.9
+            },
+            {
+              "x": "2002",
+              "y": 4447.9
+            },
+            {
+              "x": "2003",
+              "y": 4347.2
+            },
+            {
+              "x": "2004",
+              "y": 4335.9
+            },
+            {
+              "x": "2005",
+              "y": 4224.8
+            },
+            {
+              "x": "2006",
+              "y": 4228.4
+            },
+            {
+              "x": "2007",
+              "y": 4041.2
+            },
+            {
+              "x": "2008",
+              "y": 4054.9
+            },
+            {
+              "x": "2009",
+              "y": 4067.2
+            },
+            {
+              "x": "2010",
+              "y": 3955.2
+            },
+            {
+              "x": "2011",
+              "y": 3885.7
+            },
+            {
+              "x": "2012",
+              "y": 3996.7
+            },
+            {
+              "x": "2013",
+              "y": 4033.2
+            },
+            {
+              "x": "2014",
+              "y": 4430.3
+            },
+            {
+              "x": "2015",
+              "y": 4255.2
+            },
+            {
+              "x": "2016",
+              "y": 4377.2
+            },
+            {
+              "x": "2017",
+              "y": 4849.4
+            },
+            {
+              "x": "2018",
+              "y": 4944.1
+            },
+            {
+              "x": "2019",
+              "y": 5285.2
+            },
+            {
+              "x": "2020",
+              "y": 4924.3
+            },
+            {
+              "x": "2021",
+              "y": 4806
+            },
+            {
+              "x": "2022",
+              "y": 4864.6
+            },
+            {
+              "x": "2023",
+              "y": 5736.6
+            },
+            {
+              "x": "2024",
+              "y": 5937.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "serie-homicidios",
+      "type": "line",
+      "title": "Homicidios dolosos — Mendoza (2000-2024)",
+      "sectionId": "homicidios",
+      "data": [
+        {
+          "id": "Homicidios",
+          "data": [
+            {
+              "x": "2000",
+              "y": 113
+            },
+            {
+              "x": "2001",
+              "y": 131
+            },
+            {
+              "x": "2002",
+              "y": 163
+            },
+            {
+              "x": "2003",
+              "y": 182
+            },
+            {
+              "x": "2004",
+              "y": 139
+            },
+            {
+              "x": "2005",
+              "y": 121
+            },
+            {
+              "x": "2006",
+              "y": 133
+            },
+            {
+              "x": "2007",
+              "y": 96
+            },
+            {
+              "x": "2008",
+              "y": 131
+            },
+            {
+              "x": "2009",
+              "y": 119
+            },
+            {
+              "x": "2010",
+              "y": 112
+            },
+            {
+              "x": "2011",
+              "y": 126
+            },
+            {
+              "x": "2012",
+              "y": 139
+            },
+            {
+              "x": "2013",
+              "y": 135
+            },
+            {
+              "x": "2014",
+              "y": 168
+            },
+            {
+              "x": "2015",
+              "y": 143
+            },
+            {
+              "x": "2016",
+              "y": 153
+            },
+            {
+              "x": "2017",
+              "y": 97
+            },
+            {
+              "x": "2018",
+              "y": 97
+            },
+            {
+              "x": "2019",
+              "y": 93
+            },
+            {
+              "x": "2020",
+              "y": 89
+            },
+            {
+              "x": "2021",
+              "y": 80
+            },
+            {
+              "x": "2022",
+              "y": 67
+            },
+            {
+              "x": "2023",
+              "y": 64
+            },
+            {
+              "x": "2024",
+              "y": 69
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "top-delitos",
+      "type": "bar",
+      "title": "Top delitos en Mendoza — 2024",
+      "sectionId": "delitos",
+      "data": [
+        {
+          "id": "Robos (excluye los agravados por …",
+          "Hechos": 31234
+        },
+        {
+          "id": "Otros delitos contra la propiedad",
+          "Hechos": 26922
+        },
+        {
+          "id": "Hurtos",
+          "Hechos": 20936
+        },
+        {
+          "id": "Estafas y defraudaciones (no incl…",
+          "Hechos": 17622
+        },
+        {
+          "id": "Amenazas",
+          "Hechos": 17237
+        },
+        {
+          "id": "Lesiones dolosas",
+          "Hechos": 14876
+        },
+        {
+          "id": "Lesiones culposas por otros hechos",
+          "Hechos": 9998
+        },
+        {
+          "id": "Delitos contra la administración …",
+          "Hechos": 6779
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    },
+    {
+      "id": "rank-prov-tasa",
+      "type": "bar",
+      "title": "Tasa de hechos por provincia — 2024",
+      "sectionId": "provincias",
+      "data": [
+        {
+          "id": "Salta",
+          "Tasa /100K": 13713.209915451998
+        },
+        {
+          "id": "Tierra del Fuego, An…",
+          "Tasa /100K": 9400.55565272
+        },
+        {
+          "id": "Ciudad Autónoma de B…",
+          "Tasa /100K": 9173.754367550004
+        },
+        {
+          "id": "Mendoza",
+          "Tasa /100K": 8967.263898021
+        },
+        {
+          "id": "Jujuy",
+          "Tasa /100K": 8209.47970241
+        },
+        {
+          "id": "Catamarca",
+          "Tasa /100K": 6698.885431100002
+        },
+        {
+          "id": "Córdoba",
+          "Tasa /100K": 6584.180255033003
+        },
+        {
+          "id": "Tucumán",
+          "Tasa /100K": 5874.397671433999
+        },
+        {
+          "id": "La Pampa",
+          "Tasa /100K": 5824.567298930002
+        },
+        {
+          "id": "Formosa",
+          "Tasa /100K": 5808.330283129998
+        },
+        {
+          "id": "San Juan",
+          "Tasa /100K": 5761.08800924
+        },
+        {
+          "id": "Chubut",
+          "Tasa /100K": 5738.56969194
+        },
+        {
+          "id": "Neuquén",
+          "Tasa /100K": 5494.897266779998
+        },
+        {
+          "id": "San Luis",
+          "Tasa /100K": 5251.9834673
+        },
+        {
+          "id": "Entre Ríos",
+          "Tasa /100K": 5146.534610680001
+        },
+        {
+          "id": "Santiago del Estero",
+          "Tasa /100K": 4697.5588802719985
+        },
+        {
+          "id": "Santa Cruz",
+          "Tasa /100K": 4568.2151793600015
+        },
+        {
+          "id": "Río Negro",
+          "Tasa /100K": 4539.362772379999
+        },
+        {
+          "id": "Santa Fe",
+          "Tasa /100K": 4470.182419513
+        },
+        {
+          "id": "La Rioja",
+          "Tasa /100K": 3870.878148529999
+        },
+        {
+          "id": "Buenos Aires",
+          "Tasa /100K": 3730.8537234985997
+        },
+        {
+          "id": "Chaco",
+          "Tasa /100K": 3204.5561232980003
+        },
+        {
+          "id": "Misiones",
+          "Tasa /100K": 3094.487136663
+        },
+        {
+          "id": "Corrientes",
+          "Tasa /100K": 2667.342960327
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    }
+  ],
+  "rankings": [
+    {
+      "id": "rank-prov-tasa",
+      "title": "Provincias por tasa de hechos delictivos /100K (2024)",
+      "sectionId": "provincias",
+      "items": [
+        {
+          "name": "Salta",
+          "value": 13713.209915451998
+        },
+        {
+          "name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+          "value": 9400.55565272
+        },
+        {
+          "name": "Ciudad Autónoma de Buenos Aires",
+          "value": 9173.754367550004
+        },
+        {
+          "name": "Mendoza",
+          "value": 8967.263898021,
+          "municipioId": "50"
+        },
+        {
+          "name": "Jujuy",
+          "value": 8209.47970241
+        },
+        {
+          "name": "Catamarca",
+          "value": 6698.885431100002
+        },
+        {
+          "name": "Córdoba",
+          "value": 6584.180255033003
+        },
+        {
+          "name": "Tucumán",
+          "value": 5874.397671433999
+        },
+        {
+          "name": "La Pampa",
+          "value": 5824.567298930002
+        },
+        {
+          "name": "Formosa",
+          "value": 5808.330283129998
+        },
+        {
+          "name": "San Juan",
+          "value": 5761.08800924
+        },
+        {
+          "name": "Chubut",
+          "value": 5738.56969194
+        },
+        {
+          "name": "Neuquén",
+          "value": 5494.897266779998
+        },
+        {
+          "name": "San Luis",
+          "value": 5251.9834673
+        },
+        {
+          "name": "Entre Ríos",
+          "value": 5146.534610680001
+        },
+        {
+          "name": "Santiago del Estero",
+          "value": 4697.5588802719985
+        },
+        {
+          "name": "Santa Cruz",
+          "value": 4568.2151793600015
+        },
+        {
+          "name": "Río Negro",
+          "value": 4539.362772379999
+        },
+        {
+          "name": "Santa Fe",
+          "value": 4470.182419513
+        },
+        {
+          "name": "La Rioja",
+          "value": 3870.878148529999
+        },
+        {
+          "name": "Buenos Aires",
+          "value": 3730.8537234985997
+        },
+        {
+          "name": "Chaco",
+          "value": 3204.5561232980003
+        },
+        {
+          "name": "Misiones",
+          "value": 3094.487136663
+        },
+        {
+          "name": "Corrientes",
+          "value": 2667.342960327
+        }
+      ],
+      "order": "desc"
+    },
+    {
+      "id": "rank-prov-hom",
+      "title": "Provincias por tasa de homicidios /100K (2024)",
+      "sectionId": "provincias",
+      "items": [
+        {
+          "name": "Santa Fe",
+          "value": 4.6402273
+        },
+        {
+          "name": "Chaco",
+          "value": 4.4800286
+        },
+        {
+          "name": "Buenos Aires",
+          "value": 4.3404565
+        },
+        {
+          "name": "Neuquén",
+          "value": 4.305192
+        },
+        {
+          "name": "Salta",
+          "value": 4.2853851
+        },
+        {
+          "name": "Chubut",
+          "value": 4.2470317
+        },
+        {
+          "name": "Río Negro",
+          "value": 4.2053485
+        },
+        {
+          "name": "Tucumán",
+          "value": 3.553941
+        },
+        {
+          "name": "Formosa",
+          "value": 3.3675163
+        },
+        {
+          "name": "Entre Ríos",
+          "value": 3.3445351
+        },
+        {
+          "name": "Mendoza",
+          "value": 3.3359182,
+          "municipioId": "50"
+        },
+        {
+          "name": "Santiago del Estero",
+          "value": 3.2434728
+        },
+        {
+          "name": "Misiones",
+          "value": 3.1946111
+        },
+        {
+          "name": "Córdoba",
+          "value": 2.915982
+        },
+        {
+          "name": "San Luis",
+          "value": 2.8135357
+        },
+        {
+          "name": "Corrientes",
+          "value": 2.7648511
+        },
+        {
+          "name": "Ciudad Autónoma de Buenos Aires",
+          "value": 2.4631476
+        },
+        {
+          "name": "Jujuy",
+          "value": 1.9912708
+        },
+        {
+          "name": "Catamarca",
+          "value": 1.8638982
+        },
+        {
+          "name": "Santa Cruz",
+          "value": 1.4925967
+        },
+        {
+          "name": "La Pampa",
+          "value": 1.3511797
+        },
+        {
+          "name": "San Juan",
+          "value": 1.2286854
+        },
+        {
+          "name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+          "value": 1.0493125
+        },
+        {
+          "name": "La Rioja",
+          "value": 0.96680242
+        }
+      ],
+      "order": "desc"
+    }
+  ],
+  "mapData": [
+    {
+      "municipioId": "50",
+      "municipioNombre": "Mendoza",
+      "value": 185458,
+      "formatted": "185.458",
+      "caption": "Hechos delictivos en Mendoza 2024",
+      "label": "185.458 · Hechos delictivos en Mendoza 2024"
+    }
+  ]
+}

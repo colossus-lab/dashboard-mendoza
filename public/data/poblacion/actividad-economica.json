@@ -1,0 +1,527 @@
+{
+  "meta": {
+    "id": "poblacion-actividad-economica",
+    "title": "Características Económicas — Mendoza",
+    "category": "Población",
+    "subcategory": "Actividad Económica",
+    "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
+    "date": "2026-05-06"
+  },
+  "kpis": [
+    {
+      "id": "pob-14mas",
+      "label": "Población 14 años y más",
+      "value": 1594198,
+      "formatted": "1.594.198"
+    },
+    {
+      "id": "tasa-actividad",
+      "label": "Tasa de actividad",
+      "value": 63.082565653701735,
+      "formatted": "63,1%",
+      "comparison": "1.005.661 económicamente activos"
+    },
+    {
+      "id": "tasa-empleo",
+      "label": "Tasa de empleo",
+      "value": 57.06580989312494,
+      "formatted": "57,1%",
+      "status": "good",
+      "comparison": "909.742 ocupados"
+    },
+    {
+      "id": "tasa-desocupacion",
+      "label": "Tasa de desocupación",
+      "value": 9.537905914617351,
+      "formatted": "9,5%",
+      "status": "warning",
+      "comparison": "95.919 desocupados"
+    }
+  ],
+  "charts": [
+    {
+      "id": "categoria-ocupacional",
+      "type": "pie",
+      "title": "Categoría ocupacional — ocupados",
+      "sectionId": "categoria",
+      "data": [
+        {
+          "id": "Empleados/obreros",
+          "value": 478445
+        },
+        {
+          "id": "Cuenta propia",
+          "value": 276895
+        },
+        {
+          "id": "Servicio doméstico",
+          "value": 61287
+        },
+        {
+          "id": "Patrón/empleador",
+          "value": 36227
+        },
+        {
+          "id": "Trab. familiar",
+          "value": 28059
+        }
+      ]
+    },
+    {
+      "id": "rank-empleo",
+      "type": "bar",
+      "title": "Tasa de empleo por departamento (%)",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "Capital",
+          "% Empleo": 59.63782932388937
+        },
+        {
+          "id": "Guaymallén",
+          "% Empleo": 58.698964888316894
+        },
+        {
+          "id": "Luján de Cuyo",
+          "% Empleo": 58.66943153591968
+        },
+        {
+          "id": "La Paz",
+          "% Empleo": 58.66594943518021
+        },
+        {
+          "id": "Maipú",
+          "% Empleo": 58.47332899420081
+        },
+        {
+          "id": "San Carlos",
+          "% Empleo": 58.399894816421785
+        },
+        {
+          "id": "Godoy Cruz",
+          "% Empleo": 58.05276033391339
+        },
+        {
+          "id": "Malargüe",
+          "% Empleo": 57.47537688442211
+        },
+        {
+          "id": "Las Heras",
+          "% Empleo": 57.2056841035161
+        },
+        {
+          "id": "Tupungato",
+          "% Empleo": 56.71299288946348
+        },
+        {
+          "id": "Lavalle",
+          "% Empleo": 56.52422303473492
+        },
+        {
+          "id": "Santa Rosa",
+          "% Empleo": 55.76545466856253
+        },
+        {
+          "id": "Tunuyán",
+          "% Empleo": 55.41147240868276
+        },
+        {
+          "id": "Junín",
+          "% Empleo": 55.37426454565265
+        },
+        {
+          "id": "General Alvear",
+          "% Empleo": 55.233193328315814
+        },
+        {
+          "id": "Rivadavia",
+          "% Empleo": 54.37952524050582
+        },
+        {
+          "id": "San Rafael",
+          "% Empleo": 53.596248948596035
+        },
+        {
+          "id": "San Martín",
+          "% Empleo": 53.35151627218935
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    },
+    {
+      "id": "rank-desocupacion",
+      "type": "bar",
+      "title": "Tasa de desocupación por departamento (%)",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "San Martín",
+          "% Desocup.": 10.896822210555571
+        },
+        {
+          "id": "Las Heras",
+          "% Desocup.": 10.216610880838001
+        },
+        {
+          "id": "Junín",
+          "% Desocup.": 10.068568900685689
+        },
+        {
+          "id": "San Rafael",
+          "% Desocup.": 9.939756016880343
+        },
+        {
+          "id": "Godoy Cruz",
+          "% Desocup.": 9.76233645317783
+        },
+        {
+          "id": "Capital",
+          "% Desocup.": 9.699591159566273
+        },
+        {
+          "id": "Tunuyán",
+          "% Desocup.": 9.480917117630305
+        },
+        {
+          "id": "Guaymallén",
+          "% Desocup.": 9.431571766196429
+        },
+        {
+          "id": "Maipú",
+          "% Desocup.": 9.319814494862236
+        },
+        {
+          "id": "Rivadavia",
+          "% Desocup.": 9.282686225691407
+        },
+        {
+          "id": "Luján de Cuyo",
+          "% Desocup.": 9.22478562443016
+        },
+        {
+          "id": "Lavalle",
+          "% Desocup.": 8.642659279778393
+        },
+        {
+          "id": "Santa Rosa",
+          "% Desocup.": 8.600599267561869
+        },
+        {
+          "id": "Tupungato",
+          "% Desocup.": 8.327673580272712
+        },
+        {
+          "id": "General Alvear",
+          "% Desocup.": 8.288317342578408
+        },
+        {
+          "id": "Malargüe",
+          "% Desocup.": 8.028304921196526
+        },
+        {
+          "id": "La Paz",
+          "% Desocup.": 7.167177391896493
+        },
+        {
+          "id": "San Carlos",
+          "% Desocup.": 6.6467002942412785
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    },
+    {
+      "id": "mapa-empleo",
+      "type": "map",
+      "title": "Mapa: tasa de empleo por departamento",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "50007",
+          "value": 59.63782932388937
+        },
+        {
+          "id": "50014",
+          "value": 55.233193328315814
+        },
+        {
+          "id": "50021",
+          "value": 58.05276033391339
+        },
+        {
+          "id": "50028",
+          "value": 58.698964888316894
+        },
+        {
+          "id": "50035",
+          "value": 55.37426454565265
+        },
+        {
+          "id": "50042",
+          "value": 58.66594943518021
+        },
+        {
+          "id": "50049",
+          "value": 57.2056841035161
+        },
+        {
+          "id": "50056",
+          "value": 56.52422303473492
+        },
+        {
+          "id": "50063",
+          "value": 58.66943153591968
+        },
+        {
+          "id": "50070",
+          "value": 58.47332899420081
+        },
+        {
+          "id": "50077",
+          "value": 57.47537688442211
+        },
+        {
+          "id": "50084",
+          "value": 54.37952524050582
+        },
+        {
+          "id": "50091",
+          "value": 58.399894816421785
+        },
+        {
+          "id": "50098",
+          "value": 53.35151627218935
+        },
+        {
+          "id": "50105",
+          "value": 53.596248948596035
+        },
+        {
+          "id": "50112",
+          "value": 55.76545466856253
+        },
+        {
+          "id": "50119",
+          "value": 55.41147240868276
+        },
+        {
+          "id": "50126",
+          "value": 56.71299288946348
+        }
+      ]
+    }
+  ],
+  "rankings": [
+    {
+      "id": "rank-empleo",
+      "title": "Departamentos por tasa de empleo",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 59.63782932388937
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 58.698964888316894
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 58.66943153591968
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 58.66594943518021
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 58.47332899420081
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 58.399894816421785
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 58.05276033391339
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 57.47537688442211
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 57.2056841035161
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 56.71299288946348
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 56.52422303473492
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 55.76545466856253
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 55.41147240868276
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 55.37426454565265
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 55.233193328315814
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 54.37952524050582
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 53.596248948596035
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 53.35151627218935
+        }
+      ],
+      "order": "desc"
+    },
+    {
+      "id": "rank-desocupacion",
+      "title": "Departamentos por tasa de desocupación",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 10.896822210555571
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 10.216610880838001
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 10.068568900685689
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 9.939756016880343
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 9.76233645317783
+        },
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 9.699591159566273
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 9.480917117630305
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 9.431571766196429
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 9.319814494862236
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 9.282686225691407
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 9.22478562443016
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 8.642659279778393
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 8.600599267561869
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 8.327673580272712
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 8.288317342578408
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 8.028304921196526
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 7.167177391896493
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 6.6467002942412785
+        }
+      ],
+      "order": "desc"
+    }
+  ],
+  "mapData": [
+    {
+      "municipioId": "50",
+      "municipioNombre": "Mendoza",
+      "value": 57.06580989312494,
+      "formatted": "57,1%",
+      "caption": "Tasa de empleo en Mendoza",
+      "label": "57,1% · Tasa de empleo en Mendoza"
+    }
+  ]
+}

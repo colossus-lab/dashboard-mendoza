@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
+    "date": "2026-05-06"
+  },
+  "poblacion": 2043540,
+  "hogares": 652184,
+  "viviendas": 702009,
+  "viviendasParticulares": 701357,
+  "departamentos": 18
+}

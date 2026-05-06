@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "id": "poblacion-hogares",
+    "title": "Condiciones Habitacionales de los Hogares — Mendoza",
+    "category": "Población",
+    "subcategory": "Hogares",
+    "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
+    "date": "2026-05-06"
+  },
+  "kpis": [
+    {
+      "id": "total-hogares",
+      "label": "Total de hogares",
+      "value": 652184,
+      "formatted": "652.184"
+    },
+    {
+      "id": "pct-piso-bueno",
+      "label": "Hogares con pisos terminados",
+      "value": 87.04890031034186,
+      "formatted": "87,0%",
+      "status": "good",
+      "comparison": "Cerámica/mosaico/baldosa/madera"
+    },
+    {
+      "id": "pct-piso-tierra",
+      "label": "Hogares con piso de tierra/ladrillo suelto",
+      "value": 1.8718643818308944,
+      "formatted": "1,9%",
+      "status": "critical",
+      "comparison": "12.208 hogares"
+    },
+    {
+      "id": "pct-agua-can",
+      "label": "Hogares con agua por cañería",
+      "value": 95.15888154263214,
+      "formatted": "95,2%",
+      "status": "good",
+      "comparison": "620.611 hogares"
+    }
+  ],
+  "charts": [
+    {
+      "id": "pisos",
+      "type": "pie",
+      "title": "Material predominante de los pisos",
+      "sectionId": "materiales",
+      "data": [
+        {
+          "id": "Pisos terminados",
+          "value": 567719
+        },
+        {
+          "id": "Carpeta/contrapiso",
+          "value": 66751
+        },
+        {
+          "id": "Tierra/ladrillo suelto",
+          "value": 12208
+        }
+      ]
+    },
+    {
+      "id": "rank-hogares",
+      "type": "bar",
+      "title": "Hogares por departamento",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "Guaymallén",
+          "Hogares": 102156
+        },
+        {
+          "id": "San Rafael",
+          "Hogares": 72750
+        },
+        {
+          "id": "Las Heras",
+          "Hogares": 69841
+        },
+        {
+          "id": "Godoy Cruz",
+          "Hogares": 67442
+        },
+        {
+          "id": "Maipú",
+          "Hogares": 65240
+        },
+        {
+          "id": "Luján de Cuyo",
+          "Hogares": 52742
+        },
+        {
+          "id": "Capital",
+          "Hogares": 48953
+        },
+        {
+          "id": "San Martín",
+          "Hogares": 42374
+        },
+        {
+          "id": "Rivadavia",
+          "Hogares": 19923
+        },
+        {
+          "id": "Tunuyán",
+          "Hogares": 18666
+        },
+        {
+          "id": "General Alvear",
+          "Hogares": 18200
+        },
+        {
+          "id": "Junín",
+          "Hogares": 14160
+        },
+        {
+          "id": "Lavalle",
+          "Hogares": 13770
+        },
+        {
+          "id": "Tupungato",
+          "Hogares": 12556
+        },
+        {
+          "id": "San Carlos",
+          "Hogares": 12529
+        },
+        {
+          "id": "Malargüe",
+          "Hogares": 11011
+        },
+        {
+          "id": "Santa Rosa",
+          "Hogares": 5975
+        },
+        {
+          "id": "La Paz",
+          "Hogares": 3896
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    },
+    {
+      "id": "mapa-hogares",
+      "type": "map",
+      "title": "Mapa: hogares por departamento",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "50007",
+          "value": 48953
+        },
+        {
+          "id": "50014",
+          "value": 18200
+        },
+        {
+          "id": "50021",
+          "value": 67442
+        },
+        {
+          "id": "50028",
+          "value": 102156
+        },
+        {
+          "id": "50035",
+          "value": 14160
+        },
+        {
+          "id": "50042",
+          "value": 3896
+        },
+        {
+          "id": "50049",
+          "value": 69841
+        },
+        {
+          "id": "50056",
+          "value": 13770
+        },
+        {
+          "id": "50063",
+          "value": 52742
+        },
+        {
+          "id": "50070",
+          "value": 65240
+        },
+        {
+          "id": "50077",
+          "value": 11011
+        },
+        {
+          "id": "50084",
+          "value": 19923
+        },
+        {
+          "id": "50091",
+          "value": 12529
+        },
+        {
+          "id": "50098",
+          "value": 42374
+        },
+        {
+          "id": "50105",
+          "value": 72750
+        },
+        {
+          "id": "50112",
+          "value": 5975
+        },
+        {
+          "id": "50119",
+          "value": 18666
+        },
+        {
+          "id": "50126",
+          "value": 12556
+        }
+      ]
+    }
+  ],
+  "rankings": [
+    {
+      "id": "rank-hogares",
+      "title": "Departamentos por cantidad de hogares",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 102156
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 72750
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 69841
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 67442
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 65240
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 52742
+        },
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 48953
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 42374
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 19923
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 18666
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 18200
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 14160
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 13770
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 12556
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 12529
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 11011
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 5975
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 3896
+        }
+      ],
+      "order": "desc"
+    }
+  ],
+  "mapData": [
+    {
+      "municipioId": "50",
+      "municipioNombre": "Mendoza",
+      "value": 652184,
+      "formatted": "652.184",
+      "caption": "Hogares en Mendoza · Censo 2022",
+      "label": "652.184 · Hogares en Mendoza · Censo 2022"
+    }
+  ]
+}

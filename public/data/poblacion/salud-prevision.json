@@ -1,0 +1,625 @@
+{
+  "meta": {
+    "id": "poblacion-salud-prevision",
+    "title": "Salud y Previsión Social — Mendoza",
+    "category": "Población",
+    "subcategory": "Salud y Previsión",
+    "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
+    "date": "2026-05-06"
+  },
+  "kpis": [
+    {
+      "id": "pob-total",
+      "label": "Población en viviendas particulares",
+      "value": 2030773,
+      "formatted": "2.030.773",
+      "unit": "hab"
+    },
+    {
+      "id": "obra-social",
+      "label": "Con obra social o prepaga",
+      "value": 59.2872270805255,
+      "formatted": "59,3%",
+      "status": "good",
+      "comparison": "1.203.989 personas (incluye PAMI)"
+    },
+    {
+      "id": "sin-cobertura",
+      "label": "Sin obra social ni plan estatal",
+      "value": 37.93471746965318,
+      "formatted": "37,9%",
+      "status": "critical",
+      "comparison": "770.368 personas"
+    },
+    {
+      "id": "plan-estatal",
+      "label": "Con plan estatal de salud",
+      "value": 2.778055449821324,
+      "formatted": "2,8%",
+      "comparison": "56.416 personas"
+    },
+    {
+      "id": "percibe-jubilacion",
+      "label": "Percibe jubilación o pensión",
+      "value": 19.463130541916797,
+      "formatted": "19,5%",
+      "comparison": "395.252 personas"
+    }
+  ],
+  "charts": [
+    {
+      "id": "cobertura-pie",
+      "type": "pie",
+      "title": "Cobertura de salud — Mendoza",
+      "sectionId": "cobertura",
+      "data": [
+        {
+          "id": "Obra social/prepaga",
+          "value": 1203989
+        },
+        {
+          "id": "Plan estatal",
+          "value": 56416
+        },
+        {
+          "id": "Sin cobertura",
+          "value": 770368
+        }
+      ]
+    },
+    {
+      "id": "rank-obra-social",
+      "type": "bar",
+      "title": "% con obra social/prepaga por departamento",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "Capital",
+          "% Cobertura": 70.7666814856727
+        },
+        {
+          "id": "Luján de Cuyo",
+          "% Cobertura": 67.87814967157892
+        },
+        {
+          "id": "Godoy Cruz",
+          "% Cobertura": 67.37922562539514
+        },
+        {
+          "id": "Malargüe",
+          "% Cobertura": 60.777395999509146
+        },
+        {
+          "id": "La Paz",
+          "% Cobertura": 60.36778166084207
+        },
+        {
+          "id": "Guaymallén",
+          "% Cobertura": 59.682551554986276
+        },
+        {
+          "id": "Maipú",
+          "% Cobertura": 59.319648951285366
+        },
+        {
+          "id": "Junín",
+          "% Cobertura": 58.52771561370288
+        },
+        {
+          "id": "Santa Rosa",
+          "% Cobertura": 58.39310593941895
+        },
+        {
+          "id": "San Rafael",
+          "% Cobertura": 57.34460891915724
+        },
+        {
+          "id": "Las Heras",
+          "% Cobertura": 55.79223311765787
+        },
+        {
+          "id": "General Alvear",
+          "% Cobertura": 55.64061933217511
+        },
+        {
+          "id": "San Martín",
+          "% Cobertura": 54.73150366555242
+        },
+        {
+          "id": "Rivadavia",
+          "% Cobertura": 54.36946641714761
+        },
+        {
+          "id": "Tunuyán",
+          "% Cobertura": 52.382778630027346
+        },
+        {
+          "id": "San Carlos",
+          "% Cobertura": 49.07677601126987
+        },
+        {
+          "id": "Tupungato",
+          "% Cobertura": 44.41556548775748
+        },
+        {
+          "id": "Lavalle",
+          "% Cobertura": 42.0507157116765
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    },
+    {
+      "id": "rank-sin-cobertura",
+      "type": "bar",
+      "title": "% sin cobertura por departamento",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "Lavalle",
+          "% Sin cobertura": 54.7338911778448
+        },
+        {
+          "id": "Tupungato",
+          "% Sin cobertura": 52.39992226972405
+        },
+        {
+          "id": "San Carlos",
+          "% Sin cobertura": 47.36868585228416
+        },
+        {
+          "id": "Tunuyán",
+          "% Sin cobertura": 44.49409724538118
+        },
+        {
+          "id": "San Martín",
+          "% Sin cobertura": 42.54264522330459
+        },
+        {
+          "id": "Rivadavia",
+          "% Sin cobertura": 42.177106103256854
+        },
+        {
+          "id": "General Alvear",
+          "% Sin cobertura": 41.92138070600813
+        },
+        {
+          "id": "Las Heras",
+          "% Sin cobertura": 41.233925906285954
+        },
+        {
+          "id": "San Rafael",
+          "% Sin cobertura": 40.21875762180822
+        },
+        {
+          "id": "Maipú",
+          "% Sin cobertura": 38.262665210816536
+        },
+        {
+          "id": "Guaymallén",
+          "% Sin cobertura": 37.60607845520474
+        },
+        {
+          "id": "Junín",
+          "% Sin cobertura": 37.58822516784301
+        },
+        {
+          "id": "La Paz",
+          "% Sin cobertura": 36.87801630887002
+        },
+        {
+          "id": "Santa Rosa",
+          "% Sin cobertura": 36.72532122400536
+        },
+        {
+          "id": "Malargüe",
+          "% Sin cobertura": 36.40937538348263
+        },
+        {
+          "id": "Luján de Cuyo",
+          "% Sin cobertura": 30.015766538866558
+        },
+        {
+          "id": "Godoy Cruz",
+          "% Sin cobertura": 29.511145833868742
+        },
+        {
+          "id": "Capital",
+          "% Sin cobertura": 26.628945560360506
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal"
+      }
+    },
+    {
+      "id": "mapa-cobertura",
+      "type": "map",
+      "title": "Mapa: % de cobertura obra social/prepaga",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "50007",
+          "value": 70.7666814856727
+        },
+        {
+          "id": "50014",
+          "value": 55.64061933217511
+        },
+        {
+          "id": "50021",
+          "value": 67.37922562539514
+        },
+        {
+          "id": "50028",
+          "value": 59.682551554986276
+        },
+        {
+          "id": "50035",
+          "value": 58.52771561370288
+        },
+        {
+          "id": "50042",
+          "value": 60.36778166084207
+        },
+        {
+          "id": "50049",
+          "value": 55.79223311765787
+        },
+        {
+          "id": "50056",
+          "value": 42.0507157116765
+        },
+        {
+          "id": "50063",
+          "value": 67.87814967157892
+        },
+        {
+          "id": "50070",
+          "value": 59.319648951285366
+        },
+        {
+          "id": "50077",
+          "value": 60.777395999509146
+        },
+        {
+          "id": "50084",
+          "value": 54.36946641714761
+        },
+        {
+          "id": "50091",
+          "value": 49.07677601126987
+        },
+        {
+          "id": "50098",
+          "value": 54.73150366555242
+        },
+        {
+          "id": "50105",
+          "value": 57.34460891915724
+        },
+        {
+          "id": "50112",
+          "value": 58.39310593941895
+        },
+        {
+          "id": "50119",
+          "value": 52.382778630027346
+        },
+        {
+          "id": "50126",
+          "value": 44.41556548775748
+        }
+      ]
+    }
+  ],
+  "rankings": [
+    {
+      "id": "rank-obra",
+      "title": "Departamentos por % con obra social",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 70.7666814856727
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 67.87814967157892
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 67.37922562539514
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 60.777395999509146
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 60.36778166084207
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 59.682551554986276
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 59.319648951285366
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 58.52771561370288
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 58.39310593941895
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 57.34460891915724
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 55.79223311765787
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 55.64061933217511
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 54.73150366555242
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 54.36946641714761
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 52.382778630027346
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 49.07677601126987
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 44.41556548775748
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 42.0507157116765
+        }
+      ],
+      "order": "desc"
+    },
+    {
+      "id": "rank-sin",
+      "title": "Departamentos por % sin cobertura",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 54.7338911778448
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 52.39992226972405
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 47.36868585228416
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 44.49409724538118
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 42.54264522330459
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 42.177106103256854
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 41.92138070600813
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 41.233925906285954
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 40.21875762180822
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 38.262665210816536
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 37.60607845520474
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 37.58822516784301
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 36.87801630887002
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 36.72532122400536
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 36.40937538348263
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 30.015766538866558
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 29.511145833868742
+        },
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 26.628945560360506
+        }
+      ],
+      "order": "desc"
+    },
+    {
+      "id": "rank-jubilados",
+      "title": "Departamentos por % de jubilados/pensionados",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 24.532732583669027
+        },
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 21.6166188416926
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 21.596686741336935
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 21.590892787971825
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 21.135708301423232
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 20.51127560681701
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 19.78801365015962
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 19.429189549009816
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 19.255652637897686
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 18.64175946096718
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 18.55158140958577
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 18.509760515194206
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 18.25687599979359
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 17.847322302952033
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 17.00924466061216
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 16.818888457054022
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 16.716221382151808
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 16.296478095471837
+        }
+      ],
+      "order": "desc"
+    }
+  ],
+  "mapData": [
+    {
+      "municipioId": "50",
+      "municipioNombre": "Mendoza",
+      "value": 59.2872270805255,
+      "formatted": "59,3%",
+      "caption": "Cobertura obra social/prepaga en Mendoza",
+      "label": "59,3% · Cobertura obra social/prepaga en Mendoza"
+    }
+  ]
+}
