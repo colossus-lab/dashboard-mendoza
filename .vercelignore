@@ -1,6 +1,9 @@
 # Datos raw del INDEC — no se suben a Vercel.
+# IMPORTANTE: el patrón debe anclarse al root con `/` inicial para no
+# matchear `public/data/poblacion/` ni `public/reports/poblacion/`
+# (Vercel hace match case-insensitive de los patrones gitignore-style).
 # Los JSONs procesados viven en public/data/ y sí se publican.
-Poblacion/
+/Poblacion/
 
 # Archivos de desarrollo
 .vscode/
