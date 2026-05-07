@@ -33,17 +33,17 @@ La fecundidad acumulada crece monotónicamente con la edad, alcanzando su máxim
 | 14 años | 0,0 | 16.277 |
 | 15-19 años | 0,1 | 77.398 |
 | 20-24 años | 0,5 | 76.349 |
-| 25-29 años | 1,1 | ~80.000 |
-| 30-34 años | 1,7 | ~80.000 |
-| 35-39 años | 2,1 | ~75.000 |
-| 40-44 años | 2,3 | ~70.000 |
-| **45-49 años** | **2,4** | ~65.000 |
+| 25-29 años | 1,2 | 80.141 |
+| 30-34 años | 1,7 | 78.285 |
+| 35-39 años | 2,2 | 72.724 |
+| 40-44 años | 2,5 | 73.228 |
+| **45-49 años** | **2,7** | 64.553 |
 
-Es decir: **las mujeres mendocinas de 45-49 años (que ya completaron su período fértil) tienen en promedio 2,4 hijos**, una cifra **cercana a la tasa de reemplazo (2,1)**. La caída agregada al promedio de 1,5 se debe principalmente a las cohortes jóvenes (14-29 años) que aún no completaron su período fértil.
+Es decir: **las mujeres mendocinas de 45-49 años (que ya completaron su período fértil) tienen en promedio 2,7 hijos**, claramente **por encima de la tasa de reemplazo (2,1)**. La caída agregada al promedio de 1,5 se debe principalmente a las cohortes jóvenes (14-29 años) que aún no completaron su período fértil.
 
 ### Lectura
 
-La diferencia entre **2,4 (45-49 años)** y **1,1-1,7 (cohortes 25-34)** es **estructural y demográfica**: las cohortes nacidas después de 1980 tienen significativamente menos hijos. Si esa tendencia se mantiene, la fecundidad de reemplazo se perderá definitivamente en Mendoza durante esta década, replicando la caída observada en otras provincias y en el país en general.
+La diferencia entre **2,7 (45-49 años)** y **1,2-1,7 (cohortes 25-34)** es **estructural y demográfica**: las cohortes nacidas después de 1980 tienen significativamente menos hijos que las que nacieron antes. Si esa tendencia se mantiene, la fecundidad caerá por debajo del reemplazo en Mendoza durante esta década, replicando la caída observada en otras provincias y en el país en general.
 
 ---
 
@@ -81,16 +81,16 @@ La diferencia es de **+0,6 hijos/mujer** entre los departamentos rurales más f�
 
 Para evitar el sesgo de las cohortes incompletas, mirar el **grupo 45-49 años** da la mejor estimación de la fecundidad pasada:
 
-- **Mendoza 45-49**: 2,4 hijos/mujer
-- **Argentina 45-49**: ~2,3 hijos/mujer (similar)
+- **Mendoza 45-49**: 2,7 hijos/mujer (claramente por encima del reemplazo de 2,1)
+- **Mendoza 40-44**: 2,5 hijos/mujer (también sobre reemplazo)
 
-Las cohortes que ya cerraron su trayectoria fértil estuvieron por encima del reemplazo. Pero las cohortes **30-34** (1,7) y **25-29** (1,1) están claramente por debajo, y no es plausible que recuperen hijos por encima del reemplazo en sus edades restantes.
+Las cohortes que ya cerraron su trayectoria fértil estuvieron por encima del reemplazo. Pero las cohortes **30-34** (1,7) y **25-29** (1,2) están claramente por debajo, y no es plausible que recuperen hijos por encima del reemplazo en sus edades restantes — la fecundidad **post-2,1** quedará en el pasado.
 
 ---
 
 ## 5. Lecturas y consecuencias
 
-- La **fecundidad provincial está por debajo del nivel de reemplazo** considerando el promedio de las cohortes activas, pero la cohorte 45-49 (que ya cerró su período fértil) está cerca del reemplazo (2,4).
+- La **fecundidad provincial está por debajo del nivel de reemplazo** considerando el promedio de las cohortes activas, pero la cohorte 45-49 (que ya cerró su período fértil) está claramente por encima del reemplazo (2,7).
 - El **40,7 % de mujeres 14-49 sin hijos** incluye a la franja 14-24 que no completó su período fértil. La nulipariedad permanente final será más baja que ese número.
 - La diferencia entre departamentos urbanos y rurales (1,1 a 1,7) marca brechas estructurales de proyecto de vida y oportunidades.
 - **Mendoza está envejeciendo**: la población 0-4 años (131.049 niños) ya es **menor** que la 35-39 años, lo que significa que la base de la pirámide demográfica se está angostando.

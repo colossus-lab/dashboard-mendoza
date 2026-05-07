@@ -85,11 +85,11 @@ Es una provincia de **oasis irrigado**: la población se concentra en los valles
 
 La pirámide etaria muestra el achatamiento característico de la transición demográfica:
 
-| Grupo de edad | % de la población |
-|---|---:|
-| 0-14 años (niñez) | ~24 % |
-| 15-64 años (edad activa) | ~64 % |
-| 65 años o más (mayores) | ~12 % |
+| Grupo de edad | Personas | % |
+|---|---:|---:|
+| 0-14 años (niñez) | 470.015 | **23,0 %** |
+| 15-64 años (edad activa) | 1.319.994 | **64,6 %** |
+| 65 años o más (mayores) | 253.400 | **12,4 %** |
 
 Con una **edad mediana de 32 años**, Mendoza es algo más joven que la media argentina (~33 años), pero está claramente en proceso de envejecimiento. La cohorte 0-4 años (131.049 niños) ya es **menor** que la 35-39 años, lo que muestra la caída de la fecundidad reciente.
 

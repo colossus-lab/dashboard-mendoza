@@ -9,12 +9,13 @@
 
 ## 1. La foto del último año
 
-Los KPIs en la cabecera del informe muestran las cifras provinciales del último año disponible. A grandes rasgos, Mendoza presenta:
+Los KPIs en la cabecera del informe muestran las cifras provinciales del último año disponible. La foto de Mendoza 2024:
 
-- Una **tasa total de hechos delictivos** intermedia respecto a las 24 jurisdicciones del país (revisar el ranking en el gráfico interactivo).
-- Una **tasa de homicidios dolosos** que la ubica en la mitad inferior del país (es decir: comparativamente baja).
-- Una **proporción importante de delitos patrimoniales** (robos + hurtos), típicos de provincias con alta urbanización.
-- Un **crecimiento marcado de las estafas y defraudaciones**, en línea con la tendencia nacional de delitos cibernéticos.
+- **185.458 hechos delictivos**, con tasa total de **8.967 cada 100 mil habitantes** — **4° lugar de 24 jurisdicciones** (entre las más altas del país por su perfil urbanizado).
+- **+35,1 % de aumento** en hechos vs. 2019 — un quinquenio de crecimiento sostenido.
+- **69 homicidios dolosos** (tasa 3,3 / 100K) — **11° lugar de 24**, mitad del ranking, comparativamente menor que NEA y conurbano.
+- **28,1 % de delitos patrimoniales** (robos + hurtos) — proporción moderada en términos comparativos.
+- **18.908 estafas y defraudaciones** — categoría de mayor crecimiento por delitos digitales.
 
 ---
 
@@ -30,15 +31,23 @@ La línea de **tasa total cada 100 mil habitantes** permite comparar el nivel me
 
 ---
 
-## 3. Composición del delito
+## 3. Composición del delito (2024)
 
-Los principales hechos en Mendoza, en línea con el resto del país, son:
+| Categoría | Hechos | % del total |
+|---|---:|---:|
+| **Robos** (excluye agravados por lesiones/muerte) | 31.234 | 16,8 % |
+| **Otros delitos contra la propiedad** | 26.922 | 14,5 % |
+| **Hurtos** | 20.936 | 11,3 % |
+| **Estafas y defraudaciones** | 18.908 | 10,2 % |
+| **Amenazas** | 17.237 | 9,3 % |
+| **Lesiones dolosas** | 14.876 | 8,0 % |
+| **Lesiones culposas** (no viales) | 9.998 | 5,4 % |
+| **Homicidios dolosos** | 69 | 0,04 % |
+| Otros | 45.278 | 24,4 % |
 
-1. **Robos y hurtos** (delitos contra la propiedad) — típicamente 60-65 % del total.
-2. **Lesiones** (contra las personas).
-3. **Amenazas** (contra la libertad/seguridad).
-4. **Estafas y defraudaciones** — categoría con mayor crecimiento relativo en los últimos años.
-5. **Homicidios dolosos** — número absoluto bajo (decenas/año), pero sensible.
+**Patrimoniales (robos + hurtos)**: 28,1 % del total — porcentaje moderado en términos comparativos. El **mayor peso** lo tienen en conjunto los **delitos contra la propiedad (~43 %)** sumando "otros delitos contra la propiedad", **lesiones (13 %)** y **estafas (10 %)** que crece año a año por delitos digitales.
+
+**Homicidios dolosos**: solo **69 casos en 2024** (tasa 3,3 / 100K), una de las **tasas más bajas del país** — Mendoza se ubica en la mitad inferior del ranking nacional.
 
 ---
 
@@ -46,15 +55,25 @@ Los principales hechos en Mendoza, en línea con el resto del país, son:
 
 El ranking de provincias (por tasa de hechos cada 100K) permite ubicar a Mendoza en el espectro nacional:
 
-- En el **ranking de tasa total**, Mendoza típicamente se ubica en posiciones intermedias-altas (al ser una provincia urbana y con alta densidad relativa en el oasis mendocino).
-- En **homicidios dolosos**, Mendoza se ubica en posiciones intermedias-bajas: la **tasa de homicidios mendocina es significativamente menor** que la de provincias del NEA o el conurbano bonaerense.
+- En el **ranking de tasa total de hechos**, Mendoza está **4° de 24 jurisdicciones** — entre las más altas del país. Es consistente con su perfil urbanizado y con el comportamiento típico de las provincias con alta densidad metropolitana, donde se concentra la actividad delictiva contra la propiedad y los registros de denuncia son más completos.
+- En **homicidios dolosos**, Mendoza está **11° de 24** — exactamente en la mitad del ranking. La **tasa de 3,3 homicidios cada 100K habitantes** es **menor** que la del NEA (Chaco, Santa Fe), el conurbano bonaerense y el norte (Salta, Jujuy), pero similar al promedio nacional.
 
 ---
 
 ## 5. Víctimas
 
-- **Víctimas mujeres**: el dato del último año muestra el desbalance habitual (las víctimas mujeres son alrededor del 40-45 % del total). Para violencia de género específica, ver registros del SAT del Ministerio.
-- **Víctimas varones**: mayoritarios en homicidios y lesiones.
+**Aclaración técnica**: El SNIC desagrega víctimas por sexo SOLO en algunos delitos (homicidios dolosos, muertes viales, suicidios). En el resto (robos, hurtos, estafas, amenazas), las víctimas se cuentan sin desglose de sexo. Por eso **las cifras de "víctimas mujeres del total" no son interpretables**: la mayoría queda en la categoría "sin sexo declarado".
+
+### Donde sí se puede mirar el desbalance — Homicidios dolosos 2024
+
+| Sexo | Víctimas |
+|---|---:|
+| Varones | 61 (86 %) |
+| **Mujeres** | **10 (14 %)** |
+| **Total** | 71 |
+
+- **De cada 7 víctimas de homicidio doloso en Mendoza, 1 es mujer**. Es un dato consistente con el patrón nacional (la mayoría de los homicidios involucra varones como víctimas y autores).
+- Para **femicidios específicamente** (subset de los homicidios dolosos donde la víctima es mujer y el motivo es de género), se necesitan los registros del Ministerio de Seguridad / Oficina de la Mujer de la CSJN, que no son parte del SNIC.
 
 ---
 

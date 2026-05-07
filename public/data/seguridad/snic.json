@@ -5,7 +5,7 @@
     "category": "Seguridad",
     "subcategory": "SNIC Provincial",
     "source": "Sistema Nacional de Información Criminal (SNIC) — Ministerio de Seguridad de la Nación",
-    "date": "2026-05-06"
+    "date": "2026-05-07"
   },
   "kpis": [
     {
@@ -65,11 +65,12 @@
       "status": "warning"
     },
     {
-      "id": "victimas-fem",
-      "label": "Víctimas mujeres 2024",
-      "value": 99,
-      "formatted": "99",
-      "comparison": "0,3% del total · 350 varones"
+      "id": "fem-homicidios",
+      "label": "Víctimas mujeres en homicidios 2024",
+      "value": 10,
+      "formatted": "10",
+      "status": "critical",
+      "comparison": "61 varones · 71 víctimas en 69 hechos"
     }
   ],
   "charts": [

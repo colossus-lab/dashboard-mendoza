@@ -71,7 +71,7 @@ function processSNIC() {
     provNames.add(provNombre);
 
     if (provId === MENDOZA_PROV_ID) {
-      if (!mendozaByYear[year]) mendozaByYear[year] = { hechos: 0, victimas: 0, masc: 0, fem: 0, tasaSum: 0, delitos: {} };
+      if (!mendozaByYear[year]) mendozaByYear[year] = { hechos: 0, victimas: 0, masc: 0, fem: 0, tasaSum: 0, delitos: {}, homMasc: 0, homFem: 0 };
       mendozaByYear[year].hechos += hechos;
       mendozaByYear[year].victimas += victimas;
       mendozaByYear[year].masc += masc;
@@ -81,6 +81,9 @@ function processSNIC() {
       if (/^Homicidios dolosos$/.test(delito)) {
         mendozaByYear[year].homicidios = hechos;
         mendozaByYear[year].homicidiosTasa = tasa;
+        mendozaByYear[year].homMasc = masc;
+        mendozaByYear[year].homFem = fem;
+        mendozaByYear[year].homVictimas = victimas;
       }
       if (/^Robos \(excluye/.test(delito)) {
         mendozaByYear[year].robos = (mendozaByYear[year].robos || 0) + hechos;
@@ -179,7 +182,11 @@ function processSNIC() {
       { id: 'pos-tasa-pais', label: 'Posición tasa hechos vs provincias', value: posMendozaTasa, formatted: `${posMendozaTasa}° de ${provRankTasa.length}`, comparison: 'Posiciones más altas = mayor tasa' },
       { id: 'pos-hom', label: 'Posición tasa homicidios', value: posMendozaHom, formatted: posMendozaHom > 0 ? `${posMendozaHom}° de ${homRankTasa.length}` : '—' },
       { id: 'estafas', label: `Estafas y defraudaciones ${lastYear}`, value: estafas, formatted: fmtInt(estafas), status: 'warning' },
-      { id: 'victimas-fem', label: `Víctimas mujeres ${lastYear}`, value: last.fem || 0, formatted: fmtInt(last.fem || 0), comparison: pctMujeres != null ? `${fmtPct(pctMujeres)} del total · ${fmtInt(last.masc || 0)} varones` : undefined },
+      // Víctimas mujeres en homicidios dolosos: dato confiable porque SNIC desagrega
+      // por sexo SOLO en homicidios, muertes viales y suicidios. Sumar víctimas_fem
+      // del total provincial es engañoso porque el resto va a `cantidad_victimas_sd`
+      // (sin declarar) — verificado en auditoría 2026-05-06.
+      { id: 'fem-homicidios', label: `Víctimas mujeres en homicidios ${lastYear}`, value: last.homFem || 0, formatted: fmtInt(last.homFem || 0), status: 'critical', comparison: last.homVictimas ? `${fmtInt(last.homMasc || 0)} varones · ${last.homVictimas} víctimas en ${last.homicidios} hechos` : undefined },
     ],
     charts: [
       {
