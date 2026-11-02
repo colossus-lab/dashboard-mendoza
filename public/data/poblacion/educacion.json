@@ -19,7 +19,7 @@
       "id": "pct-asiste",
       "label": "% que asiste actualmente",
       "value": 33.92048249607416,
-      "formatted": "33,9%",
+      "formatted": "33,9 %",
       "status": "good",
       "comparison": "688.848 personas"
     },
@@ -27,7 +27,7 @@
       "id": "pct-nunca",
       "label": "% que nunca asistió",
       "value": 5.595701735250567,
-      "formatted": "5,6%",
+      "formatted": "5,6 %",
       "status": "warning",
       "comparison": "113.636 personas (incluye menores de 5 años)"
     },
@@ -47,7 +47,7 @@
       "id": "pct-superior",
       "label": "Superior completo (sobre quienes ya no asisten)",
       "value": 19.17101457343576,
-      "formatted": "19,2%",
+      "formatted": "19,2 %",
       "comparison": "234.168 personas"
     },
     {
@@ -197,9 +197,9 @@
       "municipioId": "50",
       "municipioNombre": "Mendoza",
       "value": 33.92048249607416,
-      "formatted": "33,9%",
+      "formatted": "33,9 %",
       "caption": "Población que asiste a un establecimiento educativo",
-      "label": "33,9% · Población que asiste a un establecimiento educativo"
+      "label": "33,9 % · Población que asiste a un establecimiento educativo"
     }
   ]
 }

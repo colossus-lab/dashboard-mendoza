@@ -14,3 +14,6 @@ tsconfig.tsbuildinfo
 
 # Datos raw del INDEC (se commitean los JSON procesados en public/data/)
 /Poblacion/
+
+# Preview local del Browser pane
+.claude/launch.json

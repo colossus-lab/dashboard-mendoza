@@ -27,20 +27,20 @@
       "label": "Particulares con personas presentes",
       "value": 639467,
       "formatted": "639.467",
-      "comparison": "91,2% de las particulares"
+      "comparison": "91,2 % de las particulares"
     },
     {
       "id": "pct-casas",
       "label": "% de casas (sobre viviendas ocupadas)",
       "value": 81.96232174607916,
-      "formatted": "82,0%",
+      "formatted": "82,0 %",
       "comparison": "524.122 casas"
     },
     {
       "id": "departamentos-viv",
       "label": "% de departamentos (sobre viviendas ocupadas)",
       "value": 15.362325186444338,
-      "formatted": "15,4%",
+      "formatted": "15,4 %",
       "comparison": "98.237 departamentos"
     }
   ],

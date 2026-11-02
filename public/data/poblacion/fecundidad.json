@@ -26,14 +26,14 @@
       "id": "pct-sin-hijos",
       "label": "% sin hijos",
       "value": 40.66387731814344,
-      "formatted": "40,7%",
+      "formatted": "40,7 %",
       "comparison": "219.160 mujeres"
     },
     {
       "id": "pct-5mas",
       "label": "% con 5 hijos o más",
       "value": 5.0970860275904295,
-      "formatted": "5,1%",
+      "formatted": "5,1 %",
       "comparison": "27.471 mujeres"
     }
   ],

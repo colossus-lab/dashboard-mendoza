@@ -2,22 +2,22 @@ import type { ReportEntry } from '../types/report';
 
 // ═══════════════════════════════════════════════════════════════
 // Report Registry — Dashboard Mendoza
-// 9 informes: 8 de Población (Censo 2022) + 1 de Seguridad (SNIC)
+// Informes de Población (Censo 2022) y de Seguridad.
 //
-// Categorías espejadas de la organización del usuario en
-// /Poblacion/<n>- <categoria>/ (Censo 2022 INDEC, sufijo _13).
+// Categorías espejadas de la organización de /Poblacion/<n>- <categoria>/
+// (Censo 2022 INDEC, sufijo _13).
 // ═══════════════════════════════════════════════════════════════
 
 export const REPORTS: ReportEntry[] = [
   {
     id: 'poblacion-estructura',
     slug: 'poblacion/estructura',
-    title: 'Estructura por Sexo y Edad',
+    title: 'Estructura por sexo y edad',
     shortTitle: 'Estructura',
+    description: 'Cuántos somos, cuánto creció cada departamento y cómo se reparte la población por edad y sexo.',
     category: 'Población',
     subcategory: 'Estructura',
-    icon: '👥',
-    color: '#00d4ff',
+    image: 'valle-de-uco',
     mdPath: '/reports/poblacion/estructura.md',
     dataPath: '/data/poblacion/estructura.json',
     order: 1,
@@ -25,12 +25,12 @@ export const REPORTS: ReportEntry[] = [
   {
     id: 'poblacion-habitacional-personas',
     slug: 'poblacion/habitacional-personas',
-    title: 'Condiciones Habitacionales de la Población',
-    shortTitle: 'Hábitat Personas',
+    title: 'Condiciones habitacionales de la población',
+    shortTitle: 'Hábitat',
+    description: 'Acceso de las personas al agua, la cloaca y la energía para cocinar.',
     category: 'Población',
-    subcategory: 'Habitacional Personas',
-    icon: '🏠',
-    color: '#f59e0b',
+    subcategory: 'Hábitat',
+    image: 'potrerillos',
     mdPath: '/reports/poblacion/habitacional-personas.md',
     dataPath: '/data/poblacion/habitacional-personas.json',
     order: 2,
@@ -38,12 +38,12 @@ export const REPORTS: ReportEntry[] = [
   {
     id: 'poblacion-salud-prevision',
     slug: 'poblacion/salud-prevision',
-    title: 'Salud y Previsión Social',
-    shortTitle: 'Salud y Previsión',
+    title: 'Salud y previsión social',
+    shortTitle: 'Salud y previsión',
+    description: 'Cobertura de salud y percepción de jubilaciones y pensiones, por departamento.',
     category: 'Población',
-    subcategory: 'Salud y Previsión',
-    icon: '🏥',
-    color: '#10b981',
+    subcategory: 'Salud y previsión',
+    image: 'puente-del-inca',
     mdPath: '/reports/poblacion/salud-prevision.md',
     dataPath: '/data/poblacion/salud-prevision.json',
     order: 3,
@@ -51,12 +51,12 @@ export const REPORTS: ReportEntry[] = [
   {
     id: 'poblacion-hogares',
     slug: 'poblacion/hogares',
-    title: 'Condiciones Habitacionales de los Hogares',
+    title: 'Condiciones habitacionales de los hogares',
     shortTitle: 'Hogares',
+    description: 'Cuántos hogares hay, de qué tamaño y con qué materiales y servicios.',
     category: 'Población',
     subcategory: 'Hogares',
-    icon: '🏗️',
-    color: '#f97316',
+    image: 'pueblo-uco',
     mdPath: '/reports/poblacion/hogares.md',
     dataPath: '/data/poblacion/hogares.json',
     order: 4,
@@ -64,12 +64,12 @@ export const REPORTS: ReportEntry[] = [
   {
     id: 'poblacion-viviendas',
     slug: 'poblacion/viviendas',
-    title: 'Stock Habitacional y Viviendas',
+    title: 'Stock habitacional y viviendas',
     shortTitle: 'Viviendas',
+    description: 'Cuántas viviendas hay, de qué tipo y en qué condición de ocupación.',
     category: 'Población',
     subcategory: 'Viviendas',
-    icon: '🏘️',
-    color: '#8b5cf6',
+    image: 'ciudad',
     mdPath: '/reports/poblacion/viviendas.md',
     dataPath: '/data/poblacion/viviendas.json',
     order: 5,
@@ -79,10 +79,10 @@ export const REPORTS: ReportEntry[] = [
     slug: 'poblacion/educacion',
     title: 'Educación',
     shortTitle: 'Educación',
+    description: 'Asistencia escolar, nivel al que se asiste y máximo nivel alcanzado.',
     category: 'Población',
     subcategory: 'Educación',
-    icon: '🎓',
-    color: '#ec4899',
+    image: 'uncuyo',
     mdPath: '/reports/poblacion/educacion.md',
     dataPath: '/data/poblacion/educacion.json',
     order: 6,
@@ -90,12 +90,12 @@ export const REPORTS: ReportEntry[] = [
   {
     id: 'poblacion-actividad-economica',
     slug: 'poblacion/actividad-economica',
-    title: 'Características Económicas',
+    title: 'Características económicas',
     shortTitle: 'Actividad',
+    description: 'Actividad, empleo, desocupación y categoría ocupacional.',
     category: 'Población',
-    subcategory: 'Actividad Económica',
-    icon: '💼',
-    color: '#14b8a6',
+    subcategory: 'Actividad económica',
+    image: 'vinedos',
     mdPath: '/reports/poblacion/actividad-economica.md',
     dataPath: '/data/poblacion/actividad-economica.json',
     order: 7,
@@ -105,10 +105,10 @@ export const REPORTS: ReportEntry[] = [
     slug: 'poblacion/fecundidad',
     title: 'Fecundidad',
     shortTitle: 'Fecundidad',
+    description: 'Hijas e hijos por mujer, por grupo de edad y por departamento.',
     category: 'Población',
     subcategory: 'Fecundidad',
-    icon: '👶',
-    color: '#a855f7',
+    image: 'parque',
     mdPath: '/reports/poblacion/fecundidad.md',
     dataPath: '/data/poblacion/fecundidad.json',
     order: 8,
@@ -116,12 +116,12 @@ export const REPORTS: ReportEntry[] = [
   {
     id: 'seguridad-snic',
     slug: 'seguridad/snic',
-    title: 'Seguridad Ciudadana — SNIC Provincial',
-    shortTitle: 'Delitos SNIC',
+    title: 'Seguridad: hechos delictivos en la provincia',
+    shortTitle: 'Delitos (SNIC)',
+    description: 'Hechos registrados entre 2000 y 2024 y comparación con las otras jurisdicciones.',
     category: 'Seguridad',
-    subcategory: 'SNIC',
-    icon: '🛡️',
-    color: '#6366f1',
+    subcategory: 'SNIC provincial',
+    image: 'payunia',
     mdPath: '/reports/seguridad/snic.md',
     dataPath: '/data/seguridad/snic.json',
     order: 9,
@@ -132,14 +132,10 @@ export function getReportBySlug(slug: string): ReportEntry | undefined {
   return REPORTS.find(r => r.slug === slug);
 }
 
-export function getReportsByCategory(category: string): ReportEntry[] {
-  return REPORTS.filter(r => r.category === category);
-}
-
 export function getPoblacionReports(): ReportEntry[] {
   return REPORTS.filter(r => r.category === 'Población');
 }
 
-export function getSectorialReports(): ReportEntry[] {
-  return REPORTS.filter(r => r.category !== 'Población');
+export function getSeguridadReports(): ReportEntry[] {
+  return REPORTS.filter(r => r.category === 'Seguridad');
 }

@@ -54,7 +54,7 @@ function num(v) {
 }
 
 function signo(v) {
-  return `${v >= 0 ? '+' : ''}${fmtDec(v)}%`;
+  return `${v >= 0 ? '+' : ''}${fmtDec(v)} %`;
 }
 
 function processSNIC() {

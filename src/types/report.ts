@@ -2,6 +2,8 @@
 // ReportData — Schema for data.json files
 // ═══════════════════════════════════════════════════════════════
 
+export type ValueFormat = 'int' | 'pct' | 'dec1';
+
 export interface ReportMeta {
   id: string;
   title: string;
@@ -9,6 +11,8 @@ export interface ReportMeta {
   subcategory?: string;
   source: string;
   date: string;
+  /** Qué cubre el informe y qué comparan sus rankings */
+  scope: string;
 }
 
 export interface KPI {
@@ -21,21 +25,29 @@ export interface KPI {
   comparison?: string;
 }
 
-export type ChartType = 'bar' | 'line' | 'pie' | 'pyramid' | 'scatter' | 'radar' | 'treemap' | 'heatmap' | 'map';
+export type ChartType = 'bar' | 'line' | 'pie' | 'pyramid' | 'map';
+
+export interface ChartAnnotation {
+  x: string;
+  label: string;
+}
 
 export interface ChartConfig {
   id: string;
   type: ChartType;
   title: string;
+  /** Debe coincidir con un ancla {#id} de un título del .md */
   sectionId: string;
   data: any[];
   config?: {
     xAxis?: string;
-    yAxis?: string;
-    colorScheme?: string;
-    stacked?: boolean;
-    grouped?: boolean;
     layout?: 'horizontal' | 'vertical';
+    format?: ValueFormat;
+    unit?: string;
+    /** Total esperado: lo usa la validación y el cálculo de porcentajes */
+    total?: number;
+    max?: number;
+    annotations?: ChartAnnotation[];
   };
 }
 
@@ -49,17 +61,18 @@ export interface RankingConfig {
     municipioId?: string;
   }>;
   order: 'asc' | 'desc';
+  format?: ValueFormat;
+  unit?: string;
 }
 
 export interface MapDataItem {
   municipioId: string;
   municipioNombre: string;
   value: number;
-  /** Número ya formateado para mostrar en el hero ("331.183", "80,8%") */
+  /** Número ya formateado para mostrar en el hero ("331.183", "80,8 %") */
   formatted?: string;
   /** Caption que explica qué representa el número (overline) */
   caption?: string;
-  /** Legacy: texto humano combinado para tooltips */
   label: string;
 }
 
@@ -80,10 +93,11 @@ export interface ReportEntry {
   slug: string;
   title: string;
   shortTitle: string;
+  description: string;
   category: string;
   subcategory?: string;
-  icon: string;
-  color: string;
+  /** Clave de src/data/generated/image-credits.json */
+  image: string;
   mdPath: string;      // path to .md in public/reports/
   dataPath: string;    // path to data.json in public/data/
   order: number;

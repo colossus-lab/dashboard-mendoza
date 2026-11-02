@@ -1,29 +1,28 @@
 import { useStore } from '../../store/useStore';
 
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useStore();
+  const theme = useStore(s => s.theme);
+  const toggleTheme = useStore(s => s.toggleTheme);
+  const isDark = theme === 'dark';
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
-      className="relative w-14 h-7 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--accent-cyan)] focus:ring-offset-2"
-      style={{
-        background: theme === 'dark'
-          ? 'linear-gradient(135deg, #1e293b, #334155)'
-          : 'linear-gradient(135deg, #bae6fd, #7dd3fc)',
-      }}
-      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-      title={`${theme === 'dark' ? '☀️ Modo claro' : '🌙 Modo oscuro'}`}
+      className="icon-button"
+      aria-label={isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+      title={isDark ? 'Tema claro' : 'Tema oscuro'}
     >
-      <span
-        className="absolute top-0.5 w-6 h-6 rounded-full shadow-md transition-all duration-300 flex items-center justify-center text-xs"
-        style={{
-          left: theme === 'dark' ? '2px' : '30px',
-          background: theme === 'dark' ? '#0a0f1c' : '#fbbf24',
-        }}
-      >
-        {theme === 'dark' ? '🌙' : '☀️'}
-      </span>
+      {isDark ? (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
+          <circle cx="8" cy="8" r="3" />
+          <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M13 3l-1.4 1.4M4.4 11.6L3 13" />
+        </svg>
+      ) : (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true">
+          <path d="M13.5 9.8A6 6 0 0 1 6.2 2.5a6 6 0 1 0 7.3 7.3z" />
+        </svg>
+      )}
     </button>
   );
 }

@@ -14,7 +14,7 @@
       "label": "Hechos delictivos 2024",
       "value": 185458,
       "formatted": "185.458",
-      "comparison": "-2,8% vs 2023",
+      "comparison": "-2,8 % vs 2023",
       "status": "good"
     },
     {
@@ -28,22 +28,22 @@
       "id": "var-5y",
       "label": "Variación 2019-2024, todas las categorías",
       "value": 35.097649278466164,
-      "formatted": "+35,1%",
+      "formatted": "+35,1 %",
       "status": "warning",
-      "comparison": "+16,7% en categorías comparables"
+      "comparison": "+16,7 % en categorías comparables"
     },
     {
       "id": "robos-hurtos",
       "label": "Robos y hurtos (% del total)",
       "value": 28.13035835606984,
-      "formatted": "28,1%",
+      "formatted": "28,1 %",
       "comparison": "52.170 hechos"
     },
     {
       "id": "propiedad",
       "label": "Robos, hurtos y otros contra la propiedad (% del total)",
       "value": 42.6468526566662,
-      "formatted": "42,6%",
+      "formatted": "42,6 %",
       "comparison": "79.092 hechos"
     },
     {

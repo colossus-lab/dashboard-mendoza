@@ -19,7 +19,7 @@
       "id": "pct-piso-bueno",
       "label": "Hogares con pisos terminados",
       "value": 87.04890031034186,
-      "formatted": "87,0%",
+      "formatted": "87,0 %",
       "status": "good",
       "comparison": "Cerámica, mosaico, baldosa, alfombra o madera"
     },
@@ -27,7 +27,7 @@
       "id": "pct-piso-tierra",
       "label": "Hogares con piso de tierra o ladrillo suelto",
       "value": 1.8718643818308944,
-      "formatted": "1,9%",
+      "formatted": "1,9 %",
       "status": "critical",
       "comparison": "12.208 hogares"
     },
@@ -35,7 +35,7 @@
       "id": "pct-agua-can",
       "label": "Hogares con agua por cañería dentro de la vivienda",
       "value": 95.15888154263214,
-      "formatted": "95,2%",
+      "formatted": "95,2 %",
       "status": "good",
       "comparison": "620.611 hogares"
     },
@@ -43,7 +43,7 @@
       "id": "pct-cloaca",
       "label": "Hogares con desagüe a red cloacal",
       "value": 66.8802055861536,
-      "formatted": "66,9%",
+      "formatted": "66,9 %",
       "status": "warning",
       "comparison": "436.182 hogares"
     },
@@ -51,7 +51,7 @@
       "id": "pct-gas",
       "label": "Hogares que cocinan con gas de red",
       "value": 63.7642137801602,
-      "formatted": "63,8%",
+      "formatted": "63,8 %",
       "comparison": "415.860 hogares"
     }
   ],

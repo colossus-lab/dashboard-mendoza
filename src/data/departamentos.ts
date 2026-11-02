@@ -1,0 +1,21 @@
+// Códigos INDEC de los 18 departamentos, para tablas alternativas a los mapas.
+export const DEPARTAMENTOS: Record<string, string> = {
+  '50007': 'Capital',
+  '50014': 'General Alvear',
+  '50021': 'Godoy Cruz',
+  '50028': 'Guaymallén',
+  '50035': 'Junín',
+  '50042': 'La Paz',
+  '50049': 'Las Heras',
+  '50056': 'Lavalle',
+  '50063': 'Luján de Cuyo',
+  '50070': 'Maipú',
+  '50077': 'Malargüe',
+  '50084': 'Rivadavia',
+  '50091': 'San Carlos',
+  '50098': 'San Martín',
+  '50105': 'San Rafael',
+  '50112': 'Santa Rosa',
+  '50119': 'Tunuyán',
+  '50126': 'Tupungato',
+};

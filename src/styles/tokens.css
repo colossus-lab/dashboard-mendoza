@@ -1,0 +1,61 @@
+/* Tokens del sistema editorial de OpenArg (openarg_frontend/src/app/globals.css, --ed-*). */
+
+:root {
+  --font-display: 'Familjen Grotesk Variable', 'Inter Variable', system-ui, sans-serif;
+  --font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --radius: 2px;
+  --container: 1140px;
+  --gutter: 2.5rem;
+  --topbar-h: 4.25rem;
+
+  --flag-celeste: #74acdf;
+  --flag-white: #ffffff;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #06090f;
+  --paper-2: #0d1117;
+  --paper-3: #1a2030;
+  --ink: #e8ecf4;
+  --ink-2: #8892a8;
+  --cobalt: #74acdf;
+  --vermilion: #f6b40e;
+  --chrome: #ffd04a;
+  --celeste: #93c5f8;
+  --rule: rgba(232, 236, 244, 0.16);
+  --rule-strong: rgba(232, 236, 244, 0.42);
+  --good: #34d399;
+  --warning: #f59e0b;
+  --critical: #f87171;
+  --glow-a: rgba(116, 172, 223, 0.12);
+  --glow-b: rgba(246, 180, 14, 0.07);
+  --grid-major: rgba(116, 172, 223, 0.06);
+  --grid-minor: rgba(232, 236, 244, 0.035);
+  --photo-filter: saturate(0.72) contrast(1.02) brightness(0.86);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --paper: #f2ede2;
+  --paper-2: #e6decc;
+  --paper-3: #d8cfb8;
+  --ink: #11142e;
+  --ink-2: #4a5170;
+  --cobalt: #1f4e89;
+  --vermilion: #c03a18;
+  --chrome: #9a6f00;
+  --celeste: #4a8abf;
+  --rule: rgba(17, 20, 46, 0.18);
+  --rule-strong: rgba(17, 20, 46, 0.42);
+  --good: #1f7a55;
+  --warning: #a35f00;
+  --critical: #b3261e;
+  --glow-a: rgba(31, 78, 137, 0.06);
+  --glow-b: rgba(192, 58, 24, 0.04);
+  --grid-major: rgba(31, 78, 137, 0.07);
+  --grid-minor: rgba(17, 20, 46, 0.04);
+  --photo-filter: saturate(0.82) contrast(1.02);
+}

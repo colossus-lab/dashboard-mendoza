@@ -20,7 +20,7 @@
       "id": "agua-canieria",
       "label": "Agua por cañería dentro de la vivienda",
       "value": 94.5853130802901,
-      "formatted": "94,6%",
+      "formatted": "94,6 %",
       "status": "good",
       "comparison": "1.920.813 personas"
     },
@@ -28,7 +28,7 @@
       "id": "agua-red",
       "label": "Agua de red pública",
       "value": 91.92292787032326,
-      "formatted": "91,9%",
+      "formatted": "91,9 %",
       "status": "good",
       "comparison": "1.866.746 personas"
     },
@@ -36,7 +36,7 @@
       "id": "cloaca",
       "label": "Desagüe a red cloacal",
       "value": 64.43093344258565,
-      "formatted": "64,4%",
+      "formatted": "64,4 %",
       "status": "warning",
       "comparison": "722.327 personas sin red"
     },
@@ -44,7 +44,7 @@
       "id": "gas-red",
       "label": "Cocina con gas de red",
       "value": 60.654538936651214,
-      "formatted": "60,7%",
+      "formatted": "60,7 %",
       "status": "good",
       "comparison": "1.231.756 personas"
     },
@@ -52,7 +52,7 @@
       "id": "garrafa",
       "label": "Cocina con garrafa",
       "value": 33.584206605071074,
-      "formatted": "33,6%",
+      "formatted": "33,6 %",
       "status": "warning",
       "comparison": "682.019 personas"
     }
@@ -451,9 +451,9 @@
       "municipioId": "50",
       "municipioNombre": "Mendoza",
       "value": 64.43093344258565,
-      "formatted": "64,4%",
+      "formatted": "64,4 %",
       "caption": "Población con desagüe a red cloacal",
-      "label": "64,4% · Población con desagüe a red cloacal"
+      "label": "64,4 % · Población con desagüe a red cloacal"
     }
   ]
 }

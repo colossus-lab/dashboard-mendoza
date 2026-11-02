@@ -174,7 +174,7 @@ function fmtInt(n) {
 }
 function fmtPct(n, digits = 1) {
   if (n == null || Number.isNaN(n)) return '—';
-  return `${n.toFixed(digits).replace('.', ',')}%`;
+  return `${n.toFixed(digits).replace('.', ',')} %`;
 }
 function fmtDec(n, digits = 1) {
   if (n == null || Number.isNaN(n)) return '—';

@@ -16,7 +16,7 @@
       "formatted": "2.043.540",
       "unit": "hab",
       "status": "good",
-      "comparison": "Variación 2010-2022: 17,5%"
+      "comparison": "Variación 2010-2022: 17,5 %"
     },
     {
       "id": "var-abs",
@@ -25,7 +25,7 @@
       "formatted": "+304.611",
       "unit": "hab",
       "status": "good",
-      "comparison": "17,5% respecto a 2010"
+      "comparison": "17,5 % respecto a 2010"
     },
     {
       "id": "densidad",

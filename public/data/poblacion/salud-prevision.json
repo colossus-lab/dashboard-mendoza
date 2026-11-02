@@ -20,7 +20,7 @@
       "id": "obra-social",
       "label": "Con obra social o prepaga",
       "value": 59.2872270805255,
-      "formatted": "59,3%",
+      "formatted": "59,3 %",
       "status": "good",
       "comparison": "1.203.989 personas (incluye PAMI)"
     },
@@ -28,7 +28,7 @@
       "id": "sin-cobertura",
       "label": "Sin obra social, prepaga ni plan estatal",
       "value": 37.93471746965318,
-      "formatted": "37,9%",
+      "formatted": "37,9 %",
       "status": "critical",
       "comparison": "770.368 personas"
     },
@@ -36,14 +36,14 @@
       "id": "plan-estatal",
       "label": "Con plan estatal de salud",
       "value": 2.778055449821324,
-      "formatted": "2,8%",
+      "formatted": "2,8 %",
       "comparison": "56.416 personas"
     },
     {
       "id": "percibe-jubilacion",
       "label": "Percibe jubilación o pensión",
       "value": 19.463130541916797,
-      "formatted": "19,5%",
+      "formatted": "19,5 %",
       "comparison": "395.252 personas"
     }
   ],
@@ -492,9 +492,9 @@
       "municipioId": "50",
       "municipioNombre": "Mendoza",
       "value": 37.93471746965318,
-      "formatted": "37,9%",
+      "formatted": "37,9 %",
       "caption": "Población sin obra social, prepaga ni plan estatal",
-      "label": "37,9% · Población sin obra social, prepaga ni plan estatal"
+      "label": "37,9 % · Población sin obra social, prepaga ni plan estatal"
     }
   ]
 }

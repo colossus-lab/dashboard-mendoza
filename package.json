@@ -21,9 +21,13 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "build-data": "node scripts/build-data.cjs"
+    "build-data": "node scripts/build-data.cjs",
+    "build-images": "node scripts/process-images.cjs"
   },
   "dependencies": {
+    "@fontsource-variable/familjen-grotesk": "^5.3.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
     "@nivo/bar": "^0.88.0",
     "@nivo/core": "^0.88.0",
     "@nivo/line": "^0.88.0",
@@ -44,6 +48,7 @@
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.0",
     "papaparse": "^5.5.3",
+    "sharp": "^0.35.5",
     "typescript": "~5.7.0",
     "vite": "^6.1.0",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"

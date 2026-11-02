@@ -1,195 +1,134 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { useStore } from '../../store/useStore';
-import { REPORTS, getPoblacionReports, getSectorialReports } from '../../data/reportRegistry';
-import { useScrollProgress } from '../../hooks/useIntersectionObserver';
+import { REPORTS, getPoblacionReports, getSeguridadReports } from '../../data/reportRegistry';
+import { SiteFooter } from './SiteFooter';
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { theme, sidebarOpen } = useStore();
-  const progress = useScrollProgress();
-
-  // Apply theme when it changes
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
+  const sidebarOpen = useStore(s => s.sidebarOpen);
+  const { pathname } = useLocation();
+  const isReport = REPORTS.some(r => pathname === `/${r.slug}`);
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--bg-primary)' }}>
-      {/* Progress bar */}
-      <div className="progress-bar">
-        <div className="progress-bar-fill" style={{ height: `${progress * 100}%` }} />
+    <div className="page">
+      <a href="#main-content" className="skip-link">Saltar al contenido</a>
+      <div className="flagstripe" aria-hidden="true" />
+      <TopBar />
+      {sidebarOpen && <MobileMenu />}
+
+      <div className={isReport ? 'shell shell-report' : 'shell'}>
+        {isReport && (
+          <aside className="psidebar" aria-label="Navegación de informes">
+            <ReportNav />
+          </aside>
+        )}
+        <main id="main-content" className="main">{children}</main>
       </div>
 
-      {/* TopBar */}
-      <TopBar />
-
-      {/* Sidebar — rendered at root level to avoid iOS fixed positioning bugs */}
-      {sidebarOpen && <Sidebar />}
-
-      {/* Main content */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-        {children}
-      </main>
+      <SiteFooter />
     </div>
   );
 }
 
 function TopBar() {
-  const location = useLocation();
-  const { toggleSidebar } = useStore();
-  const isHome = location.pathname === '/';
+  const sidebarOpen = useStore(s => s.sidebarOpen);
+  const toggleSidebar = useStore(s => s.toggleSidebar);
 
   return (
-    <header
-      className="topbar"
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        background: 'var(--bg-secondary)',
-        borderBottom: '1px solid var(--border-glass)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-      }}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          {(
-            <button
-              onClick={toggleSidebar}
-              aria-label="Menú de navegación"
-              className="p-2 rounded-lg hover:opacity-80 transition-opacity lg:hidden"
-              style={{ color: 'var(--text-secondary)' }}
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" strokeWidth="1.5" fill="none" />
-              </svg>
-            </button>
-          )}
-          <Link to="/" className="flex items-center gap-2 no-underline">
-            <span className="text-xl">📊</span>
-            <h1 className="text-lg font-bold" style={{
-              fontFamily: 'var(--font-heading)',
-              background: 'linear-gradient(135deg, var(--accent-cyan), var(--accent-purple, #8b5cf6))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
-              Dashboard Mendoza
-            </h1>
-          </Link>
-
-          {/* Breadcrumb */}
-          {!isHome && <Breadcrumb />}
-        </div>
-
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-        </div>
+    <header className="topbar">
+      <div className="topbar-start">
+        <button
+          type="button"
+          onClick={toggleSidebar}
+          aria-label="Menú de informes"
+          aria-expanded={sidebarOpen}
+          aria-controls="mobile-menu"
+          className="icon-button topbar-menu"
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <path d="M2 4.5h14M2 9h14M2 13.5h14" stroke="currentColor" strokeWidth="1.5" fill="none" />
+          </svg>
+        </button>
+        <Link to="/" className="topbar-mark">
+          <span className="topbar-mark-name">Mendoza, en datos</span>
+          <span className="topbar-mark-sub">OpenArg</span>
+        </Link>
+        <Breadcrumb />
+      </div>
+      <div className="topbar-end">
+        <a className="topbar-link" href="https://www.openarg.org" target="_blank" rel="noopener noreferrer">openarg.org →</a>
+        <ThemeToggle />
       </div>
     </header>
   );
 }
 
 function Breadcrumb() {
-  const location = useLocation();
-  const parts = location.pathname.split('/').filter(Boolean);
-  const report = REPORTS.find(r => r.slug === parts.join('/'));
+  const { pathname } = useLocation();
+  const report = REPORTS.find(r => pathname === `/${r.slug}`);
+  if (!report) return null;
 
   return (
-    <nav className="hidden sm:flex items-center gap-1.5 text-sm" style={{ color: 'var(--text-tertiary)' }}>
-      <span className="mx-1 opacity-50">›</span>
-      {report?.category && (
-        <>
-          <span>{report.category}</span>
-          {report.subcategory && (
-            <>
-              <span className="mx-1 opacity-50">›</span>
-              <span style={{ color: 'var(--text-accent)' }}>{report.subcategory}</span>
-            </>
-          )}
-        </>
-      )}
+    <nav className="breadcrumb" aria-label="Ubicación">
+      <span aria-hidden="true">/</span>
+      <span>{report.category}</span>
+      <span aria-hidden="true">/</span>
+      <span className="breadcrumb-current">{report.shortTitle}</span>
     </nav>
   );
 }
 
-function Sidebar() {
-  const { setSidebarOpen } = useStore();
-  const poblacion = getPoblacionReports();
-  const sectoriales = getSectorialReports();
+function ReportNav({ onNavigate }: { onNavigate?: () => void }) {
+  const { pathname } = useLocation();
+  const groups: Array<[string, typeof REPORTS]> = [
+    ['Población', getPoblacionReports()],
+    ['Seguridad', getSeguridadReports()],
+  ];
+
+  return (
+    <nav>
+      {groups.map(([name, reports]) => (
+        <div key={name} className="report-nav-group">
+          <h2 className="report-nav-heading">{name}</h2>
+          {reports.map(r => {
+            const active = pathname === `/${r.slug}`;
+            return (
+              <Link
+                key={r.id}
+                to={`/${r.slug}`}
+                onClick={onNavigate}
+                className={`report-nav-link${active ? ' is-active' : ''}`}
+                aria-current={active ? 'page' : undefined}
+              >
+                <span className="report-nav-num">{String(r.order).padStart(2, '0')}</span>
+                <span>{r.shortTitle}</span>
+              </Link>
+            );
+          })}
+        </div>
+      ))}
+    </nav>
+  );
+}
+
+function MobileMenu() {
+  const setSidebarOpen = useStore(s => s.setSidebarOpen);
+  const [close] = useState(() => () => setSidebarOpen(false));
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') close(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [close]);
 
   return (
     <>
-      {/* Backdrop */}
-      <div
-        onClick={() => setSidebarOpen(false)}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 998,
-          background: 'rgba(0,0,0,0.5)',
-        }}
-      />
-      {/* Panel */}
-      <aside
-        className="slide-in-left"
-        style={{
-          position: 'fixed',
-          top: '4rem',
-          left: 0,
-          bottom: 0,
-          width: '18rem',
-          zIndex: 999,
-          overflowY: 'auto',
-          background: 'var(--bg-secondary)',
-          borderRight: '1px solid var(--border-glass)',
-          WebkitOverflowScrolling: 'touch',
-        }}
-      >
-        <nav className="p-4">
-          <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--text-tertiary)' }}>
-            Población
-          </h3>
-          {poblacion.map(r => (
-            <Link
-              key={r.id}
-              to={`/${r.slug}`}
-              onClick={() => setSidebarOpen(false)}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm no-underline mb-1 transition-colors hover:opacity-90"
-              style={{ color: 'var(--text-secondary)' }}
-            >
-              <span>{r.icon}</span>
-              <span>{r.shortTitle}</span>
-            </Link>
-          ))}
-
-          <hr className="my-4" style={{ borderColor: 'var(--border-glass)' }} />
-
-          <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--text-tertiary)' }}>
-            Sectorial
-          </h3>
-          {sectoriales.map(r => (
-            <Link
-              key={r.id}
-              to={`/${r.slug}`}
-              onClick={() => setSidebarOpen(false)}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm no-underline mb-1 transition-colors hover:opacity-90"
-              style={{ color: 'var(--text-secondary)' }}
-            >
-              <span>{r.icon}</span>
-              <span>{r.shortTitle}</span>
-            </Link>
-          ))}
-        </nav>
+      <div className="menu-backdrop" onClick={close} aria-hidden="true" />
+      <aside id="mobile-menu" className="mobile-menu" aria-label="Menú de informes">
+        <ReportNav onNavigate={close} />
+        <Link to="/creditos" className="text-link" onClick={close}>Créditos y fuentes →</Link>
       </aside>
     </>
   );
 }
-

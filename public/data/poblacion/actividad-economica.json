@@ -19,14 +19,14 @@
       "id": "tasa-actividad",
       "label": "Tasa de actividad",
       "value": 63.082565653701735,
-      "formatted": "63,1%",
+      "formatted": "63,1 %",
       "comparison": "1.005.661 personas activas"
     },
     {
       "id": "tasa-empleo",
       "label": "Tasa de empleo",
       "value": 57.06580989312494,
-      "formatted": "57,1%",
+      "formatted": "57,1 %",
       "status": "good",
       "comparison": "909.742 personas ocupadas"
     },
@@ -34,7 +34,7 @@
       "id": "tasa-desocupacion",
       "label": "Tasa de desocupación",
       "value": 9.537905914617351,
-      "formatted": "9,5%",
+      "formatted": "9,5 %",
       "status": "warning",
       "comparison": "95.919 personas desocupadas"
     },
@@ -42,7 +42,7 @@
       "id": "cuenta-propia",
       "label": "Ocupados por cuenta propia",
       "value": 30.436651270360166,
-      "formatted": "30,4%",
+      "formatted": "30,4 %",
       "comparison": "276.895 personas"
     },
     {
@@ -50,7 +50,7 @@
       "label": "Tasa de actividad: varones y mujeres",
       "value": 18.702625307953184,
       "formatted": "18,7 puntos",
-      "comparison": "Varones 72,9% · Mujeres 54,2%"
+      "comparison": "Varones 72,9 % · Mujeres 54,2 %"
     }
   ],
   "charts": [
@@ -657,9 +657,9 @@
       "municipioId": "50",
       "municipioNombre": "Mendoza",
       "value": 9.537905914617351,
-      "formatted": "9,5%",
+      "formatted": "9,5 %",
       "caption": "Tasa de desocupación censal en Mendoza",
-      "label": "9,5% · Tasa de desocupación censal en Mendoza"
+      "label": "9,5 % · Tasa de desocupación censal en Mendoza"
     }
   ]
 }
