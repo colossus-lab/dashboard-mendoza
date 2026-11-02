@@ -9,10 +9,28 @@ const fs = require('fs');
 const path = require('path');
 const XLSX = require('xlsx');
 
-const INDEC_BASE =
-  'C:/Users/dante/Desktop/Laboratorio Colossus/Pipeline OpenArg/datos_indec';
-const SEG_BASE =
-  'C:/Users/dante/Desktop/Laboratorio Colossus/Pipeline OpenArg/datos_abiertos/datasets/seguridad';
+const ROOT = path.resolve(__dirname, '..', '..');
+
+// Cuadros del Censo: viven en <repo>/Poblacion/ (no se commitean).
+const CENSO_DIR = process.env.MENDOZA_CENSO_DIR || path.join(ROOT, 'Poblacion');
+
+// Bases del Ministerio de Seguridad: viven en <repo>/Seguridad/ (no se commitean).
+// Se bajan con npm run download-seguridad.
+const SEG_BASE = process.env.MENDOZA_SEGURIDAD_DIR || path.join(ROOT, 'Seguridad');
+
+// Busca un cuadro por nombre dentro de CENSO_DIR y sus subcarpetas.
+let censoIndex = null;
+function findCuadro(fileName) {
+  if (!censoIndex) {
+    const walk = dir =>
+      fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry =>
+        entry.isDirectory() ? walk(path.join(dir, entry.name)) : [path.join(dir, entry.name)]);
+    censoIndex = new Map(walk(CENSO_DIR).map(file => [path.basename(file), file]));
+  }
+  const found = censoIndex.get(fileName);
+  if (!found) throw new Error(`No se encontró ${fileName} en ${CENSO_DIR}`);
+  return found;
+}
 
 // ── Identidad provincial ────────────────────────────────────────────
 const MENDOZA = {
@@ -154,7 +172,7 @@ function fmtInt(n) {
 }
 function fmtPct(n, digits = 1) {
   if (n == null || Number.isNaN(n)) return '—';
-  return `${n.toFixed(digits).replace('.', ',')}%`;
+  return `${n.toFixed(digits).replace('.', ',')} %`;
 }
 function fmtDec(n, digits = 1) {
   if (n == null || Number.isNaN(n)) return '—';
@@ -200,8 +218,9 @@ function buildMapData(deptoRows, extractor) {
 }
 
 module.exports = {
-  INDEC_BASE,
+  ROOT,
   SEG_BASE,
+  findCuadro,
   MENDOZA,
   MENDOZA_DEPTOS,
   DEPTO_CODIGOS,

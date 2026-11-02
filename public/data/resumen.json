@@ -1,11 +1,15 @@
 {
   "meta": {
     "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
-    "date": "2026-05-07"
+    "date": "2022-05-18"
   },
   "poblacion": 2043540,
+  "variacion2010": 17.5,
+  "superficieKm2": 149069.2,
+  "densidad": 13.7,
   "hogares": 652184,
   "viviendas": 702009,
   "viviendasParticulares": 701357,
+  "viviendasColectivas": 652,
   "departamentos": 18
 }

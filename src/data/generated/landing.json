@@ -1,0 +1,25 @@
+{
+  "poblacion": 2043540,
+  "poblacionFmt": "2.043.540",
+  "variacion2010Fmt": "17,5 %",
+  "superficieFmt": "149.069",
+  "densidadFmt": "13,7",
+  "departamentos": 18,
+  "viviendasFmt": "702.009",
+  "viviendasParticularesFmt": "701.357",
+  "viviendasColectivasFmt": "652",
+  "hogaresFmt": "652.184",
+  "miniStats": {
+    "poblacion-estructura": "2.043.540 habitantes",
+    "poblacion-habitacional-personas": "64,4 % con cloaca",
+    "poblacion-salud-prevision": "37,9 % sin cobertura",
+    "poblacion-hogares": "652.184 hogares",
+    "poblacion-viviendas": "702.009 viviendas",
+    "poblacion-educacion": "33,9 % asiste",
+    "poblacion-actividad-economica": "9,5 % desocupación",
+    "poblacion-fecundidad": "1,5 hijos por mujer",
+    "seguridad-snic": "2° de 24 en tasa de hechos",
+    "seguridad-departamentos": "145.678 hechos",
+    "seguridad-viales": "121 víctimas en 2024"
+  }
+}

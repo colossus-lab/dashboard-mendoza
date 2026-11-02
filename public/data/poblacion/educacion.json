@@ -5,7 +5,8 @@
     "category": "Población",
     "subcategory": "Educación",
     "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
-    "date": "2026-05-07"
+    "date": "2022-05-18",
+    "scope": "Provincia de Mendoza · Censo 2022. Este informe usa solo el total provincial, sin apertura por departamento."
   },
   "kpis": [
     {
@@ -18,7 +19,7 @@
       "id": "pct-asiste",
       "label": "% que asiste actualmente",
       "value": 33.92048249607416,
-      "formatted": "33,9%",
+      "formatted": "33,9 %",
       "status": "good",
       "comparison": "688.848 personas"
     },
@@ -26,9 +27,9 @@
       "id": "pct-nunca",
       "label": "% que nunca asistió",
       "value": 5.595701735250567,
-      "formatted": "5,6%",
+      "formatted": "5,6 %",
       "status": "warning",
-      "comparison": "113.636 personas (incluye <4 años)"
+      "comparison": "113.636 personas (incluye menores de 5 años)"
     },
     {
       "id": "universitario",
@@ -43,8 +44,15 @@
       "formatted": "195.077"
     },
     {
+      "id": "pct-superior",
+      "label": "Superior completo (sobre quienes ya no asisten)",
+      "value": 19.17101457343576,
+      "formatted": "19,2 %",
+      "comparison": "234.168 personas"
+    },
+    {
       "id": "pob-5mas",
-      "label": "Población 5 años y más",
+      "label": "Población de 5 años y más",
       "value": 1899849,
       "formatted": "1.899.849"
     }
@@ -53,11 +61,11 @@
     {
       "id": "nivel-educativo",
       "type": "bar",
-      "title": "Población que asiste por nivel educativo",
+      "title": "Población que asiste, por nivel educativo",
       "sectionId": "niveles",
       "data": [
         {
-          "nivel": "Inicial (jardín)",
+          "nivel": "Inicial",
           "cantidad": 87307
         },
         {
@@ -83,7 +91,103 @@
       ],
       "config": {
         "xAxis": "nivel",
-        "layout": "horizontal"
+        "layout": "horizontal",
+        "format": "int",
+        "total": 688848
+      }
+    },
+    {
+      "id": "maximo-nivel",
+      "type": "bar",
+      "title": "Máximo nivel alcanzado (5 años y más que ya no asisten)",
+      "sectionId": "maximo-nivel",
+      "data": [
+        {
+          "nivel": "Sin instrucción",
+          "cantidad": 12192
+        },
+        {
+          "nivel": "Primario/EGB incompleto",
+          "cantidad": 105226
+        },
+        {
+          "nivel": "Primario/EGB completo",
+          "cantidad": 245038
+        },
+        {
+          "nivel": "Secundario/polimodal incompleto",
+          "cantidad": 236331
+        },
+        {
+          "nivel": "Secundario/polimodal completo",
+          "cantidad": 269845
+        },
+        {
+          "nivel": "Superior incompleto",
+          "cantidad": 109763
+        },
+        {
+          "nivel": "Superior completo",
+          "cantidad": 234168
+        },
+        {
+          "nivel": "Ignorado",
+          "cantidad": 8906
+        }
+      ],
+      "config": {
+        "xAxis": "nivel",
+        "layout": "horizontal",
+        "format": "int",
+        "total": 1221469
+      }
+    },
+    {
+      "id": "brecha-sexo",
+      "type": "bar",
+      "title": "Máximo nivel alcanzado por sexo (%)",
+      "sectionId": "sexo",
+      "data": [
+        {
+          "nivel": "Sin instrucción",
+          "Mujeres": 1.0476006334180767,
+          "Varones": 0.9461805264094496
+        },
+        {
+          "nivel": "Primario/EGB incompleto",
+          "Mujeres": 8.243862763677852,
+          "Varones": 9.004327986864947
+        },
+        {
+          "nivel": "Primario/EGB completo",
+          "Mujeres": 19.62221820965116,
+          "Varones": 20.521843071023977
+        },
+        {
+          "nivel": "Secundario/polimodal incompleto",
+          "Mujeres": 15.986296182074142,
+          "Varones": 22.880075479553703
+        },
+        {
+          "nivel": "Secundario/polimodal completo",
+          "Mujeres": 22.052984047899447,
+          "Varones": 22.132666731580876
+        },
+        {
+          "nivel": "Superior incompleto",
+          "Mujeres": 8.859543855892593,
+          "Varones": 9.119158980488804
+        },
+        {
+          "nivel": "Superior completo",
+          "Mujeres": 23.505818849460937,
+          "Varones": 14.61677674101582
+        }
+      ],
+      "config": {
+        "xAxis": "nivel",
+        "layout": "horizontal",
+        "format": "pct"
       }
     }
   ],
@@ -93,9 +197,9 @@
       "municipioId": "50",
       "municipioNombre": "Mendoza",
       "value": 33.92048249607416,
-      "formatted": "33,9%",
+      "formatted": "33,9 %",
       "caption": "Población que asiste a un establecimiento educativo",
-      "label": "33,9% · Población que asiste a un establecimiento educativo"
+      "label": "33,9 % · Población que asiste a un establecimiento educativo"
     }
   ]
 }

@@ -1,0 +1,66 @@
+{
+  "aconcagua": {
+    "title": "Aconcagua (Mendoza) 2022-11 (2).jpg",
+    "alt": "El cerro Aconcagua nevado bajo un cielo azul intenso, con laderas de la cordillera en primer plano",
+    "place": "Cerro Aconcagua, Las Heras"
+  },
+  "valle-de-uco": {
+    "title": "El Valle de Uco y los Andes (4775311449).jpg",
+    "alt": "Llanura del Valle de Uco con la cordillera de los Andes nevada en el horizonte",
+    "place": "Valle de Uco"
+  },
+  "potrerillos": {
+    "title": "Embalse Potrerillos (Mendoza) 2022-11 (01).jpg",
+    "alt": "Aguas turquesas del embalse Potrerillos rodeadas de montañas",
+    "place": "Embalse Potrerillos, Luján de Cuyo"
+  },
+  "puente-del-inca": {
+    "title": "Puente del Inca 01.jpg",
+    "alt": "Puente natural de Puente del Inca, con sus rocas ocres y las ruinas de las antiguas termas",
+    "place": "Puente del Inca, Las Heras",
+    "widths": [
+      640,
+      960
+    ]
+  },
+  "pueblo-uco": {
+    "title": "Distrito de Uco 09951.jpg",
+    "alt": "Vista desde la altura de un valle con caminos y un grupo de casas entre árboles",
+    "place": "Distrito de Uco"
+  },
+  "ciudad": {
+    "title": "Vista a las torres más altas de la Ciudad de Mendoza..JPG",
+    "alt": "Edificios altos de la Ciudad de Mendoza entre la arboleda, con la llanura al fondo",
+    "place": "Ciudad de Mendoza"
+  },
+  "uncuyo": {
+    "title": "Facultad de Derecho de la Universidad Nacional de Cuyo.jpg",
+    "alt": "Fachada de ladrillo de la Facultad de Derecho de la Universidad Nacional de Cuyo",
+    "place": "Universidad Nacional de Cuyo"
+  },
+  "vinedos": {
+    "title": "Otoño en Mendoza.JPG",
+    "alt": "Viñedos con hojas rojas de otoño y montañas azuladas al fondo",
+    "place": "Viñedos en otoño"
+  },
+  "parque": {
+    "title": "General San Martín Park, Mendoza 01.jpg",
+    "alt": "Lago del Parque General San Martín con árboles y cielo reflejados en el agua",
+    "place": "Parque General San Martín, Ciudad de Mendoza"
+  },
+  "payunia": {
+    "title": "Payunia, Malargüe.JPG",
+    "alt": "Paisaje árido de La Payunia con cerros oscuros y cielo nublado",
+    "place": "La Payunia, Malargüe"
+  },
+  "atuel": {
+    "title": "Cañon del atuel Mendoza Arg.JPG",
+    "alt": "Paredes rocosas del Cañón del Atuel bajo un cielo despejado",
+    "place": "Cañón del Atuel, San Rafael"
+  },
+  "camino-uco": {
+    "title": "Distrito de Uco 09954.jpg",
+    "alt": "Valle cordillerano atravesado por caminos de tierra",
+    "place": "Distrito de Uco"
+  }
+}

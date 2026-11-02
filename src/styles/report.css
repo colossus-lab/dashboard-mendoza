@@ -1,0 +1,484 @@
+/* ── Encabezado del informe ── */
+.report-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 24rem;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+
+.report-hero-photo {
+  position: absolute;
+  inset: 0;
+}
+
+.report-hero-photo.photo {
+  filter: saturate(0.9);
+}
+
+.report-hero-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, transparent 28%, color-mix(in srgb, var(--paper) 70%, transparent) 60%, var(--paper) 100%);
+}
+
+.report-hero-content {
+  position: relative;
+  width: 100%;
+  padding: 3.5rem 1.5rem 1.5rem;
+}
+
+.report-hero .eyebrow {
+  color: var(--ink);
+}
+
+.report-hero .eyebrow::before {
+  background: var(--ink);
+}
+
+.report-title {
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.report-dek {
+  max-width: 44rem;
+  margin: 0.75rem 0 0;
+  font-size: 1.05rem;
+}
+
+.report-featured {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.9rem;
+  margin: 1.25rem 0 0;
+}
+
+.report-featured-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--vermilion);
+}
+
+.report-featured-caption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.report-intro {
+  margin: 1.75rem 0;
+  max-width: 62ch;
+  font-size: 0.92rem;
+  color: var(--ink-2);
+}
+
+.report-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.report-intro code,
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+.report-scope {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-2);
+}
+
+/* ── Índice ── */
+.toc {
+  margin-top: 2.5rem;
+  padding-block: 1rem;
+  border-block: 1px solid var(--rule);
+}
+
+.toc ol {
+  columns: 2;
+  column-gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc li {
+  break-inside: avoid;
+}
+
+.toc a {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.25rem 0;
+  color: var(--ink);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  color: var(--vermilion);
+}
+
+.toc-num {
+  flex: none;
+  min-width: 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding-top: 0.15rem;
+  color: var(--ink-2);
+}
+
+/* ── Secciones ── */
+.report-section {
+  padding-block: 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.report-section-title {
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  letter-spacing: -0.025em;
+  margin-bottom: 1.25rem;
+}
+
+.prose {
+  max-width: 44rem;
+}
+
+.prose h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.prose ul {
+  padding-left: 1.2rem;
+}
+
+.prose li {
+  margin-bottom: 0.4rem;
+}
+
+/* ── Figuras ── */
+.figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem 2rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+
+.figure {
+  min-width: 0;
+  margin: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.figure-line,
+.figures > .figure:only-child {
+  grid-column: 1 / -1;
+}
+
+.figure-title {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.figure-empty {
+  display: flex;
+  align-items: center;
+  color: var(--ink-2);
+  font-size: 0.9rem;
+}
+
+.figure-data {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.figure-data summary,
+.citation summary {
+  width: fit-content;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  cursor: pointer;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+  color: var(--ink-2);
+}
+
+.chart-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+/* ── Torta ── */
+.pie {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.pie-chart {
+  height: 240px;
+}
+
+.pie-legend {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.86rem;
+}
+
+.pie-legend li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.28rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pie-swatch {
+  flex: none;
+  width: 10px;
+  height: 10px;
+}
+
+.pie-name {
+  flex: 1;
+}
+
+.pie-share {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── Mapa ── */
+.map path {
+  cursor: pointer;
+  outline: none;
+}
+
+.map path:focus-visible {
+  stroke: var(--vermilion);
+  stroke-width: 2;
+}
+
+.map-readout {
+  min-height: 1.6rem;
+  margin: 0 0 0.25rem;
+  font-size: 0.88rem;
+  color: var(--ink-2);
+}
+
+.map-readout strong {
+  color: var(--ink);
+}
+
+.map-label {
+  font-size: 10px;
+  font-weight: 600;
+  fill: var(--ink);
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.map-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-2);
+}
+
+.map-legend-bar {
+  flex: 1;
+  height: 8px;
+  border: 1px solid var(--rule);
+}
+
+/* ── Rankings ── */
+.ranking-table {
+  font-size: 0.88rem;
+}
+
+.ranking-table thead th {
+  padding: 0 0 0.35rem;
+  border-bottom: 1px solid var(--rule-strong);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.ranking-table td {
+  padding: 0.32rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+.ranking-pos {
+  width: 1.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-2);
+  padding-top: 0.42rem !important;
+}
+
+.ranking-bar {
+  display: block;
+  height: 3px;
+  margin-top: 0.15rem;
+  background: var(--cobalt);
+}
+
+.ranking-table thead .ranking-num,
+.ranking-num {
+  padding-left: 0.75rem !important;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.ranking-table tr.is-highlight .ranking-name,
+.ranking-table tr.is-highlight .ranking-num {
+  font-weight: 700;
+  color: var(--vermilion);
+}
+
+.ranking-table tr.is-highlight .ranking-bar {
+  background: var(--vermilion);
+}
+
+/* ── Pie del informe ── */
+.report-foot {
+  padding-top: 2rem;
+}
+
+.report-source {
+  margin-bottom: 1rem;
+  font-size: 0.92rem;
+}
+
+.citation {
+  margin-bottom: 2rem;
+}
+
+.citation blockquote {
+  margin: 0.75rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule-strong);
+  font-size: 0.88rem;
+  color: var(--ink-2);
+}
+
+.report-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-block: 1px solid var(--rule);
+}
+
+.report-pager a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.report-pager a:hover {
+  color: var(--vermilion);
+}
+
+.report-pager .is-next {
+  text-align: right;
+}
+
+.report-pager-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+@media (max-width: 780px) {
+  .figures {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toc ol {
+    columns: 1;
+  }
+
+  .report-hero {
+    min-height: 21rem;
+  }
+
+  .report-hero-content {
+    padding: 3rem 1rem 1.25rem;
+  }
+
+  .report-section {
+    padding-block: 2.25rem;
+  }
+}
+
+@media print {
+  .topbar,
+  .psidebar,
+  .flagstripe,
+  .toc,
+  .report-pager,
+  .colophon,
+  .figure-data summary {
+    display: none;
+  }
+
+  .figure-data > .table-scroll {
+    display: block;
+  }
+}

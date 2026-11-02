@@ -1,0 +1,254 @@
+/* ── Tipografía editorial ── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  flex: none;
+  background: var(--rule-strong);
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  letter-spacing: -0.025em;
+}
+
+.section-lede {
+  max-width: 62ch;
+  margin: 0.75rem 0 0;
+  color: var(--ink-2);
+}
+
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.text-link {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.text-button {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--cobalt);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.text-button:hover {
+  color: var(--vermilion);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: 0;
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--vermilion);
+  color: #06090f;
+}
+
+.state-page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 5rem var(--gutter);
+  color: var(--ink-2);
+}
+
+.state-page .section-title {
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+/* ── Fotos ── */
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: var(--photo-filter);
+}
+
+.photo-caption {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-2);
+}
+
+.photo-caption a {
+  color: inherit;
+}
+
+/* ── KPIs ── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.1rem 1.2rem;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.kpi-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.kpi-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--cobalt);
+}
+
+.kpi-unit {
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  color: var(--ink-2);
+}
+
+.kpi-comparison {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+.kpi-tag {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid currentColor;
+  border-radius: 1px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kpi[data-status='good'] .kpi-tag { color: var(--good); }
+.kpi[data-status='warning'] .kpi-tag { color: var(--warning); }
+.kpi[data-status='critical'] .kpi-tag { color: var(--critical); }
+.kpi[data-status='critical'] .kpi-value { color: var(--critical); }
+
+/* ── Tablas ── */
+.table-scroll {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.table-scroll table {
+  font-size: 0.9rem;
+}
+
+.table-scroll th {
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-bottom: 1px solid var(--rule-strong);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.table-scroll td {
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ── Intro ── */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gutter);
+  background: var(--paper);
+  overflow-y: auto;
+  transition: opacity 0.3s ease;
+}
+
+.intro.is-leaving {
+  opacity: 0;
+}
+
+.intro-content {
+  width: 100%;
+  max-width: 46rem;
+}
+
+.intro-title {
+  min-height: 2.1em;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.intro-cursor {
+  color: var(--vermilion);
+  margin-left: 0.1em;
+  animation: blink 1s steps(2) infinite;
+}
+
+.intro-cursor.is-done {
+  opacity: 0;
+  animation: none;
+}
+
+.intro-text {
+  max-width: 38rem;
+  margin-bottom: 2rem;
+  color: var(--ink-2);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

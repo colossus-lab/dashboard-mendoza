@@ -5,7 +5,8 @@
     "category": "Población",
     "subcategory": "Viviendas",
     "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
-    "date": "2026-05-07"
+    "date": "2022-05-18",
+    "scope": "Provincia de Mendoza · Censo 2022. Los rankings y mapas comparan los 18 departamentos."
   },
   "kpis": [
     {
@@ -22,17 +23,25 @@
       "comparison": "652 colectivas"
     },
     {
+      "id": "viviendas-ocupadas",
+      "label": "Particulares con personas presentes",
+      "value": 639467,
+      "formatted": "639.467",
+      "comparison": "91,2 % de las particulares"
+    },
+    {
       "id": "pct-casas",
-      "label": "% de casas (sobre vivienda particular)",
-      "value": 84.21538051189104,
-      "formatted": "84,2%",
-      "comparison": "524.122 casas vs 98.237 departamentos"
+      "label": "% de casas (sobre viviendas ocupadas)",
+      "value": 81.96232174607916,
+      "formatted": "82,0 %",
+      "comparison": "524.122 casas"
     },
     {
       "id": "departamentos-viv",
-      "label": "Departamentos (vivienda)",
-      "value": 98237,
-      "formatted": "98.237"
+      "label": "% de departamentos (sobre viviendas ocupadas)",
+      "value": 15.362325186444338,
+      "formatted": "15,4 %",
+      "comparison": "98.237 departamentos"
     }
   ],
   "charts": [
@@ -57,91 +66,15 @@
         {
           "id": "Casilla",
           "value": 2356
-        }
-      ]
-    },
-    {
-      "id": "rank-viviendas",
-      "type": "bar",
-      "title": "Total de viviendas por departamento",
-      "sectionId": "departamentos",
-      "data": [
-        {
-          "id": "Guaymallén",
-          "Viviendas": 107382
         },
         {
-          "id": "San Rafael",
-          "Viviendas": 81403
-        },
-        {
-          "id": "Las Heras",
-          "Viviendas": 72614
-        },
-        {
-          "id": "Godoy Cruz",
-          "Viviendas": 71740
-        },
-        {
-          "id": "Maipú",
-          "Viviendas": 67524
-        },
-        {
-          "id": "Luján de Cuyo",
-          "Viviendas": 58537
-        },
-        {
-          "id": "Capital",
-          "Viviendas": 58152
-        },
-        {
-          "id": "San Martín",
-          "Viviendas": 44496
-        },
-        {
-          "id": "Rivadavia",
-          "Viviendas": 20923
-        },
-        {
-          "id": "Tunuyán",
-          "Viviendas": 19807
-        },
-        {
-          "id": "General Alvear",
-          "Viviendas": 19706
-        },
-        {
-          "id": "Lavalle",
-          "Viviendas": 14879
-        },
-        {
-          "id": "Junín",
-          "Viviendas": 14841
-        },
-        {
-          "id": "San Carlos",
-          "Viviendas": 13523
-        },
-        {
-          "id": "Tupungato",
-          "Viviendas": 13249
-        },
-        {
-          "id": "Malargüe",
-          "Viviendas": 12388
-        },
-        {
-          "id": "Santa Rosa",
-          "Viviendas": 6484
-        },
-        {
-          "id": "La Paz",
-          "Viviendas": 4361
+          "id": "Pieza, local o vivienda móvil",
+          "value": 6895
         }
       ],
       "config": {
-        "xAxis": "id",
-        "layout": "horizontal"
+        "total": 639467,
+        "format": "int"
       }
     },
     {
@@ -222,10 +155,113 @@
           "id": "50126",
           "value": 13249
         }
-      ]
+      ],
+      "config": {
+        "format": "int",
+        "unit": "viviendas"
+      }
     }
   ],
   "rankings": [
+    {
+      "id": "rank-pct-dptos",
+      "title": "Departamentos por % de viviendas tipo departamento",
+      "sectionId": "tipos",
+      "items": [
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 47.288521372340206
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 24.923118668596235
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 18.14341356236892
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 12.528940835169738
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 11.771508878771465
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 11.188086406284095
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 11.09688043179947
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 10.564352415753147
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 8.836435528980616
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 8.782560793263555
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 8.687555663509027
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 8.225374134465044
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 8.077020226552936
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 7.606423655365792
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 6.569028645272453
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 4.584505999111243
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 4.422476586888657
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 2.6779661016949152
+        }
+      ],
+      "order": "desc",
+      "format": "pct"
+    },
     {
       "id": "rank-viv",
       "title": "Departamentos por viviendas totales",
@@ -233,96 +269,98 @@
       "items": [
         {
           "name": "Guaymallén",
-          "municipioId": "50028",
-          "value": 107382
+          "value": 107382,
+          "municipioId": "50028"
         },
         {
           "name": "San Rafael",
-          "municipioId": "50105",
-          "value": 81403
+          "value": 81403,
+          "municipioId": "50105"
         },
         {
           "name": "Las Heras",
-          "municipioId": "50049",
-          "value": 72614
+          "value": 72614,
+          "municipioId": "50049"
         },
         {
           "name": "Godoy Cruz",
-          "municipioId": "50021",
-          "value": 71740
+          "value": 71740,
+          "municipioId": "50021"
         },
         {
           "name": "Maipú",
-          "municipioId": "50070",
-          "value": 67524
+          "value": 67524,
+          "municipioId": "50070"
         },
         {
           "name": "Luján de Cuyo",
-          "municipioId": "50063",
-          "value": 58537
+          "value": 58537,
+          "municipioId": "50063"
         },
         {
           "name": "Capital",
-          "municipioId": "50007",
-          "value": 58152
+          "value": 58152,
+          "municipioId": "50007"
         },
         {
           "name": "San Martín",
-          "municipioId": "50098",
-          "value": 44496
+          "value": 44496,
+          "municipioId": "50098"
         },
         {
           "name": "Rivadavia",
-          "municipioId": "50084",
-          "value": 20923
+          "value": 20923,
+          "municipioId": "50084"
         },
         {
           "name": "Tunuyán",
-          "municipioId": "50119",
-          "value": 19807
+          "value": 19807,
+          "municipioId": "50119"
         },
         {
           "name": "General Alvear",
-          "municipioId": "50014",
-          "value": 19706
+          "value": 19706,
+          "municipioId": "50014"
         },
         {
           "name": "Lavalle",
-          "municipioId": "50056",
-          "value": 14879
+          "value": 14879,
+          "municipioId": "50056"
         },
         {
           "name": "Junín",
-          "municipioId": "50035",
-          "value": 14841
+          "value": 14841,
+          "municipioId": "50035"
         },
         {
           "name": "San Carlos",
-          "municipioId": "50091",
-          "value": 13523
+          "value": 13523,
+          "municipioId": "50091"
         },
         {
           "name": "Tupungato",
-          "municipioId": "50126",
-          "value": 13249
+          "value": 13249,
+          "municipioId": "50126"
         },
         {
           "name": "Malargüe",
-          "municipioId": "50077",
-          "value": 12388
+          "value": 12388,
+          "municipioId": "50077"
         },
         {
           "name": "Santa Rosa",
-          "municipioId": "50112",
-          "value": 6484
+          "value": 6484,
+          "municipioId": "50112"
         },
         {
           "name": "La Paz",
-          "municipioId": "50042",
-          "value": 4361
+          "value": 4361,
+          "municipioId": "50042"
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "int",
+      "unit": "viviendas"
     }
   ],
   "mapData": [

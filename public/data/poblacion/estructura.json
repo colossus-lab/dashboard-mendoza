@@ -5,7 +5,8 @@
     "category": "Población",
     "subcategory": "Estructura",
     "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
-    "date": "2026-05-07"
+    "date": "2022-05-18",
+    "scope": "Provincia de Mendoza · Censo 2022. Los rankings y mapas comparan los 18 departamentos."
   },
   "kpis": [
     {
@@ -15,7 +16,7 @@
       "formatted": "2.043.540",
       "unit": "hab",
       "status": "good",
-      "comparison": "Variación 2010-2022: 17,5%"
+      "comparison": "Variación 2010-2022: 17,5 %"
     },
     {
       "id": "var-abs",
@@ -24,7 +25,7 @@
       "formatted": "+304.611",
       "unit": "hab",
       "status": "good",
-      "comparison": "17,5% respecto a 2010"
+      "comparison": "17,5 % respecto a 2010"
     },
     {
       "id": "densidad",
@@ -54,7 +55,7 @@
       "label": "Varones",
       "value": 989471,
       "formatted": "989.471",
-      "comparison": "Población total: 2.043.409"
+      "comparison": "Con sexo registrado: 2.043.409 personas"
     }
   ],
   "charts": [
@@ -143,175 +144,16 @@
           "grupo": "75-79",
           "mujeres": 28778,
           "varones": 20396
-        }
-      ]
-    },
-    {
-      "id": "rank-poblacion",
-      "type": "bar",
-      "title": "Población 2022 por departamento",
-      "sectionId": "departamentos",
-      "data": [
-        {
-          "id": "Guaymallén",
-          "Población": 321966
         },
         {
-          "id": "Las Heras",
-          "Población": 234401
-        },
-        {
-          "id": "Maipú",
-          "Población": 219402
-        },
-        {
-          "id": "San Rafael",
-          "Población": 215020
-        },
-        {
-          "id": "Godoy Cruz",
-          "Población": 195159
-        },
-        {
-          "id": "Luján de Cuyo",
-          "Población": 175056
-        },
-        {
-          "id": "San Martín",
-          "Población": 139792
-        },
-        {
-          "id": "Capital",
-          "Población": 127160
-        },
-        {
-          "id": "Rivadavia",
-          "Población": 63724
-        },
-        {
-          "id": "Tunuyán",
-          "Población": 60171
-        },
-        {
-          "id": "General Alvear",
-          "Población": 52584
-        },
-        {
-          "id": "Lavalle",
-          "Población": 47167
-        },
-        {
-          "id": "Junín",
-          "Población": 46604
-        },
-        {
-          "id": "Tupungato",
-          "Población": 41280
-        },
-        {
-          "id": "San Carlos",
-          "Población": 39869
-        },
-        {
-          "id": "Malargüe",
-          "Población": 32717
-        },
-        {
-          "id": "Santa Rosa",
-          "Población": 19382
-        },
-        {
-          "id": "La Paz",
-          "Población": 12086
+          "grupo": "80 y más",
+          "mujeres": 35896,
+          "varones": 19791
         }
       ],
       "config": {
-        "xAxis": "id",
-        "layout": "horizontal"
-      }
-    },
-    {
-      "id": "rank-densidad",
-      "type": "bar",
-      "title": "Densidad poblacional por departamento (hab/km²)",
-      "sectionId": "departamentos",
-      "data": [
-        {
-          "id": "Godoy Cruz",
-          "Densidad": 2461
-        },
-        {
-          "id": "Capital",
-          "Densidad": 2412.9
-        },
-        {
-          "id": "Guaymallén",
-          "Densidad": 1985
-        },
-        {
-          "id": "Maipú",
-          "Densidad": 352.1
-        },
-        {
-          "id": "Junín",
-          "Densidad": 171.1
-        },
-        {
-          "id": "San Martín",
-          "Densidad": 92.8
-        },
-        {
-          "id": "Luján de Cuyo",
-          "Densidad": 36.3
-        },
-        {
-          "id": "Rivadavia",
-          "Densidad": 30.2
-        },
-        {
-          "id": "Las Heras",
-          "Densidad": 26.3
-        },
-        {
-          "id": "Tunuyán",
-          "Densidad": 17.8
-        },
-        {
-          "id": "Tupungato",
-          "Densidad": 16.8
-        },
-        {
-          "id": "San Rafael",
-          "Densidad": 6.9
-        },
-        {
-          "id": "Lavalle",
-          "Densidad": 4.7
-        },
-        {
-          "id": "General Alvear",
-          "Densidad": 3.6
-        },
-        {
-          "id": "San Carlos",
-          "Densidad": 3.4
-        },
-        {
-          "id": "Santa Rosa",
-          "Densidad": 2.2
-        },
-        {
-          "id": "La Paz",
-          "Densidad": 1.6
-        },
-        {
-          "id": "Malargüe",
-          "Densidad": 0.8
-        }
-      ],
-      "config": {
-        "xAxis": "id",
-        "layout": "horizontal"
+        "total": 2043409,
+        "format": "int"
       }
     },
     {
@@ -392,7 +234,11 @@
           "id": "50126",
           "value": 41280
         }
-      ]
+      ],
+      "config": {
+        "format": "int",
+        "unit": "hab"
+      }
     }
   ],
   "rankings": [
@@ -492,11 +338,13 @@
           "municipioId": "50042"
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "int",
+      "unit": "hab"
     },
     {
       "id": "rank-var",
-      "title": "Departamentos por variación 2010-2022 (%)",
+      "title": "Departamentos por variación 2010-2022",
       "sectionId": "departamentos",
       "items": [
         {
@@ -590,11 +438,12 @@
           "municipioId": "50021"
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "pct"
     },
     {
       "id": "rank-densidad",
-      "title": "Departamentos por densidad (hab/km²)",
+      "title": "Departamentos por densidad",
       "sectionId": "departamentos",
       "items": [
         {
@@ -688,12 +537,14 @@
           "municipioId": "50077"
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "dec1",
+      "unit": "hab/km²"
     },
     {
       "id": "rank-edad",
-      "title": "Departamentos por edad mediana (años)",
-      "sectionId": "departamentos",
+      "title": "Departamentos por edad mediana",
+      "sectionId": "estructura",
       "items": [
         {
           "name": "Capital",
@@ -786,7 +637,9 @@
           "municipioId": "50126"
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "int",
+      "unit": "años"
     }
   ],
   "mapData": [

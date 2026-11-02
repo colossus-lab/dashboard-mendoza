@@ -1,239 +1,121 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { getPoblacionReports, getSectorialReports } from '../data/reportRegistry';
-import { SectionReveal } from '../components/ui/SectionReveal';
+import { REPORTS, getPoblacionReports, getSeguridadReports } from '../data/reportRegistry';
+import { Photo, PhotoCaption } from '../components/ui/Photo';
+import { usePageMeta } from '../hooks/usePageMeta';
+import landing from '../data/generated/landing.json';
 import type { ReportEntry } from '../types/report';
 
-// ─── Macro KPIs for the hero ───
-const HERO_STATS = [
-  { value: 2043540, label: 'Habitantes', suffix: '' },
-  { value: 149069, label: 'km²', suffix: '' },
-  { value: 18, label: 'Departamentos', suffix: '' },
-  { value: 9, label: 'Informes', suffix: '' },
+const MINI_STATS = landing.miniStats as Record<string, string>;
+
+const SCALE = [
+  { num: landing.poblacionFmt, label: 'Habitantes', detail: `Censo 2022. Variación desde 2010: +${landing.variacion2010Fmt}.` },
+  { num: landing.superficieFmt, label: 'Kilómetros cuadrados', detail: `Densidad provincial: ${landing.densidadFmt} habitantes por km².` },
+  { num: String(landing.departamentos), label: 'Departamentos', detail: 'De Capital a Malargüe. Los informes comparan los 18 cuando hay datos.' },
+  { num: landing.viviendasFmt, label: 'Viviendas', detail: `${landing.viviendasParticularesFmt} particulares y ${landing.viviendasColectivasFmt} colectivas, con ${landing.hogaresFmt} hogares.` },
 ];
 
-// ─── Resumen de la provincia (Censo Nacional 2022 INDEC) ───
-const RESUMEN = {
-  categoria: 'Provincia de Mendoza — 18 departamentos',
-  stats: [
-    { value: '2.043.540', label: 'Población total Censo 2022', hint: 'Variación 2010–2022: +17,5%' },
-    { value: '149.069', label: 'Superficie km²', hint: 'Densidad provincial: 13,7 hab/km²' },
-    { value: '18', label: 'Departamentos', hint: 'Capital, Godoy Cruz, Guaymallén, Las Heras, Maipú, Luján, San Rafael y otros' },
-    { value: '702.009', label: 'Total de viviendas', hint: '701.357 particulares · 652 colectivas' },
-  ],
-};
-
-// ─── Mini-stats per report (contextual data for cards) ───
-const MINI_STATS: Record<string, string> = {
-  'poblacion-estructura': '2,04M hab · +17,5%',
-  'poblacion-habitacional-personas': 'Cobertura agua/cloaca',
-  'poblacion-salud-prevision': 'Salud + jubilaciones',
-  'poblacion-hogares': '~720K hogares',
-  'poblacion-viviendas': 'Stock habitacional',
-  'poblacion-educacion': 'Nivel educativo alcanzado',
-  'poblacion-actividad-economica': 'Empleo y actividad',
-  'poblacion-fecundidad': 'Hijos por mujer',
-  'seguridad-snic': 'SNIC Mendoza vs país',
-};
+const PROVINCIA = ['potrerillos', 'vinedos', 'puente-del-inca', 'atuel'];
 
 export function Landing() {
-  const poblacion = getPoblacionReports();
-  const sectoriales = getSectorialReports();
+  usePageMeta(
+    null,
+    `${REPORTS.length} informes con datos abiertos sobre la provincia de Mendoza: población, hábitat, salud, educación, empleo y seguridad.`,
+    '/',
+  );
 
   return (
-    <div className="landing-page">
-      <SectionReveal>
-        <header className="landing-hero">
-          <div className="hero-particles" aria-hidden="true">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <span key={i} className="hero-particle" style={{ '--i': i } as React.CSSProperties} />
-            ))}
-          </div>
-
-          <div className="hero-content">
-            <div className="hero-badge">
-              <span className="hero-badge-dot" />
-              Datos abiertos · Mendoza
-            </div>
-            <h1 className="hero-title">
-              Mendoza en números
-            </h1>
-            <p className="hero-subtitle">
-              Hecho desde{' '}
-              <a href="https://colossuslab.org" target="_blank" rel="noopener noreferrer" className="hero-link">
-                Colossus Lab
-              </a>{' '}
-              con datos abiertos vía{' '}
-              <a href="https://www.openarg.org" target="_blank" rel="noopener noreferrer" className="hero-link hero-highlight">
-                OpenArg
-              </a>{' '}
-              🇦🇷
-            </p>
-
-            <div className="hero-stats">
-              {HERO_STATS.map((stat, i) => (
-                <div key={stat.label}>
-                  {i > 0 && <span className="hero-stat-divider" />}
-                  <div className="hero-stat">
-                    <CountUp target={stat.value} suffix={stat.suffix} />
-                    <span className="hero-stat-label">{stat.label}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </header>
-      </SectionReveal>
-
-      <SectionReveal>
-        <section className="resumen-card" aria-labelledby="resumen-titulo">
-          <div className="resumen-card-header">
-            <span className="resumen-card-eyebrow">Resumen de la provincia</span>
-            <h2 id="resumen-titulo" className="resumen-card-title">
-              {RESUMEN.categoria}
-            </h2>
-            <p className="resumen-card-source">
-              Censo Nacional 2022 (INDEC) — cuadros provinciales para Mendoza (sufijo _13).
-            </p>
-          </div>
-          <div className="resumen-card-grid">
-            {RESUMEN.stats.map(stat => (
-              <div key={stat.label} className="resumen-stat">
-                <span className="resumen-stat-value">{stat.value}</span>
-                <span className="resumen-stat-label">{stat.label}</span>
-                {stat.hint && <span className="resumen-stat-hint">{stat.hint}</span>}
-              </div>
-            ))}
-          </div>
-        </section>
-      </SectionReveal>
-
-      <SectionReveal>
-        <div className="categorias-intro">
-          <h2 className="categorias-intro-title">Explorá las categorías</h2>
+    <div className="landing">
+      <header className="hero">
+        <Photo imageKey="aconcagua" sizes="100vw" className="hero-photo" priority />
+        <div className="hero-veil" aria-hidden="true" />
+        <div className="hero-content">
+          <p className="eyebrow">Edición MMXXVI · Provincia de Mendoza</p>
+          <h1 className="display">Mendoza, <em>en datos.</em></h1>
+          <p className="hero-lede">
+            {REPORTS.length} informes sobre quién vive en la provincia, cómo vive y en qué condiciones, con datos abiertos del Censo 2022 y del Sistema Nacional de Información Criminal.
+          </p>
+          <p className="hero-attribution">
+            <a href="https://www.openarg.org" target="_blank" rel="noopener noreferrer">OpenArg</a>
+            {' '}por{' '}
+            <a href="https://colossuslab.org" target="_blank" rel="noopener noreferrer">Colossus Lab</a>
+          </p>
         </div>
-      </SectionReveal>
+      </header>
+      <div className="container"><PhotoCaption imageKey="aconcagua" /></div>
 
-      <SectionReveal>
-        <section className="landing-section">
-          <div className="section-header">
-            <div className="section-number">01</div>
-            <div>
-              <h2 className="section-title">Quiénes somos en Mendoza</h2>
-              <p className="section-desc">Cuántos somos, cómo vivimos, de dónde venimos. La foto del Censo 2022 de la provincia con sus 18 departamentos.</p>
+      <section className="section container" aria-labelledby="escala">
+        <SectionHeader id="escala" number="I" title="La escala" />
+        <div className="scale">
+          {SCALE.map(row => (
+            <div key={row.label} className="scale-row">
+              <span className="scale-num">{row.num}</span>
+              <span className="scale-label">{row.label}</span>
+              <span className="scale-detail">{row.detail}</span>
             </div>
-          </div>
-          <div className="report-grid">
-            {poblacion.map((report, i) => (
-              <ReportCard key={report.id} report={report} index={i} />
-            ))}
-          </div>
-        </section>
-      </SectionReveal>
+          ))}
+        </div>
+      </section>
 
-      <SectionReveal>
-        <section className="landing-section">
-          <div className="section-header">
-            <div className="section-number">02</div>
-            <div>
-              <h2 className="section-title">Seguridad en la provincia</h2>
-              <p className="section-desc">SNIC provincial — delitos y víctimas en Mendoza, comparado contra el resto del país.</p>
-            </div>
-          </div>
-          <div className="report-grid">
-            {sectoriales.map((report, i) => (
-              <ReportCard key={report.id} report={report} index={i} />
-            ))}
-          </div>
-        </section>
-      </SectionReveal>
+      <section id="poblacion" className="section container" aria-labelledby="poblacion-titulo">
+        <SectionHeader
+          id="poblacion-titulo"
+          number="II"
+          title="Quiénes somos"
+          lede="La foto del Censo 2022 de la provincia y sus 18 departamentos."
+        />
+        <div className="report-grid">
+          {getPoblacionReports().map(report => <ReportCard key={report.id} report={report} />)}
+        </div>
+      </section>
 
-      <footer className="landing-footer">
-        <div className="footer-rule" />
-        <p>
-          <a href="https://colossuslab.org" target="_blank" rel="noopener noreferrer" className="footer-link">
-            ColossusLab.org
-          </a>{' '}
-          •{' '}
-          <a href="https://www.openarg.org" target="_blank" rel="noopener noreferrer" className="footer-link">
-            OpenArg.org
-          </a>
-        </p>
-      </footer>
+      <section id="seguridad" className="section container" aria-labelledby="seguridad-titulo">
+        <SectionHeader
+          id="seguridad-titulo"
+          number="III"
+          title="Seguridad"
+          lede="Hechos delictivos registrados en la provincia y sus departamentos, y muertes viales."
+        />
+        <div className="report-grid">
+          {getSeguridadReports().map(report => <ReportCard key={report.id} report={report} />)}
+        </div>
+      </section>
+
+      <section className="section container" aria-labelledby="provincia">
+        <SectionHeader id="provincia" number="IV" title="La provincia" lede="Los números hablan de un territorio concreto." />
+        <div className="province-grid">
+          {PROVINCIA.map(key => (
+            <figure key={key} className="province-photo">
+              <Photo imageKey={key} sizes="(min-width: 900px) 25vw, 50vw" />
+              <figcaption><PhotoCaption imageKey={key} /></figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
 
-function ReportCard({ report, index }: { report: ReportEntry; index: number }) {
-  const miniStat = MINI_STATS[report.id] || '';
-
+function SectionHeader({ id, number, title, lede }: { id: string; number: string; title: string; lede?: string }) {
   return (
-    <Link
-      to={`/${report.slug}`}
-      className="report-card"
-      style={{
-        '--card-color': report.color,
-        animationDelay: `${index * 80}ms`,
-      } as React.CSSProperties}
-    >
-      <div className="report-card-glow" aria-hidden="true" />
-      <div className="report-card-header">
-        <span className="report-card-icon">{report.icon}</span>
-        <span className="report-card-arrow">→</span>
-      </div>
-      <div className="report-card-body">
-        <span className="report-card-title">{report.shortTitle}</span>
-        <span className="report-card-desc">{report.title}</span>
-      </div>
-      {miniStat && (
-        <div className="report-card-stat">
-          <span className="report-card-stat-value">{miniStat}</span>
-        </div>
-      )}
-    </Link>
+    <header className="section-header">
+      <p className="eyebrow">Sección {number}</p>
+      <h2 id={id} className="section-title">{title}</h2>
+      {lede && <p className="section-lede">{lede}</p>}
+    </header>
   );
 }
 
-function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
-  const [value, setValue] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const hasAnimated = useRef(false);
-
-  const animate = useCallback(() => {
-    if (hasAnimated.current) return;
-    hasAnimated.current = true;
-    const duration = 2000;
-    const startTime = performance.now();
-    const step = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [target]);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) animate(); },
-      { threshold: 0.4 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [animate]);
-
-  const formatted = value >= 1000000
-    ? `${(value / 1000000).toFixed(1).replace('.', ',')}M`
-    : value >= 1000
-    ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-    : `${value}`;
-
+function ReportCard({ report }: { report: ReportEntry }) {
   return (
-    <span ref={ref} className="hero-stat-value">
-      {formatted}{suffix}
-    </span>
+    <Link to={`/${report.slug}`} className="report-card">
+      <Photo imageKey={report.image} sizes="(min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw" className="report-card-photo" />
+      <span className="report-card-num">{String(report.order).padStart(2, '0')}</span>
+      <span className="report-card-title">{report.title}</span>
+      <span className="report-card-desc">{report.description}</span>
+      <span className="report-card-foot">
+        <span className="report-card-stat">{MINI_STATS[report.id]}</span>
+        <span aria-hidden="true">→</span>
+      </span>
+    </Link>
   );
 }

@@ -7,21 +7,21 @@
 
 ---
 
-## 1. Cobertura de salud — la foto provincial
+## 1. Cobertura de salud: la foto provincial {#cobertura}
 
 | Tipo de cobertura | Personas | % |
 |---|---:|---:|
 | **Obra social o prepaga** (incluye PAMI) | **1.203.989** | **59,3 %** |
-| Plan estatal de salud | 56.416 | 2,8 % |
-| **Sin obra social/prepaga ni plan estatal** | **770.368** | **37,9 %** |
+| Programas o planes estatales de salud | 56.416 | 2,8 % |
+| **Sin obra social, prepaga ni plan estatal** | **770.368** | **37,9 %** |
 
-El **38 % de la población mendocina depende exclusivamente del sistema público de salud**, sin obra social ni prepaga. Es un dato estructural que cruza con tasa de empleo formal, edad y nivel educativo. La brecha es enorme respecto del 60 % con obra social, pero sigue una lógica similar a otras provincias del Cuyo y NOA.
+Casi 4 de cada 10 personas no declaran obra social, prepaga ni plan estatal.
 
 ---
 
-## 2. Brecha departamental: ¿dónde la cobertura privada es alta y dónde es baja?
+## 2. Diferencias entre departamentos {#departamentos}
 
-### Top 5 — Más cobertura por obra social/prepaga
+### Más cobertura por obra social o prepaga
 
 | Departamento | % con obra social |
 |---|---:|
@@ -31,7 +31,7 @@ El **38 % de la población mendocina depende exclusivamente del sistema público
 | Malargüe | 60,8 % |
 | La Paz | 60,4 % |
 
-### Top 5 — Más sin cobertura
+### Más población sin cobertura
 
 | Departamento | % sin cobertura |
 |---|---:|
@@ -41,33 +41,29 @@ El **38 % de la población mendocina depende exclusivamente del sistema público
 | Tunuyán | 44,5 % |
 | San Martín | 42,5 % |
 
-**Lavalle y Tupungato** muestran la combinación crítica: **más de la mitad de la población depende exclusivamente del sistema público**. En el otro extremo, Capital tiene 70,8 % con obra social — diferencia de **+16 puntos** respecto al promedio provincial.
-
-Malargüe y La Paz son curiosos: pese a ser departamentos rurales y aislados, tienen alta cobertura por obra social (60 %+) — probablemente por presencia de empleo formal en YPF/sector hidrocarburos en Malargüe y empleo público en La Paz.
+En **Lavalle y Tupungato**, más de la mitad de la población no tiene cobertura. En el otro extremo, Capital tiene 70,8 % con obra social o prepaga, **11,5 puntos** por encima del promedio provincial.
 
 ---
 
-## 3. Plan estatal de salud: poco peso en Mendoza
+## 3. Planes estatales de salud {#plan-estatal}
 
-Solo el **2,8 % (56.416 personas)** declaró tener un plan estatal de salud (PAMI no se cuenta acá, va dentro de obra social). Es bajo respecto a otras provincias del NOA donde los planes provinciales tienen más penetración.
+El **2,8 % (56.416 personas)** declaró tener un programa o plan estatal de salud. El cuadro cuenta a PAMI dentro de "obra social o prepaga", no en esta categoría.
 
 ---
 
-## 4. Previsión social: jubilados y pensionados
+## 4. Previsión social: jubilaciones y pensiones {#prevision}
 
 | Indicador | Valor |
 |---|---:|
-| Total de población en viviendas particulares | 2.030.773 |
+| Población en viviendas particulares | 2.030.773 |
 | **Percibe jubilación o pensión** | **395.252** (19,5 %) |
 | · Solo jubilación | 227.500 |
 | · Solo pensión por fallecimiento | 30.752 |
-| · Jubilación + pensión | 52.896 |
-| · Solo otro tipo de pensión | 84.104 |
+| · Jubilación y pensión por fallecimiento | 52.896 |
+| · Solo pensión de otro tipo | 84.104 |
 | **No percibe** | 1.635.521 (80,5 %) |
 
-Aproximadamente **una de cada cinco personas mendocinas percibe algún tipo de jubilación o pensión**. La cifra incluye jubilaciones contributivas (mayoría) y pensiones no contributivas (PNC, programas sociales).
-
-### Departamentos con más alta tasa de percepción
+Aproximadamente **una de cada cinco personas** percibe alguna jubilación o pensión. El cuadro no distingue entre beneficios contributivos y no contributivos.
 
 | Departamento | % que percibe |
 |---|---:|
@@ -77,21 +73,19 @@ Aproximadamente **una de cada cinco personas mendocinas percibe algún tipo de j
 | San Martín | 21,6 % |
 | Godoy Cruz | 21,1 % |
 
-General Alvear lidera con 24,5 % — patrón consistente con su mayor edad mediana (33 años) y su trayectoria como zona agrícola consolidada (frutícola y vitivinícola con larga tradición).
+---
+
+## 5. Cruces con la edad {#cruces}
+
+- Los departamentos con mayor edad mediana (Capital y Godoy Cruz, 35 años; General Alvear, 34) están entre los que tienen mayor percepción de jubilación o pensión.
+- Lavalle y Tupungato, con la edad mediana más baja (28 años), combinan alta proporción sin cobertura con baja percepción (16,7 % y 16,8 %). El valor más bajo es el de Malargüe (16,3 %).
+
+Estos cruces describen coincidencias entre cuadros del censo; no alcanzan para afirmar una causa.
 
 ---
 
-## 5. Cruces relevantes
+## 6. Conclusiones {#conclusiones}
 
-- Los departamentos con **mayor edad mediana** (Capital, Godoy Cruz, San Rafael, General Alvear) tienen también las **mayores tasas de cobertura por PAMI**.
-- Los departamentos rurales con baja edad mediana (Lavalle, Tupungato) muestran la combinación crítica: **menos cobertura privada + menos jubilados** = mayor presión sobre el sistema público y menos transferencias previsionales.
-- El **62 % con cobertura formal** (obra social + plan estatal) es similar a la tasa de empleo formal, lo que sugiere que la cobertura sigue al empleo.
-
----
-
-## 6. Conclusiones
-
-- El **sistema público de salud** atiende como única cobertura a casi 4 de cada 10 mendocinos.
-- La **previsión social** alcanza al 19,5 % de la población, mayoritariamente vía jubilaciones contributivas.
-- Las brechas departamentales son significativas: **Capital (70,8 % con obra social) vs Lavalle (54,7 % sin cobertura)** marcan el extremo del espectro.
-- El patrón claro: **Gran Mendoza con mejor cobertura, interior rural con mayor dependencia del sector público**, con excepción de Malargüe (hidrocarburos) y La Paz (empleo público).
+- El **37,9 %** de la población no tiene obra social, prepaga ni plan estatal.
+- El **19,5 %** percibe jubilación o pensión.
+- Las diferencias departamentales son grandes: **70,8 % con obra social en Capital** y **54,7 % sin cobertura en Lavalle**.

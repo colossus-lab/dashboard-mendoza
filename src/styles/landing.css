@@ -1,0 +1,294 @@
+/* ── Hero ── */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(78vh, 46rem);
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-photo.photo {
+  filter: saturate(0.9);
+}
+
+.hero .eyebrow {
+  color: var(--ink);
+}
+
+.hero .eyebrow::before {
+  background: var(--ink);
+}
+
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, transparent 25%, color-mix(in srgb, var(--paper) 72%, transparent) 62%, var(--paper) 100%);
+}
+
+.hero-content {
+  position: relative;
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 6rem var(--gutter) 2.5rem;
+}
+
+.display {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.display em,
+.section-title em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--vermilion);
+}
+
+.hero-lede {
+  max-width: 44rem;
+  margin: 1.25rem 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.hero-attribution {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-attribution a {
+  color: inherit;
+}
+
+/* ── Secciones ── */
+.section {
+  padding-block: 4.5rem;
+}
+
+.section + .section {
+  border-top: 1px solid var(--rule);
+}
+
+/* ── La escala ── */
+.scale-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 0.55fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 1.75rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.scale-row:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.scale-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+
+.scale-row:nth-child(1) .scale-num { color: var(--cobalt); }
+.scale-row:nth-child(2) .scale-num { color: var(--vermilion); }
+.scale-row:nth-child(3) .scale-num { color: var(--chrome); }
+.scale-row:nth-child(4) .scale-num { color: var(--ink); }
+
+.scale-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.7vw, 1.4rem);
+  letter-spacing: -0.012em;
+}
+
+.scale-detail {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+/* ── Informes ── */
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.report-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0 0 1.1rem;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.report-card:hover {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+.report-card-photo {
+  height: 9.5rem;
+  margin-bottom: 0.65rem;
+  transition: filter 0.2s ease;
+}
+
+.report-card:hover .report-card-photo {
+  filter: none;
+}
+
+.report-card-num {
+  padding-inline: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-2);
+}
+
+.report-card-title {
+  padding-inline: 1.1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.report-card-desc {
+  flex: 1;
+  padding-inline: 1.1rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.report-card-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0.5rem 1.1rem 0;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--cobalt);
+}
+
+/* ── La provincia ── */
+.province-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.province-photo {
+  margin: 0;
+}
+
+.province-photo .photo {
+  height: 15rem;
+}
+
+/* ── Créditos ── */
+.credits {
+  padding-block: 3.5rem;
+}
+
+.credits section + section {
+  margin-top: 3rem;
+}
+
+.credits .report-section-title {
+  margin-bottom: 1rem;
+}
+
+.credits-sources {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.credits-sources li {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.credits-sources span {
+  color: var(--ink-2);
+  font-size: 0.9rem;
+}
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.credits-item {
+  margin: 0;
+}
+
+.credits-item .photo {
+  height: 10rem;
+}
+
+.credits-item figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+
+.credits-item strong {
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .report-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .province-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .scale-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .report-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding-block: 3rem;
+  }
+
+  .province-photo .photo {
+    height: 11rem;
+  }
+}

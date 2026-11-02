@@ -5,7 +5,8 @@
     "category": "Población",
     "subcategory": "Fecundidad",
     "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
-    "date": "2026-05-07"
+    "date": "2022-05-18",
+    "scope": "Provincia de Mendoza · Censo 2022. Los rankings y mapas comparan los 18 departamentos."
   },
   "kpis": [
     {
@@ -25,14 +26,14 @@
       "id": "pct-sin-hijos",
       "label": "% sin hijos",
       "value": 40.66387731814344,
-      "formatted": "40,7%",
+      "formatted": "40,7 %",
       "comparison": "219.160 mujeres"
     },
     {
       "id": "pct-5mas",
       "label": "% con 5 hijos o más",
       "value": 5.0970860275904295,
-      "formatted": "5,1%",
+      "formatted": "5,1 %",
       "comparison": "27.471 mujeres"
     }
   ],
@@ -40,7 +41,7 @@
     {
       "id": "distribucion-hijos",
       "type": "pie",
-      "title": "Distribución de mujeres por cantidad de hijos",
+      "title": "Mujeres de 14 a 49 años por cantidad de hijos",
       "sectionId": "distribucion",
       "data": [
         {
@@ -67,7 +68,11 @@
           "id": "5 y más",
           "value": 27471
         }
-      ]
+      ],
+      "config": {
+        "total": 538955,
+        "format": "int"
+      }
     },
     {
       "id": "fecundidad-edad",
@@ -109,91 +114,8 @@
         }
       ],
       "config": {
-        "xAxis": "edad"
-      }
-    },
-    {
-      "id": "rank-fecundidad",
-      "type": "bar",
-      "title": "Promedio de hijos por mujer · departamentos",
-      "sectionId": "departamentos",
-      "data": [
-        {
-          "id": "Lavalle",
-          "Hijos/mujer": 1.7
-        },
-        {
-          "id": "Tupungato",
-          "Hijos/mujer": 1.7
-        },
-        {
-          "id": "Las Heras",
-          "Hijos/mujer": 1.6
-        },
-        {
-          "id": "Malargüe",
-          "Hijos/mujer": 1.6
-        },
-        {
-          "id": "San Carlos",
-          "Hijos/mujer": 1.6
-        },
-        {
-          "id": "San Martín",
-          "Hijos/mujer": 1.6
-        },
-        {
-          "id": "Santa Rosa",
-          "Hijos/mujer": 1.6
-        },
-        {
-          "id": "Tunuyán",
-          "Hijos/mujer": 1.6
-        },
-        {
-          "id": "General Alvear",
-          "Hijos/mujer": 1.5
-        },
-        {
-          "id": "Junín",
-          "Hijos/mujer": 1.5
-        },
-        {
-          "id": "La Paz",
-          "Hijos/mujer": 1.5
-        },
-        {
-          "id": "Luján de Cuyo",
-          "Hijos/mujer": 1.5
-        },
-        {
-          "id": "Maipú",
-          "Hijos/mujer": 1.5
-        },
-        {
-          "id": "Rivadavia",
-          "Hijos/mujer": 1.5
-        },
-        {
-          "id": "San Rafael",
-          "Hijos/mujer": 1.5
-        },
-        {
-          "id": "Guaymallén",
-          "Hijos/mujer": 1.4
-        },
-        {
-          "id": "Godoy Cruz",
-          "Hijos/mujer": 1.3
-        },
-        {
-          "id": "Capital",
-          "Hijos/mujer": 1.1
-        }
-      ],
-      "config": {
-        "xAxis": "id",
-        "layout": "horizontal"
+        "xAxis": "edad",
+        "format": "dec1"
       }
     },
     {
@@ -274,7 +196,11 @@
           "id": "50126",
           "value": 1.7
         }
-      ]
+      ],
+      "config": {
+        "format": "dec1",
+        "unit": "hijos/mujer"
+      }
     }
   ],
   "rankings": [
@@ -285,96 +211,98 @@
       "items": [
         {
           "name": "Lavalle",
-          "municipioId": "50056",
-          "value": 1.7
+          "value": 1.7,
+          "municipioId": "50056"
         },
         {
           "name": "Tupungato",
-          "municipioId": "50126",
-          "value": 1.7
+          "value": 1.7,
+          "municipioId": "50126"
         },
         {
           "name": "Las Heras",
-          "municipioId": "50049",
-          "value": 1.6
+          "value": 1.6,
+          "municipioId": "50049"
         },
         {
           "name": "Malargüe",
-          "municipioId": "50077",
-          "value": 1.6
+          "value": 1.6,
+          "municipioId": "50077"
         },
         {
           "name": "San Carlos",
-          "municipioId": "50091",
-          "value": 1.6
+          "value": 1.6,
+          "municipioId": "50091"
         },
         {
           "name": "San Martín",
-          "municipioId": "50098",
-          "value": 1.6
+          "value": 1.6,
+          "municipioId": "50098"
         },
         {
           "name": "Santa Rosa",
-          "municipioId": "50112",
-          "value": 1.6
+          "value": 1.6,
+          "municipioId": "50112"
         },
         {
           "name": "Tunuyán",
-          "municipioId": "50119",
-          "value": 1.6
+          "value": 1.6,
+          "municipioId": "50119"
         },
         {
           "name": "General Alvear",
-          "municipioId": "50014",
-          "value": 1.5
+          "value": 1.5,
+          "municipioId": "50014"
         },
         {
           "name": "Junín",
-          "municipioId": "50035",
-          "value": 1.5
+          "value": 1.5,
+          "municipioId": "50035"
         },
         {
           "name": "La Paz",
-          "municipioId": "50042",
-          "value": 1.5
+          "value": 1.5,
+          "municipioId": "50042"
         },
         {
           "name": "Luján de Cuyo",
-          "municipioId": "50063",
-          "value": 1.5
+          "value": 1.5,
+          "municipioId": "50063"
         },
         {
           "name": "Maipú",
-          "municipioId": "50070",
-          "value": 1.5
+          "value": 1.5,
+          "municipioId": "50070"
         },
         {
           "name": "Rivadavia",
-          "municipioId": "50084",
-          "value": 1.5
+          "value": 1.5,
+          "municipioId": "50084"
         },
         {
           "name": "San Rafael",
-          "municipioId": "50105",
-          "value": 1.5
+          "value": 1.5,
+          "municipioId": "50105"
         },
         {
           "name": "Guaymallén",
-          "municipioId": "50028",
-          "value": 1.4
+          "value": 1.4,
+          "municipioId": "50028"
         },
         {
           "name": "Godoy Cruz",
-          "municipioId": "50021",
-          "value": 1.3
+          "value": 1.3,
+          "municipioId": "50021"
         },
         {
           "name": "Capital",
-          "municipioId": "50007",
-          "value": 1.1
+          "value": 1.1,
+          "municipioId": "50007"
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "dec1",
+      "unit": "hijos/mujer"
     }
   ],
   "mapData": [

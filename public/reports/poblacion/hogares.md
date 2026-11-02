@@ -2,41 +2,38 @@
 
 ## Cuántos hogares hay y en qué condiciones materiales viven
 
-**Fuente**: Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC). Cuadros `c2022_mendoza_hogares_*_13.xlsx`.
+**Fuente**: Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC). Cuadros `c2022_mendoza_hogares_*_13.xlsx` y `c2022_mendoza_vivienda_c2_13.xlsx`.
 
 ---
 
-## 1. La foto agregada
+## 1. Materiales: la foto agregada {#materiales}
 
 | Indicador | Valor |
 |---|---:|
 | **Total de hogares** | **652.184** |
-| Hogares con piso terminado (cerámica/mosaico/baldosa/madera) | **567.719 (87,1 %)** |
-| Hogares con piso de carpeta o contrapiso | 66.751 (10,2 %) |
-| **Hogares con piso de tierra o ladrillo suelto** | **12.208 (1,9 %)** |
-| Hogares con agua por cañería dentro de la vivienda | 620.611 (95,2 %) |
-| Hogares con red pública de agua | 603.892 (92,6 %) |
-| Tamaño medio del hogar | ~3,1 personas |
-
-Mendoza tiene **652.184 hogares particulares**. La proporción con pisos terminados (87 %) y agua interna (95 %) es **comparativamente alta** dentro del país, pero quedan **~12.000 hogares con pisos de tierra**, una cifra concentrada en zonas rurales y periferias.
+| Pisos terminados (cerámica, mosaico, baldosa, alfombra, madera) | **567.719 (87,0 %)** |
+| Carpeta, contrapiso o ladrillo fijo | 66.751 (10,2 %) |
+| **Tierra o ladrillo suelto** | **12.208 (1,9 %)** |
+| Otro material | 5.506 (0,8 %) |
+| Tamaño medio del hogar | 3,1 personas |
 
 ---
 
-## 2. Servicios en el hogar (resumen)
+## 2. Servicios en el hogar {#servicios}
 
-| Servicio | % hogares con cobertura |
-|---|---:|
-| **Agua por cañería dentro de la vivienda** | 95,2 % |
-| Red pública de agua corriente | 92,6 % |
-| **Cloaca pública** | **~67 %** |
-| **Gas de red** | **~63 %** |
-| Electricidad de red | >99 % |
+| Servicio | Hogares | % |
+|---|---:|---:|
+| **Agua por cañería dentro de la vivienda** | 620.611 | 95,2 % |
+| Baño o letrina dentro de la vivienda | 612.582 | 93,9 % |
+| Agua de red pública | 603.892 | 92,6 % |
+| **Desagüe a red cloacal** | 436.182 | **66,9 %** |
+| **Gas de red para cocinar** | 415.860 | **63,8 %** |
 
-El patrón **agua > electricidad >> gas > cloaca** es típico de Argentina y se replica en Mendoza, con la **cloaca como la brecha más estructural**.
+Agua y baño superan el 90 %. Cloaca y gas de red quedan cerca de dos tercios de los hogares.
 
 ---
 
-## 3. Hogares por departamento — los 6 que concentran 2/3 de los hogares
+## 3. Hogares por departamento {#departamentos}
 
 | Departamento | Hogares | % del total |
 |---|---:|---:|
@@ -46,31 +43,32 @@ El patrón **agua > electricidad >> gas > cloaca** es típico de Argentina y se 
 | Godoy Cruz | 67.442 | 10,3 % |
 | Maipú | 65.240 | 10,0 % |
 | Luján de Cuyo | 52.742 | 8,1 % |
-| **Subtotal Top 6** | **430.171** | **66,0 %** |
+| **Subtotal de los 6 primeros** | **430.171** | **66,0 %** |
 
-Los 6 departamentos del Gran Mendoza + San Rafael concentran el **66 % de los hogares de la provincia**. Guaymallén solo aloja al **15,7 % del total provincial** — la mayor concentración por unidad geográfica.
-
----
-
-## 4. Tamaño de los hogares
-
-El tamaño medio del hogar mendocino se ubica en torno a **3,1 personas**, ligeramente superior al promedio nacional (~2,8). Esto refleja:
-
-- Una **estructura etaria algo más joven** que la media nacional.
-- **Mayor proporción de hogares con hijos** menores en zonas rurales (Tupungato, San Carlos, Lavalle), donde el tamaño medio supera 3,5.
-- **Hogares unipersonales** más concentrados en Capital y Godoy Cruz, donde el tamaño medio cae a ~2,5.
+Estos seis departamentos (cinco del Gran Mendoza más San Rafael) reúnen dos tercios de los hogares. Guaymallén concentra casi 1 de cada 6.
 
 ---
 
-## 5. Hogares con déficit habitacional (estimación)
+## 4. Tamaño de los hogares {#tamano}
 
-Considerando los hogares con **piso de tierra o ladrillo suelto** (1,9 %) y aquellos sin baño dentro de la vivienda (~7 %), se estima que **~50.000 hogares** (~7,5 %) presentan algún tipo de déficit material crítico. Esta cifra es comparativamente baja respecto a otras provincias argentinas pero representa un núcleo duro de pobreza estructural concentrado en periferias del Gran Mendoza y zonas rurales del este.
+El promedio provincial es de **3,1 personas por hogar**, calculado como población en viviendas particulares sobre total de hogares.
+
+- **Más personas por hogar**: Lavalle (3,42), Maipú (3,36) y Las Heras (3,35).
+- **Menos personas por hogar**: Capital (2,53), General Alvear (2,88) y Godoy Cruz (2,88).
 
 ---
 
-## 6. Conclusiones
+## 5. Déficits materiales {#deficit}
 
-- Mendoza tiene **652 mil hogares particulares**, con condiciones materiales mayoritariamente buenas.
-- La brecha de **piso de tierra** afecta al 1,9 % (~12 mil hogares), concentrada en zonas rurales del este (Lavalle) y sur extremo (Malargüe).
-- Los servicios siguen el patrón **agua > electricidad > gas > cloaca**, con cloaca como el principal déficit.
-- **Guaymallén concentra 1 de cada 6 hogares mendocinos** — la unidad demográfica más densa de la provincia.
+- **12.208 hogares (1,9 %)** tienen piso de tierra o ladrillo suelto.
+- **39.602 hogares (6,1 %)** no tienen baño o letrina dentro de la vivienda; de ellos, 6.119 no tienen baño ni letrina.
+
+Las dos cifras no se suman porque un mismo hogar puede estar en ambas.
+
+---
+
+## 6. Conclusiones {#conclusiones}
+
+- Mendoza tiene **652.184 hogares**, de 3,1 personas en promedio.
+- Agua por cañería (95,2 %) y baño dentro de la vivienda (93,9 %) están muy extendidos; **cloaca (66,9 %) y gas de red (63,8 %)** son los servicios con menor alcance.
+- **Guaymallén reúne casi 1 de cada 6 hogares**.

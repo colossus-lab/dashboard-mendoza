@@ -2,9 +2,12 @@ import { ResponsiveBar } from '@nivo/bar';
 import { ResponsivePie } from '@nivo/pie';
 import { ResponsiveLine } from '@nivo/line';
 import { geoMercator, geoPath, type GeoPermissibleObjects } from 'd3-geo';
-import { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useStore } from '../../store/useStore';
-import type { ChartConfig } from '../../types/report';
+import { formatCompact, formatShare, formatValue } from '../../lib/format';
+import { DEPARTAMENTOS } from '../../data/departamentos';
+import type { ChartConfig, ValueFormat } from '../../types/report';
+import { LazyMount } from '../ui/LazyMount';
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < breakpoint : false);
@@ -17,545 +20,504 @@ function useIsMobile(breakpoint = 768) {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// ChartRenderer — Universal chart component (theme-aware)
+// Tema editorial OpenArg (DataChart.tsx de openarg_frontend)
 // ═══════════════════════════════════════════════════════════════
 
-interface ChartRendererProps {
-  chart: ChartConfig;
-  height?: number;
-}
+const COLORS = ['#74ACDF', '#F6B40E', '#34D399', '#A78BFA', '#F87171', '#60A5FA', '#FBBF24', '#E8ECF4'];
+const COLORS_LIGHT = ['#1F4E89', '#C03A18', '#2F855A', '#6B46C1', '#D9A20E', '#4A8ABF', '#9B2C2C', '#4A5170'];
 
 function useChartTheme() {
-  const theme = useStore(s => s.theme);
-  const isDark = theme === 'dark';
+  const isDark = useStore(s => s.theme) === 'dark';
+  const ink = isDark ? '#E8ECF4' : '#11142E';
+  const axis = isDark ? '#8892A8' : '#4A5170';
+  const tooltip = {
+    background: isDark ? '#1A1F35' : '#F2EDE2',
+    color: isDark ? '#F0F4FC' : '#11142E',
+    border: `1px solid ${isDark ? 'rgba(116,172,223,.2)' : 'rgba(17,20,46,.2)'}`,
+    borderRadius: 2,
+    fontSize: 13,
+    padding: '8px 12px',
+    maxWidth: 280,
+  };
 
   return {
-    theme: {
-      text: { fill: isDark ? '#94a3b8' : '#475569' },
-      axis: {
-        ticks: { text: { fill: isDark ? '#64748b' : '#64748b', fontSize: 11 } },
-        legend: { text: { fill: isDark ? '#94a3b8' : '#334155', fontSize: 12, fontWeight: 600 } },
-      },
-      grid: { line: { stroke: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } },
-      tooltip: {
-        container: {
-          background: isDark ? '#1e293b' : '#ffffff',
-          color: isDark ? '#f1f5f9' : '#0f172a',
-          borderRadius: '10px',
-          boxShadow: isDark
-            ? '0 8px 32px rgba(0,0,0,0.5)'
-            : '0 8px 32px rgba(0,0,0,0.12)',
-          fontSize: '13px',
-          padding: '10px 14px',
-          border: isDark ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(0,0,0,0.06)',
-        },
-      },
-    },
-    labelColor: isDark ? '#ffffff' : '#1e293b',
+    colors: isDark ? COLORS : COLORS_LIGHT,
+    labelColor: isDark ? '#06090F' : '#FFFFFF',
+    ink,
     isDark,
+    tooltip,
+    theme: {
+      background: 'transparent',
+      text: { fill: axis, fontFamily: 'Inter Variable, Inter, sans-serif' },
+      axis: {
+        ticks: { text: { fill: axis, fontSize: 11, fontFamily: 'JetBrains Mono, monospace' } },
+        legend: { text: { fill: axis, fontSize: 11 } },
+      },
+      grid: { line: { stroke: isDark ? 'rgba(116,172,223,.14)' : 'rgba(17,20,46,.1)', strokeDasharray: '3 3' } },
+      legends: { text: { fill: axis, fontSize: 12 } },
+      tooltip: { container: tooltip },
+      crosshair: { line: { stroke: ink, strokeOpacity: 0.4 } },
+    },
   };
 }
 
-const COLORS = ['#00d4ff', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4', '#84cc16', '#f97316', '#6366f1'];
+// ═══════════════════════════════════════════════════════════════
+// Figura: título + gráfico + tabla alternativa
+// ═══════════════════════════════════════════════════════════════
 
-export function ChartRenderer({ chart, height = 400 }: ChartRendererProps) {
+export function ChartFigure({ chart }: { chart: ChartConfig }) {
+  const table = chartTable(chart);
+
+  return (
+    <figure className={`figure figure-${chart.type}`}>
+      <figcaption className="figure-title">{chart.title}</figcaption>
+      <LazyMount minHeight={chart.type === 'map' ? 420 : 320}>
+        <div role="img" aria-label={`${chart.title}. Los datos están en la tabla "Ver datos".`}>
+          <ChartRenderer chart={chart} />
+        </div>
+      </LazyMount>
+      <details className="figure-data">
+        <summary>Ver datos</summary>
+        <div className="table-scroll">
+          <table>
+            <thead><tr>{table.headers.map(h => <th key={h} scope="col">{h}</th>)}</tr></thead>
+            <tbody>
+              {table.rows.map((row, i) => (
+                <tr key={i}>{row.map((cell, j) => <td key={j}>{cell}</td>)}</tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </figure>
+  );
+}
+
+function chartTable(chart: ChartConfig): { headers: string[]; rows: string[][] } {
+  const format = chart.config?.format;
+  const f = (v: unknown) => formatValue(v as number, format);
+
+  if (chart.type === 'pie') {
+    const total = chart.config?.total ?? chart.data.reduce((a, d) => a + d.value, 0);
+    return {
+      headers: ['Categoría', 'Cantidad', '%'],
+      rows: chart.data.map(d => [String(d.id), f(d.value), formatShare(d.value, total)]),
+    };
+  }
+  if (chart.type === 'pyramid') {
+    return {
+      headers: ['Edad', 'Mujeres', 'Varones'],
+      rows: chart.data.map(d => [d.grupo, f(d.mujeres), f(d.varones)]),
+    };
+  }
+  if (chart.type === 'map') {
+    return {
+      headers: ['Departamento', 'Valor'],
+      rows: [...chart.data]
+        .sort((a, b) => b.value - a.value)
+        .map(d => [DEPARTAMENTOS[d.id] ?? d.id, formatValue(d.value, format, chart.config?.unit)]),
+    };
+  }
+  if (chart.type === 'line' && Array.isArray(chart.data[0]?.data)) {
+    const series = chart.data as Array<{ id: string; data: Array<{ x: string; y: number }> }>;
+    return {
+      headers: ['Año', ...series.map(s => s.id)],
+      rows: series[0].data.map((point, i) => [point.x, ...series.map(s => f(s.data[i]?.y))]),
+    };
+  }
+  const xKey = chart.config?.xAxis || Object.keys(chart.data[0] || {})[0];
+  const keys = Object.keys(chart.data[0] || {}).filter(k => k !== xKey);
+  return {
+    headers: [xKey === 'id' ? 'Categoría' : capitalize(xKey), ...keys.map(capitalize)],
+    rows: chart.data.map(d => [String(d[xKey]), ...keys.map(k => f(d[k]))]),
+  };
+}
+
+function capitalize(s: string) {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function ChartLegend({ items, colors }: { items: string[]; colors: string[] }) {
+  return (
+    <ul className="chart-legend">
+      {items.map((item, i) => (
+        <li key={item}>
+          <span className="pie-swatch" style={{ background: colors[i % colors.length] }} aria-hidden="true" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function ChartRenderer({ chart }: { chart: ChartConfig }) {
   switch (chart.type) {
-    case 'bar':
-      return <BarChartView chart={chart} height={height} />;
     case 'pie':
-      return <PieChartView chart={chart} height={height} />;
+      return <PieChartView chart={chart} />;
     case 'line':
-      return <LineChartView chart={chart} height={height} />;
+      return <LineChartView chart={chart} />;
     case 'pyramid':
-      return <PyramidChartView chart={chart} height={height} />;
+      return <PyramidChartView chart={chart} />;
     case 'map':
-      return <MapChartView chart={chart} height={height} />;
+      return <MapChartView chart={chart} />;
+    case 'bar':
     default:
-      return <BarChartView chart={chart} height={height} />;
+      return <BarChartView chart={chart} />;
   }
 }
 
 // ─── Bar Chart ───
-function BarChartView({ chart, height }: { chart: ChartConfig; height: number }) {
-  const { theme, labelColor } = useChartTheme();
-  const keys = Object.keys(chart.data[0] || {}).filter(k => k !== (chart.config?.xAxis || 'id'));
-  const indexBy = chart.config?.xAxis || Object.keys(chart.data[0] || {})[0] || 'id';
-  const isHorizontal = chart.config?.layout === 'horizontal';
-  const dataCount = chart.data.length;
+function BarChartView({ chart }: { chart: ChartConfig }) {
+  const { theme, colors, labelColor, tooltip } = useChartTheme();
   const mobile = useIsMobile();
+  const format: ValueFormat = chart.config?.format ?? 'int';
+  const indexBy = chart.config?.xAxis || 'id';
+  const keys = Object.keys(chart.data[0] || {}).filter(k => k !== indexBy);
+  const isHorizontal = chart.config?.layout === 'horizontal';
+  const fmt = (v: number) => formatValue(v, format);
+  const multi = keys.length > 1;
 
-  // Cap horizontal bar height to fit within the panel (max ~10 items visible)
-  const maxItems = mobile ? 8 : 10;
-  const cappedHeight = isHorizontal
-    ? Math.min(height, Math.max(280, Math.min(dataCount, maxItems) * (mobile ? 28 : 30) + 60))
-    : height;
+  // nivo dibuja la primera fila abajo: se invierte para leer de arriba hacia abajo.
+  const data = isHorizontal ? [...chart.data].reverse() : chart.data;
 
-  // On mobile, rotate labels more and skip some ticks when there are many data points
-  const mobileBottomAxis = () => {
-    if (isHorizontal) return { tickSize: 0, tickPadding: 5 };
-    if (mobile) {
-      return {
-        tickSize: 0,
-        tickPadding: 5,
-        tickRotation: dataCount > 3 ? -55 : -30,
-        // Show every Nth tick on mobile to prevent overlap
-        ...(dataCount > 8 ? { tickValues: chart.data.filter((_: unknown, i: number) => i % Math.ceil(dataCount / 6) === 0).map((d: Record<string, unknown>) => d[indexBy]) } : {}),
-      };
-    }
-    return { tickSize: 0, tickPadding: 5, tickRotation: dataCount > 4 ? -40 : 0 };
+  const longest = Math.max(...chart.data.map(d => String(d[indexBy]).length), 0);
+  const maxChars = mobile ? 18 : 32;
+  const left = isHorizontal ? Math.min(longest, maxChars) * 6.6 + 14 : 48;
+  const height = isHorizontal ? data.length * (multi ? 44 : 34) + 44 : 300;
+
+  const valueAxis = {
+    tickSize: 0,
+    tickPadding: 6,
+    tickValues: mobile ? 3 : 4,
+    format: (v: number) => formatCompact(v, format),
+  };
+  const categoryAxis = {
+    tickSize: 0,
+    tickPadding: 8,
+    format: (v: string) => (v.length > maxChars ? `${v.slice(0, maxChars - 1)}…` : v),
   };
 
   return (
-    <div style={{ height: cappedHeight }}>
+    <>
+    <div style={{ height }}>
       <ResponsiveBar
-        data={chart.data}
+        data={data}
         keys={keys}
         indexBy={indexBy}
-        margin={{
-          top: 10,
-          right: mobile ? 10 : 20,
-          bottom: isHorizontal ? 40 : (mobile ? 70 : 70),
-          left: isHorizontal ? (mobile ? 110 : 160) : (mobile ? 45 : 50),
-        }}
-        padding={0.3}
         layout={isHorizontal ? 'horizontal' : 'vertical'}
-        colors={COLORS}
-        borderRadius={3}
-        axisBottom={mobileBottomAxis()}
-        axisLeft={
-          isHorizontal
-            ? { tickSize: 0, tickPadding: 8, format: (v: string) => mobile ? (v.length > 14 ? v.slice(0, 12) + '…' : v) : (v.length > 20 ? v.slice(0, 18) + '…' : v) }
-            : { tickSize: 0, tickPadding: 5 }
-        }
+        groupMode="grouped"
+        margin={{ top: 8, right: 16, bottom: 32, left }}
+        padding={0.28}
+        innerPadding={multi ? 2 : 0}
+        colors={colors}
+        maxValue={chart.config?.max ?? 'auto'}
+        valueFormat={fmt}
+        axisBottom={isHorizontal ? valueAxis : categoryAxis}
+        axisLeft={isHorizontal ? categoryAxis : valueAxis}
+        gridXValues={isHorizontal ? (mobile ? 3 : 4) : undefined}
+        gridYValues={isHorizontal ? undefined : 4}
         enableGridX={isHorizontal}
         enableGridY={!isHorizontal}
-        groupMode={chart.config?.stacked ? 'stacked' : 'grouped'}
         theme={theme}
-        animate={true}
-        motionConfig="gentle"
-        labelSkipWidth={mobile ? 40 : 30}
-        labelSkipHeight={18}
+        labelSkipWidth={56}
+        labelSkipHeight={14}
         labelTextColor={labelColor}
+        animate={false}
+        tooltip={({ id, value, indexValue }) => (
+          <div style={tooltip}>
+            <strong>{String(indexValue)}</strong><br />
+            {multi ? `${String(id)}: ` : ''}{fmt(value)}
+          </div>
+        )}
       />
     </div>
+    {multi && <ChartLegend items={keys} colors={colors} />}
+    </>
   );
 }
 
 // ─── Pie Chart ───
-function PieChartView({ chart, height }: { chart: ChartConfig; height: number }) {
-  const { theme, isDark } = useChartTheme();
-  const mobile = useIsMobile();
-  const dataCount = chart.data.length;
-
-  // Format large numbers in arc labels
-  const formatValue = (v: number) => {
-    if (v >= 1_000_000) return `${(v / 1_000_000).toFixed(1)}M`;
-    if (v >= 1_000) return `${(v / 1_000).toFixed(0)}K`;
-    return v.toString();
-  };
-
-  // On mobile: keep legends below in column layout, make container tall enough
-  // so the legend doesn't overlap the donut
-  const legendRows = dataCount;
-  const mobileLegendHeight = legendRows * 20 + 16; // ~20px per legend row + padding
-  const mobileHeight = 260 + mobileLegendHeight; // donut area + legend area
+function PieChartView({ chart }: { chart: ChartConfig }) {
+  const { theme, colors, labelColor, tooltip } = useChartTheme();
+  const total = chart.config?.total ?? chart.data.reduce((a: number, d: { value: number }) => a + d.value, 0);
+  const format = chart.config?.format;
 
   return (
-    <div style={{ height: mobile ? mobileHeight : Math.min(height, 380) }}>
-      <ResponsivePie
-        data={chart.data}
-        margin={mobile
-          ? { top: 20, right: 20, bottom: mobileLegendHeight + 20, left: 20 }
-          : { top: 30, right: 100, bottom: 40, left: 100 }
-        }
-        innerRadius={0.5}
-        padAngle={2}
-        cornerRadius={5}
-        colors={COLORS}
-        borderWidth={0}
-        enableArcLinkLabels={!mobile}
-        arcLinkLabelsSkipAngle={8}
-        arcLinkLabelsTextColor={isDark ? '#94a3b8' : '#334155'}
-        arcLinkLabelsColor={{ from: 'color' }}
-        arcLinkLabelsThickness={2}
-        arcLinkLabelsDiagonalLength={16}
-        arcLinkLabelsStraightLength={20}
-        arcLabelsSkipAngle={mobile ? 25 : 15}
-        arcLabelsTextColor="#ffffff"
-        arcLabel={d => formatValue(d.value)}
-        theme={theme}
-        animate={true}
-        motionConfig="gentle"
-        tooltip={({ datum }) => (
-          <div style={{
-            padding: '8px 12px',
-            background: isDark ? '#1e293b' : '#fff',
-            color: isDark ? '#f1f5f9' : '#0f172a',
-            borderRadius: '8px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-            fontSize: '13px',
-            border: `2px solid ${datum.color}`,
-            maxWidth: '200px',
-          }}>
-            <strong>{datum.label}</strong><br />
-            {formatValue(datum.value)} ({((datum.arc.endAngle - datum.arc.startAngle) / (2 * Math.PI) * 100).toFixed(1)}%)
-          </div>
-        )}
-        legends={[
-          {
-            anchor: 'bottom',
-            direction: mobile ? 'column' : 'row',
-            translateY: mobile ? mobileLegendHeight + 10 : 36,
-            itemWidth: mobile ? 200 : 120,
-            itemHeight: 20,
-            itemTextColor: isDark ? '#94a3b8' : '#475569',
-            symbolSize: 10,
-            symbolShape: 'circle',
-          },
-        ]}
-      />
+    <div className="pie">
+      <div className="pie-chart">
+        <ResponsivePie
+          data={chart.data}
+          margin={{ top: 8, right: 8, bottom: 8, left: 8 }}
+          innerRadius={0.58}
+          padAngle={1}
+          cornerRadius={1}
+          colors={colors}
+          enableArcLinkLabels={false}
+          arcLabelsSkipAngle={22}
+          arcLabelsTextColor={labelColor}
+          arcLabel={d => formatShare(d.value, total)}
+          theme={theme}
+          animate={false}
+          tooltip={({ datum }) => (
+            <div style={tooltip}>
+              <strong>{String(datum.id)}</strong><br />
+              {formatValue(datum.value, format)} ({formatShare(datum.value, total)})
+            </div>
+          )}
+        />
+      </div>
+      <ul className="pie-legend">
+        {chart.data.map((d: { id: string; value: number }, i: number) => (
+          <li key={d.id}>
+            <span className="pie-swatch" style={{ background: colors[i % colors.length] }} aria-hidden="true" />
+            <span className="pie-name">{d.id}</span>
+            <span className="pie-share">{formatShare(d.value, total)}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
 // ─── Line Chart ───
-function LineChartView({ chart, height }: { chart: ChartConfig; height: number }) {
-  const { theme } = useChartTheme();
+function LineChartView({ chart }: { chart: ChartConfig }) {
+  const { theme, colors, tooltip } = useChartTheme();
   const mobile = useIsMobile();
+  const format: ValueFormat = chart.config?.format ?? 'int';
 
-  // Detectar formato del data:
+  // Formatos admitidos:
   //  - Nivo nativo: [{ id, data: [{x, y}, …] }]
   //  - Plano:       [{ <xKey>: ..., <serieKey>: ..., … }]
+  type Datum = { x: string; y: number };
   const first = chart.data[0] as Record<string, unknown> | undefined;
-  const isNivoFormat = !!first && Array.isArray((first as any).data) && 'id' in first;
-
-  type Datum = { x: string | number | Date; y: number | null };
-  let lineData: Array<{ id: string; color: string; data: Datum[] }>;
-  let dataCount: number;
-  let xKey: string;
-
-  if (isNivoFormat) {
-    lineData = (chart.data as Array<{ id: string; data: Datum[] }>).map((s, i) => ({
-      id: s.id,
-      color: COLORS[i % COLORS.length],
-      data: s.data,
-    }));
-    dataCount = lineData[0]?.data.length ?? 0;
-    xKey = 'x';
+  let lineData: Array<{ id: string; data: Datum[] }>;
+  if (first && Array.isArray(first.data)) {
+    lineData = chart.data;
   } else {
-    xKey = chart.config?.xAxis || Object.keys(first || {})[0];
-    const yKeys = Object.keys(first || {}).filter(k => k !== xKey);
-    dataCount = chart.data.length;
-    lineData = yKeys.map((key, i) => ({
+    const xKey = chart.config?.xAxis || Object.keys(first || {})[0];
+    lineData = Object.keys(first || {}).filter(k => k !== xKey).map(key => ({
       id: key,
-      color: COLORS[i % COLORS.length],
-      data: chart.data.map(d => ({ x: d[xKey] as string | number | Date, y: d[key] as number | null })),
+      data: chart.data.map(d => ({ x: String(d[xKey]), y: d[key] })),
     }));
   }
 
-  // On mobile with many data points, show only every Nth tick to avoid overlap
-  const getBottomAxis = () => {
-    if (mobile) {
-      const step = Math.ceil(dataCount / 6);
-      // Get x values from the (possibly transformed) lineData, not the raw chart.data
-      const xValues: unknown[] = isNivoFormat
-        ? (lineData[0]?.data.map(p => p.x) ?? [])
-        : (chart.data as Array<Record<string, unknown>>).map(d => d[xKey]);
-      const tickVals = dataCount > 8
-        ? xValues.filter((_, i) => i % step === 0 || i === dataCount - 1)
-        : undefined;
-      return {
-        tickSize: 0,
-        tickPadding: 6,
-        tickRotation: -55,
-        ...(tickVals ? { tickValues: tickVals } : {}),
-      };
-    }
-    return { tickSize: 0, tickPadding: 8, tickRotation: dataCount > 10 ? -45 : -35 };
-  };
-
-  // Compact Y-axis labels on mobile
-  const formatYAxis = (v: number) => {
-    if (Math.abs(v) >= 1_000_000) return `${(v / 1_000_000).toFixed(1)}M`;
-    if (Math.abs(v) >= 1_000) return `${(v / 1_000).toFixed(0)}K`;
-    return String(v);
-  };
+  const xValues = lineData[0]?.data.map(p => p.x) ?? [];
+  const maxTicks = mobile ? 6 : 14;
+  const step = Math.ceil(xValues.length / maxTicks);
+  const tickValues = xValues.filter((_, i) => i % step === 0);
+  const multi = lineData.length > 1;
+  const fmt = (v: number) => formatValue(v, format);
 
   return (
-    <div style={{ height: mobile ? Math.min(height, 320) : height }}>
+    <>
+    <div style={{ height: 320 }}>
       <ResponsiveLine
         data={lineData}
-        margin={mobile
-          ? { top: 15, right: 15, bottom: 65, left: 48 }
-          : { top: 20, right: 30, bottom: 60, left: 60 }
-        }
+        margin={{ top: 14, right: 18, bottom: 34, left: 52 }}
         xScale={{ type: 'point' }}
-        yScale={{ type: 'linear', min: 'auto', max: 'auto' }}
-        curve="monotoneX"
-        colors={COLORS}
-        pointSize={mobile ? 5 : 8}
-        pointColor={{ theme: 'background' }}
-        pointBorderWidth={2}
-        pointBorderColor={{ from: 'serieColor' }}
-        enableArea={true}
-        areaOpacity={0.06}
-        axisBottom={getBottomAxis()}
-        axisLeft={{ tickSize: 0, tickPadding: 6, format: formatYAxis }}
+        yScale={{ type: 'linear', min: 0, max: 'auto' }}
+        curve="linear"
+        colors={colors}
+        lineWidth={2}
+        enablePoints={false}
+        axisBottom={{ tickSize: 0, tickPadding: 8, tickValues }}
+        axisLeft={{ tickSize: 0, tickPadding: 6, tickValues: 5, format: (v: number) => formatCompact(v, format) }}
+        gridYValues={5}
         enableGridX={false}
         theme={theme}
-        animate={true}
-        motionConfig="gentle"
-        useMesh={true}
+        animate={false}
+        useMesh
+        tooltip={({ point }) => (
+          <div style={tooltip}>
+            <strong>{String(point.data.x)}</strong><br />
+            {multi ? `${point.serieId}: ` : ''}{fmt(Number(point.data.y))}
+          </div>
+        )}
       />
     </div>
+    {multi && <ChartLegend items={lineData.map(s => s.id)} colors={colors} />}
+    </>
   );
 }
 
 // ─── Pyramid Chart (Diverging Horizontal Bar) ───
-function PyramidChartView({ chart, height }: { chart: ChartConfig; height: number }) {
-  const { theme, isDark } = useChartTheme();
+function PyramidChartView({ chart }: { chart: ChartConfig }) {
+  const { theme, colors, tooltip } = useChartTheme();
   const mobile = useIsMobile();
 
-  const pyramidData = chart.data.map((d: Record<string, unknown>) => ({
-    grupo: String(d.grupo || d.group || d.id || ''),
-    Mujeres: Number(d.mujeres || d.Mujeres || 0),
-    Varones: -Number(d.varones || d.Varones || 0),
+  const pyramidData = chart.data.map((d: { grupo: string; mujeres: number; varones: number }) => ({
+    grupo: d.grupo,
+    Varones: -d.varones,
+    Mujeres: d.mujeres,
   }));
-
-  const cappedHeight = Math.max(360, Math.min(height, pyramidData.length * (mobile ? 24 : 28) + 80));
+  const limit = Math.max(...chart.data.map((d: { mujeres: number; varones: number }) => Math.max(d.mujeres, d.varones)));
 
   return (
-    <div style={{ height: cappedHeight }}>
+    <>
+    <div style={{ height: pyramidData.length * (mobile ? 22 : 24) + 44 }}>
       <ResponsiveBar
         data={pyramidData}
         keys={['Varones', 'Mujeres']}
         indexBy="grupo"
         layout="horizontal"
-        margin={{
-          top: 10,
-          right: mobile ? 10 : 20,
-          bottom: 50,
-          left: mobile ? 50 : 60,
-        }}
-        padding={0.2}
-        colors={[isDark ? '#60a5fa' : '#3b82f6', isDark ? '#f472b6' : '#ec4899']}
-        borderRadius={2}
+        minValue={-limit}
+        maxValue={limit}
+        margin={{ top: 8, right: 12, bottom: 32, left: 62 }}
+        padding={0.16}
+        colors={colors}
         axisBottom={{
           tickSize: 0,
-          tickPadding: 5,
-          format: (v: number) => {
-            const abs = Math.abs(v);
-            if (abs >= 1_000_000) return `${(abs / 1_000_000).toFixed(1)}M`;
-            if (abs >= 1_000) return `${(abs / 1_000).toFixed(0)}K`;
-            return String(abs);
-          },
+          tickPadding: 6,
+          tickValues: 5,
+          format: (v: number) => formatCompact(v),
         }}
-        axisLeft={{ tickSize: 0, tickPadding: 5 }}
-        enableGridX={true}
+        axisLeft={{ tickSize: 0, tickPadding: 8 }}
+        enableGridX
         enableGridY={false}
+        gridXValues={5}
         theme={theme}
-        animate={true}
-        motionConfig="gentle"
-        labelSkipWidth={40}
-        labelTextColor="#ffffff"
-        label={d => {
-          const abs = Math.abs(Number(d.value));
-          if (abs >= 1_000_000) return `${(abs / 1_000_000).toFixed(1)}M`;
-          if (abs >= 1_000) return `${(abs / 1_000).toFixed(0)}K`;
-          return String(abs);
-        }}
-        tooltip={({ id, value, indexValue, color }) => (
-          <div style={{
-            padding: '8px 12px',
-            background: isDark ? '#1e293b' : '#fff',
-            color: isDark ? '#f1f5f9' : '#0f172a',
-            borderRadius: '8px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-            fontSize: '13px',
-            border: `2px solid ${color}`,
-          }}>
-            <strong>{String(indexValue)}</strong><br />
-            {String(id)}: {Math.abs(Number(value)).toLocaleString('es-AR')}
+        animate={false}
+        enableLabel={false}
+        tooltip={({ id, value, indexValue }) => (
+          <div style={tooltip}>
+            <strong>{String(indexValue)} años</strong><br />
+            {String(id)}: {formatValue(Math.abs(Number(value)))}
           </div>
         )}
-        legends={[{
-          dataFrom: 'keys',
-          anchor: 'bottom',
-          direction: 'row',
-          translateY: 44,
-          itemWidth: 100,
-          itemHeight: 18,
-          itemTextColor: isDark ? '#94a3b8' : '#475569',
-          symbolSize: 10,
-          symbolShape: 'circle',
-          data: [
-            { id: 'Varones', label: 'Varones', color: isDark ? '#60a5fa' : '#3b82f6' },
-            { id: 'Mujeres', label: 'Mujeres', color: isDark ? '#f472b6' : '#ec4899' },
-          ],
-        }]}
       />
     </div>
+    <ChartLegend items={['Varones', 'Mujeres']} colors={colors} />
+    </>
   );
 }
 
 // ─── Choropleth Map of 18 Mendoza departments ───
 type GeoFC = { type: 'FeatureCollection'; features: Array<{ type: 'Feature'; id: string; properties: Record<string, unknown>; geometry: unknown }> };
 let mendozaGeoCache: GeoFC | null = null;
+
 function useMendozaGeo() {
   const [geo, setGeo] = useState<GeoFC | null>(mendozaGeoCache);
+  const [failed, setFailed] = useState(false);
   useEffect(() => {
     if (mendozaGeoCache) return;
     fetch('/mendoza-departamentos.geojson')
-      .then(r => r.json())
+      .then(r => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
       .then((data: GeoFC) => { mendozaGeoCache = data; setGeo(data); })
-      .catch(() => {});
+      .catch(() => setFailed(true));
   }, []);
-  return geo;
+  return { geo, failed };
 }
 
-// Color blues escalonado para choropleth
 function colorScale(t: number, isDark: boolean): string {
-  // t in [0, 1]; ramp from light to dark blue
   const c = Math.max(0, Math.min(1, t));
-  if (isDark) {
-    const r = Math.round(30 + (96 - 30) * c);
-    const g = Math.round(60 + (165 - 60) * c);
-    const b = Math.round(120 + (250 - 120) * c);
-    return `rgb(${r},${g},${b})`;
-  }
-  const r = Math.round(219 - (219 - 30) * c);
-  const g = Math.round(234 - (234 - 64) * c);
-  const b = Math.round(254 - (254 - 175) * c);
-  return `rgb(${r},${g},${b})`;
+  const [from, to] = isDark
+    ? [[40, 52, 78], [147, 197, 248]]
+    : [[216, 207, 184], [31, 78, 137]];
+  return `rgb(${from.map((v, i) => Math.round(v + (to[i] - v) * c)).join(',')})`;
 }
 
-function MapChartView({ chart, height }: { chart: ChartConfig; height: number }) {
+const MAP_LABELS = ['50105', '50077', '50091']; // San Rafael, Malargüe, San Carlos
+
+function MapChartView({ chart }: { chart: ChartConfig }) {
   const { isDark } = useChartTheme();
   const mobile = useIsMobile();
-  const geo = useMendozaGeo();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [size, setSize] = useState({ w: 600, h: mobile ? 360 : height });
-  const [hover, setHover] = useState<{ id: string; x: number; y: number } | null>(null);
+  const { geo, failed } = useMendozaGeo();
+  const height = mobile ? 400 : 460;
+  const [width, setWidth] = useState(0);
+  const [active, setActive] = useState<string | null>(null);
+  const format = chart.config?.format;
+  const unit = chart.config?.unit;
 
-  useEffect(() => {
-    const el = containerRef.current;
+  // Callback ref: el contenedor recién existe cuando llega el geojson.
+  const containerRef = useCallback((el: HTMLDivElement | null) => {
     if (!el) return;
-    const ro = new ResizeObserver(([entry]) => {
-      const rect = entry.contentRect;
-      setSize({ w: rect.width, h: mobile ? 360 : height });
-    });
+    setWidth(el.getBoundingClientRect().width);
+    const ro = new ResizeObserver(([entry]) => setWidth(entry.contentRect.width));
     ro.observe(el);
-    return () => ro.disconnect();
-  }, [mobile, height]);
+  }, []);
 
   const valueById = useMemo(() => {
     const m = new Map<string, number>();
     for (const d of chart.data || []) {
-      const id = String((d as Record<string, unknown>).id || (d as Record<string, unknown>).municipioId || '');
-      const v = Number((d as Record<string, unknown>).value);
-      if (id && Number.isFinite(v)) m.set(id, v);
+      const v = Number(d.value);
+      if (d.id && Number.isFinite(v)) m.set(String(d.id), v);
     }
     return m;
   }, [chart.data]);
 
-  const { paths, range } = useMemo(() => {
-    if (!geo || size.w < 50) return { paths: [] as Array<{ id: string; nombre: string; d: string; cx: number; cy: number }>, range: [0, 1] as [number, number] };
+  const paths = useMemo(() => {
+    if (!geo || width < 50) return [];
     const projection = geoMercator().fitExtent(
-      [[8, 8], [size.w - 8, size.h - 8]],
+      [[6, 6], [width - 6, height - 6]],
       { type: 'FeatureCollection', features: geo.features } as unknown as GeoPermissibleObjects,
     );
     const pathGen = geoPath(projection);
-    const ps: Array<{ id: string; nombre: string; d: string; cx: number; cy: number }> = [];
-    for (const f of geo.features) {
-      const d = pathGen(f as unknown as GeoPermissibleObjects) || '';
-      const c = pathGen.centroid(f as unknown as GeoPermissibleObjects);
-      ps.push({
-        id: String(f.id || (f.properties as Record<string, unknown> | undefined)?.id || ''),
-        nombre: String((f.properties as { nombre?: string } | undefined)?.nombre || ''),
-        d,
-        cx: c[0],
-        cy: c[1],
-      });
-    }
-    const values = Array.from(valueById.values()).filter(v => Number.isFinite(v));
-    const lo = values.length ? Math.min(...values) : 0;
-    const hi = values.length ? Math.max(...values) : 1;
-    return { paths: ps, range: [lo, hi] as [number, number] };
-  }, [geo, size.w, size.h, valueById]);
+    return geo.features.map(f => {
+      const centroid = pathGen.centroid(f as unknown as GeoPermissibleObjects);
+      return {
+        id: String(f.id ?? f.properties?.id ?? ''),
+        nombre: String(f.properties?.nombre ?? ''),
+        d: pathGen(f as unknown as GeoPermissibleObjects) || '',
+        cx: centroid[0],
+        cy: centroid[1],
+      };
+    });
+  }, [geo, width, height]);
 
-  if (!geo) {
-    return (
-      <div style={{ height: mobile ? 360 : height, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-tertiary)' }}>
-        Cargando mapa…
-      </div>
-    );
-  }
+  if (failed) return <p className="figure-empty">No se pudo cargar el mapa. Los datos están en la tabla de abajo.</p>;
+  if (!geo) return <p className="figure-empty" style={{ height }}>Cargando mapa…</p>;
 
-  const [lo, hi] = range;
+  const values = Array.from(valueById.values());
+  const lo = Math.min(...values);
+  const hi = Math.max(...values);
   const span = hi - lo || 1;
-  const hoveredValue = hover ? valueById.get(hover.id) : undefined;
-  const hoveredNombre = hover ? paths.find(p => p.id === hover.id)?.nombre : undefined;
+  const activePath = active ? paths.find(p => p.id === active) : undefined;
 
   return (
-    <div ref={containerRef} style={{ position: 'relative', width: '100%', height: mobile ? 360 : height }}>
-      <svg width={size.w} height={size.h} style={{ display: 'block' }}>
-        {paths.map(p => {
-          const v = valueById.get(p.id);
-          const t = v != null ? (v - lo) / span : NaN;
-          const fill = Number.isFinite(t) ? colorScale(t, isDark) : (isDark ? '#1e293b' : '#e2e8f0');
-          const isHover = hover?.id === p.id;
-          return (
-            <path
-              key={p.id}
-              d={p.d}
-              fill={fill}
-              stroke={isDark ? '#0f172a' : '#ffffff'}
-              strokeWidth={isHover ? 1.4 : 0.6}
-              style={{ cursor: 'pointer', transition: 'stroke-width 120ms' }}
-              onMouseEnter={(e) => setHover({ id: p.id, x: e.clientX, y: e.clientY })}
-              onMouseMove={(e) => setHover({ id: p.id, x: e.clientX, y: e.clientY })}
-              onMouseLeave={() => setHover(null)}
-            />
-          );
-        })}
-        {/* etiquetas solo para los 3 deptos más grandes en superficie (sur de Mendoza) */}
-        {paths
-          .filter(p => ['50105', '50077', '50091'].includes(p.id)) // San Rafael, Malargüe, San Carlos
-          .map(p => (
-            <text
-              key={`label-${p.id}`}
-              x={p.cx}
-              y={p.cy}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              style={{ fontSize: 10, fontWeight: 600, fill: isDark ? '#e2e8f0' : '#1e293b', pointerEvents: 'none' }}
-            >
-              {p.nombre}
-            </text>
-          ))}
-      </svg>
-      {hover && hoveredNombre && (
-        <div
-          style={{
-            position: 'fixed',
-            left: hover.x + 12,
-            top: hover.y + 12,
-            padding: '6px 10px',
-            background: isDark ? '#1e293b' : '#fff',
-            color: isDark ? '#f1f5f9' : '#0f172a',
-            borderRadius: 8,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-            fontSize: 13,
-            border: '1px solid rgba(0,0,0,0.06)',
-            pointerEvents: 'none',
-            zIndex: 1000,
-          }}
-        >
-          <strong>{hoveredNombre}</strong>
-          <br />
-          {hoveredValue != null ? hoveredValue.toLocaleString('es-AR') : 'sin dato'}
-        </div>
-      )}
+    <div className="map">
+      <p className="map-readout" aria-live="polite">
+        {activePath
+          ? <><strong>{activePath.nombre}</strong> {formatValue(valueById.get(activePath.id), format, unit)}</>
+          : mobile ? 'Tocá un departamento para ver su valor.' : 'Pasá por un departamento para ver su valor.'}
+      </p>
+      <div ref={containerRef} style={{ width: '100%', height }}>
+        {width >= 50 && (
+          <svg width={width} height={height} style={{ display: 'block' }} onMouseLeave={() => setActive(null)}>
+            {paths.map(p => {
+              const v = valueById.get(p.id);
+              const fill = v != null ? colorScale((v - lo) / span, isDark) : 'transparent';
+              return (
+                <path
+                  key={p.id}
+                  d={p.d}
+                  fill={fill}
+                  stroke={active === p.id ? (isDark ? '#FFFFFF' : '#11142E') : (isDark ? '#06090F' : '#F2EDE2')}
+                  strokeWidth={active === p.id ? 1.6 : 0.7}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`${p.nombre}: ${formatValue(v, format, unit)}`}
+                  onMouseEnter={() => setActive(p.id)}
+                  onFocus={() => setActive(p.id)}
+                  onClick={() => setActive(p.id)}
+                />
+              );
+            })}
+            {paths.filter(p => MAP_LABELS.includes(p.id)).map(p => (
+              <text key={p.id} x={p.cx} y={p.cy} textAnchor="middle" dominantBaseline="middle" className="map-label">
+                {p.nombre}
+              </text>
+            ))}
+          </svg>
+        )}
+      </div>
+      <div className="map-legend" aria-hidden="true">
+        <span>{formatValue(lo, format)}</span>
+        <span
+          className="map-legend-bar"
+          style={{ background: `linear-gradient(90deg, ${colorScale(0, isDark)}, ${colorScale(1, isDark)})` }}
+        />
+        <span>{formatValue(hi, format)}</span>
+      </div>
     </div>
   );
 }
