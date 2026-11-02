@@ -3,17 +3,17 @@
 ## Cómo accede la población mendocina al agua, al saneamiento y a la energía
 
 **Fuente**: Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC). Cuadros `c2022_mendoza_pob_*_13.xlsx`.
-**Cobertura**: 2.030.773 personas que viven en viviendas particulares (excluye 12.636 en viviendas colectivas y a personas en situación de calle).
+**Cobertura**: 2.030.773 personas que viven en viviendas particulares. Excluye a quienes viven en viviendas colectivas y en situación de calle.
 
 ---
 
-## 1. Agua: la fortaleza histórica de Mendoza
+## 1. Agua: cobertura alta {#agua}
 
 | Indicador | Valor |
 |---|---:|
-| Población con agua **dentro de la vivienda** (cañería) | **94,6 %** (1.920.813 personas) |
-| Población con agua **fuera de la vivienda, dentro del terreno** | 4,5 % |
-| Población **fuera del terreno** | 1,0 % |
+| Agua por cañería **dentro de la vivienda** | **94,6 %** (1.920.813 personas) |
+| Fuera de la vivienda, dentro del terreno | 4,5 % (90.432 personas) |
+| Fuera del terreno | 1,0 % (19.528 personas) |
 
 ### Procedencia del agua
 
@@ -21,44 +21,40 @@
 |---|---:|---:|
 | **Red pública (agua corriente)** | **1.866.746** | **91,9 %** |
 | Perforación con bomba a motor | 86.295 | 4,2 % |
-| Otras fuentes (perforación manual, transporte por cisterna, agua de lluvia) | 77.732 | 3,8 % |
-
-Mendoza tiene una de las **coberturas de agua segura más altas del país**, derivada de su histórico sistema de gestión hídrica (Departamento General de Irrigación, oasis irrigados). El acceso por **red pública alcanza al 91,9 %** de la población en viviendas particulares.
+| Otras fuentes (bomba manual, pozo, cisterna, lluvia, río, canal, acequia y otras) | 77.732 | 3,8 % |
 
 ---
 
-## 2. Saneamiento: la brecha estructural
+## 2. Saneamiento: la mayor brecha {#saneamiento}
 
 | Indicador | Valor |
 |---|---:|
-| Población con baño **dentro de la vivienda** | 93,3 % |
-| **Población con descarga a red cloacal pública** | **64,4 %** (1.308.446 personas) |
-| Sin red cloacal (cámara séptica, pozo, etc.) | 35,6 % |
+| Baño o letrina **dentro de la vivienda** | 93,3 % |
+| **Desagüe a red cloacal pública** | **64,4 %** (1.308.446 personas) |
+| Sin red cloacal (cámara séptica, pozo, hoyo o sin baño) | 35,6 % (722.327 personas) |
 
-La diferencia entre **agua (92 %)** y **cloaca (64 %)** refleja un déficit estructural de saneamiento, especialmente en periferias urbanas y zonas rurales. **~720.000 personas** no acceden a red cloacal pública.
+La distancia entre **agua de red (91,9 %)** y **cloaca (64,4 %)** es de 27,5 puntos. Más de **720 mil personas** no tienen desagüe a la red pública.
 
 ---
 
-## 3. Energía para cocinar: el gas de red domina, pero un tercio depende de garrafa
+## 3. Energía para cocinar: gas de red y garrafa {#energia}
 
 | Combustible | Personas | % |
 |---|---:|---:|
 | **Gas de red** | **1.231.756** | **60,7 %** |
 | Gas en garrafa | 682.019 | 33,6 % |
 | Electricidad | 61.564 | 3,0 % |
-| Gas en tubo / zeppelin | 39.440 | 1,9 % |
+| Gas en tubo o a granel | 39.440 | 1,9 % |
 | Leña o carbón | 12.754 | 0,6 % |
 | Otro | 3.240 | 0,2 % |
 
-El gas de red es predominante, pero **un tercio de la población depende de garrafa**, lo que tiene implicancias económicas (costo regulado del tubo) y de seguridad.
+Una de cada tres personas cocina con garrafa.
 
 ---
 
-## 4. Brechas departamentales: Gran Mendoza vs interior
+## 4. Diferencias entre departamentos {#departamentos}
 
-### Top y bottom 5 — % población con gas de red
-
-| Más cobertura | % | Menos cobertura | % |
+| Más gas de red | % | Menos gas de red | % |
 |---|---:|---|---:|
 | **Godoy Cruz** | **82,7 %** | Lavalle | 22,2 % |
 | Capital | 78,4 % | Santa Rosa | 33,3 % |
@@ -66,15 +62,12 @@ El gas de red es predominante, pero **un tercio de la población depende de garr
 | Guaymallén | 70,3 % | San Martín | 44,6 % |
 | Las Heras | 63,9 % | San Carlos | 45,2 % |
 
-Los departamentos del **Gran Mendoza urbano** (Godoy Cruz, Capital, Guaymallén, Las Heras) están sobre el 64 %, mientras que **Lavalle no llega al 23 %**. Malargüe es la excepción: el sur extremo tiene gas de red por su perfil hidrocarburífero (yacimientos cercanos).
-
-En los departamentos del este (Lavalle, Santa Rosa, La Paz) y en zonas rurales del Valle de Uco (Tupungato, San Carlos), la **dependencia de garrafa supera el 50 %**.
+Malargüe es el único departamento fuera del Gran Mendoza entre los cinco primeros. La garrafa supera el 50 % en cuatro departamentos: **Lavalle (72,3 %), Santa Rosa (62,8 %), Tupungato (57,7 %) y San Carlos (51,2 %)**.
 
 ---
 
-## 5. Conclusiones
+## 5. Conclusiones {#conclusiones}
 
-- El **acceso a agua segura** está consolidado en Mendoza (92 % en red pública) — una de las mejores coberturas del país.
-- El **saneamiento cloacal** es la brecha más urgente: 35,6 % sin red, ~720.000 personas afectadas.
-- El **gas de red** llega al 61 %, pero la tercera parte sigue con garrafa, con fuerte sesgo geográfico (Gran Mendoza vs interior).
-- El contraste **Gran Mendoza vs interior** se replica en cada uno de estos indicadores, pero Malargüe rompe el patrón en gas (por hidrocarburos).
+- El agua está muy extendida: 91,9 % por red pública y 94,6 % con cañería dentro de la vivienda.
+- La **cloaca** es la mayor brecha: 35,6 % de la población, más de 720 mil personas, no tiene desagüe a la red.
+- El **gas de red** llega al 60,7 %, con extremos que van de 82,7 % en Godoy Cruz a 22,2 % en Lavalle.

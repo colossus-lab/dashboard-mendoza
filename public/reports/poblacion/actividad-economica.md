@@ -7,47 +7,41 @@
 
 ---
 
-## 1. Tasas agregadas
+## 1. Tasas agregadas {#tasas}
 
 | Indicador | Valor |
 |---|---:|
-| Población 14 años y más | 1.594.198 |
-| **Población económicamente activa (PEA)** | **1.005.661 (63,1 %)** |
+| Población de 14 años y más | 1.594.198 |
+| **Población económicamente activa** | **1.005.661 (63,1 %)** |
 | · Ocupada | 909.742 |
 | · Desocupada | 95.919 |
 | Población no económicamente activa | 588.537 (36,9 %) |
 | **Tasa de actividad** | **63,1 %** |
 | **Tasa de empleo** | **57,1 %** |
-| **Tasa de desocupación** (sobre PEA) | **9,5 %** |
+| **Tasa de desocupación** (sobre activos) | **9,5 %** |
 
-La tasa de actividad mendocina (63,1 %) está en línea con la media nacional. La **tasa de desocupación censal del 9,5 %** es un dato puntual del momento del censo (mayo 2022) y debe leerse en complemento con la EPH del trimestre correspondiente. El **57,1 % tasa de empleo** indica que **6 de cada 10 personas en edad de trabajar tienen un empleo activo**.
+La tasa de desocupación censal es una medición puntual del momento del censo (mayo de 2022). No es directamente comparable con la de la Encuesta Permanente de Hogares, que usa otra metodología.
 
 ---
 
-## 2. Categoría ocupacional — entre los 909.742 ocupados
+## 2. Categoría ocupacional {#categoria}
 
 | Categoría | Cantidad | % |
 |---|---:|---:|
-| **Empleado/obrero** | **478.445** | **52,6 %** |
+| **Empleada/o u obrera/o** | **478.445** | **52,6 %** |
 | **Cuenta propia** | **276.895** | **30,4 %** |
 | Servicio doméstico | 61.287 | 6,7 % |
-| Patrón/empleador | 36.227 | 4,0 % |
-| Trabajador familiar | 28.059 | 3,1 % |
+| Patrón/a o empleador/a | 36.227 | 4,0 % |
+| Trabajador/a familiar | 28.059 | 3,1 % |
 | Ignorado | 28.829 | 3,2 % |
 
-La estructura ocupacional mendocina muestra:
-- **53 % en empleo registrado** (empleados/obreros) — el núcleo formal.
-- **30 % cuentapropistas** — característico de provincias con economía agrícola, vitivinícola, turística y de servicios.
-- **7 % servicio doméstico** — alto en términos comparativos.
-- **4 % patrón/empleador** — la base empresarial.
-
-La proporción de cuentapropistas (30 %) es notablemente más alta que el promedio nacional (~25 %) y refleja la estructura productiva de Mendoza, con fuerte peso de pymes vitivinícolas, frutícolas y de servicios al turismo.
+Más de la mitad de las personas ocupadas son empleadas u obreras, y 3 de cada 10 trabajan por cuenta propia. El censo mide la categoría ocupacional, no si el empleo está registrado: estas cifras no permiten hablar de empleo formal.
 
 ---
 
-## 3. Brechas departamentales — empleo y desocupación
+## 3. Diferencias entre departamentos {#departamentos}
 
-### Top 5 — Tasa de empleo más alta
+### Tasa de empleo más alta
 
 | Departamento | Tasa de empleo |
 |---|---:|
@@ -57,9 +51,9 @@ La proporción de cuentapropistas (30 %) es notablemente más alta que el promed
 | La Paz | 58,7 % |
 | Maipú | 58,5 % |
 
-### Top 5 — Tasa de desocupación más alta
+### Tasa de desocupación más alta
 
-| Departamento | Tasa de desocup. (sobre PEA) |
+| Departamento | Tasa de desocupación |
 |---|---:|
 | **San Martín** | **10,9 %** |
 | Las Heras | 10,2 % |
@@ -67,34 +61,33 @@ La proporción de cuentapropistas (30 %) es notablemente más alta que el promed
 | San Rafael | 9,9 % |
 | Godoy Cruz | 9,8 % |
 
-Patrón interesante: **Capital y Luján de Cuyo combinan alta tasa de empleo y baja desocupación**, mientras que **Las Heras y San Martín** tienen alta participación pero también más desempleo. **La Paz** llama la atención: pese a ser un departamento rural y aislado, registra alta tasa de empleo — explicado por la presencia de empleo público y agrícola.
+San Martín combina la desocupación más alta con una de las tasas de actividad más bajas (59,9 %). Capital tiene la mayor actividad (66,0 %) y el mayor empleo, aunque su desocupación (9,7 %) queda levemente por encima del promedio provincial. Las desocupaciones más bajas están en **San Carlos (6,6 %) y La Paz (7,2 %)**.
 
 ---
 
-## 4. Edad y ocupación
+## 4. Edad y ocupación {#edad}
 
-La población económicamente activa se distribuye por edad de manera bimodal:
-
-- **15-24 años**: alta participación (15-19: 41.322; 20-24: 88.127), con desocupación juvenil notablemente más alta que el promedio (~18 %).
-- **25-49 años**: el corazón del empleo, donde se concentra ~60 % de los ocupados.
-- **50-65+**: declive gradual, pero alta tasa de actividad de varones 50-64.
+- **Jóvenes**: la desocupación llega a 26,5 % entre los 15 y 19 años y a 18,6 % entre los 20 y 24.
+- **De 25 a 49 años**: concentran el 60,7 % de las personas ocupadas.
+- **De 50 a 59 años**: tienen las tasas de desocupación más bajas (5,9 %).
 
 ---
 
-## 5. Sexo
+## 5. Sexo {#sexo}
 
-A nivel agregado:
-- **Tasa de actividad masculina**: ~73 %
-- **Tasa de actividad femenina**: ~54 %
+| Indicador | Mujeres | Varones |
+|---|---:|---:|
+| Tasa de actividad | 54,2 % | 72,9 % |
+| Tasa de empleo | 47,1 % | 68,0 % |
+| Tasa de desocupación | 13,0 % | 6,7 % |
 
-La brecha de género en participación laboral es de ~19 puntos, alineada con el promedio nacional. Las mujeres están sobre-representadas en **servicio doméstico** (~95 % son mujeres) y **trabajadora familiar**, mientras que los varones predominan en **patrón/empleador** y **cuenta propia**.
+La brecha de actividad es de 18,7 puntos, y la desocupación de las mujeres casi duplica a la de los varones. El servicio doméstico es casi exclusivamente femenino: el 96,3 % son mujeres. Entre quienes son patrones o empleadores, el 67,7 % son varones.
 
 ---
 
-## 6. Conclusiones
+## 6. Conclusiones {#conclusiones}
 
-- Mendoza tiene **+1 millón de personas económicamente activas**, con una tasa de actividad de 63,1 %.
-- La estructura ocupacional combina **empleo registrado mayoritario (53 %)** con **fuerte presencia de cuentapropismo (30 %)** — característico de la economía vitivinícola y de servicios.
-- La **desocupación censal del 9,5 %** marca un piso de tensión laboral, con brechas internas significativas: **San Martín, Las Heras y Junín** son los departamentos más afectados.
-- **Capital lidera tasa de empleo (59,6 %)** y combina con baja desocupación — el polo laboral más sólido de la provincia.
-- La **brecha de género** en participación laboral es de ~19 puntos, alineada con el resto del país.
+- Mendoza tiene **más de 1 millón de personas activas**, con una tasa de actividad de 63,1 %.
+- El **30,4 % de las personas ocupadas trabaja por cuenta propia**.
+- La **desocupación censal es de 9,5 %**, con extremos de 10,9 % en San Martín y 6,6 % en San Carlos.
+- Las diferencias más marcadas son por edad y sexo: 26,5 % de desocupación entre los 15 y 19 años, y 18,7 puntos de brecha en la actividad.
