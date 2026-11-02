@@ -67,10 +67,9 @@ function processDepartamentos(provincial) {
   const lastYear = Math.max(...rows.map(r => +r.anio));
 
   const hechos = {};
-  const tasas = {};
   const homicidios = {};
   const robosHurtosTasa = {};
-  const tasaPorAnio = {};
+  const porAnio = {};
   let total = 0;
 
   for (const r of rows) {
@@ -78,12 +77,18 @@ function processDepartamentos(provincial) {
     const year = +r.anio;
     const h = num(r.cantidad_hechos);
     const t = num(r.tasa_hechos);
-    if (!tasaPorAnio[id]) tasaPorAnio[id] = {};
-    tasaPorAnio[id][year] = (tasaPorAnio[id][year] || 0) + t;
+    if (!porAnio[id]) porAnio[id] = {};
+    if (!porAnio[id][year]) porAnio[id][year] = { hechos: 0, hechosRef: 0, poblacion: 0 };
+    const acc = porAnio[id][year];
+    acc.hechos += h;
+    // Tasa total = hechos / población; suicidios (31) usa otra base.
+    if (r.codigo_delito_snic_id !== '31' && t > 0 && h > acc.hechosRef) {
+      acc.hechosRef = h;
+      acc.poblacion = (h / t) * 100000;
+    }
     if (year !== lastYear) continue;
     total += h;
     hechos[id] = (hechos[id] || 0) + h;
-    tasas[id] = (tasas[id] || 0) + t;
     if (r.codigo_delito_snic_nombre === 'Homicidios dolosos') homicidios[id] = (homicidios[id] || 0) + h;
     if (/^Robos \(excluye|^Hurtos$/.test(r.codigo_delito_snic_nombre)) robosHurtosTasa[id] = (robosHurtosTasa[id] || 0) + t;
   }
@@ -92,6 +97,11 @@ function processDepartamentos(provincial) {
     throw new Error(`El panel departamental suma ${total} en ${lastYear} y el provincial ${provincial[lastYear]}`);
   }
 
+  const tasaDe = (id, y) => {
+    const acc = porAnio[id]?.[y];
+    return acc?.poblacion ? (acc.hechos / acc.poblacion) * 100000 : 0;
+  };
+  const tasas = Object.fromEntries(Object.keys(hechos).map(id => [id, tasaDe(id, lastYear)]));
   const rankTasa = ranking(tasas);
   const rankHechos = ranking(hechos);
   const rankRobos = ranking(robosHurtosTasa);
@@ -99,11 +109,15 @@ function processDepartamentos(provincial) {
   const sinDeterminar = hechos[SIN_DETERMINAR] || 0;
   const concentracion = rankHechos.slice(0, 5).reduce((acc, r) => acc + r.value, 0);
 
-  // Series de los 5 departamentos con más hechos
-  const years = [...new Set(rows.map(r => +r.anio))].sort((a, b) => a - b);
+  // Series de los 5 departamentos con más hechos. Antes de 2009 la base no abre por
+  // departamento: todo figura "sin determinar".
+  const years = [...new Set(rows.map(r => +r.anio))]
+    .sort((a, b) => a - b)
+    .filter(y => Object.keys(NOMBRES).some(id => (porAnio[id]?.[y]?.hechos || 0) > 0));
+  console.log(`  Apertura departamental desde ${years[0]}`);
   const series = rankHechos.slice(0, 5).map(r => ({
     id: r.name,
-    data: years.map(y => ({ x: String(y), y: Math.round((tasaPorAnio[r.municipioId][y] || 0) * 10) / 10 })),
+    data: years.map(y => ({ x: String(y), y: Math.round(tasaDe(r.municipioId, y) * 10) / 10 })),
   }));
 
   const homTotales = Object.values(homicidios).reduce((a, b) => a + b, 0);

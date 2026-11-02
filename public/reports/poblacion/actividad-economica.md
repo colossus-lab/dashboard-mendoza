@@ -35,7 +35,7 @@ La tasa de desocupación censal es una medición puntual del momento del censo (
 | Trabajador/a familiar | 28.059 | 3,1 % |
 | Ignorado | 28.829 | 3,2 % |
 
-Más de la mitad de las personas ocupadas son empleadas u obreras, y 3 de cada 10 trabajan por cuenta propia. El censo mide la categoría ocupacional, no si el empleo está registrado: estas cifras no permiten hablar de empleo formal.
+Más de la mitad de las personas ocupadas son empleadas u obreras, y 3 de cada 10 trabajan por cuenta propia. Esta tabla no distingue empleo registrado. El censo sí pregunta por el descuento o aporte jubilatorio: al 66,0 % de las personas empleadas u obreras (315.803 de 478.445) les descuentan jubilación.
 
 ---
 

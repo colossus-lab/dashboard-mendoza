@@ -10,7 +10,7 @@
 ## 1. La foto de 2025 {#foto}
 
 - **145.678 hechos registrados**, un 0,9 % más que en 2024.
-- **Tasa de 7.117 hechos cada 100 mil habitantes**, frente a 4.213 en el total del país. Es la **2° tasa más alta de 24 jurisdicciones**.
+- **Tasa de 7.116 hechos cada 100 mil habitantes**, frente a 4.212 en el total del país. Es la **2° tasa más alta de 24 jurisdicciones**.
 - **63 homicidios dolosos**, con una tasa de 3,1 cada 100 mil (país: 3,5). Es la **11° tasa más alta de 24**.
 - **31,3 % de robos y hurtos**. Con "otros delitos contra la propiedad", el grupo llega a 48,2 %.
 - **17.570 estafas y defraudaciones**, dentro de "otros delitos contra la propiedad".
@@ -29,13 +29,13 @@ Los hechos registrados pasaron de 92.601 en 2000 a un **máximo de 152.086 en 20
 
 | Año | Hechos | Tasa cada 100 mil | Lectura |
 |---:|---:|---:|---|
-| 2014 | 152.086 | 8.161 | Máximo de la serie |
-| 2017 | 113.298 | 5.877 | Caída de 17,5 % respecto de 2016 |
-| 2020 | 111.076 | 5.582 | Primer año de la pandemia |
-| 2021 | 140.829 | 7.006 | Suba de 26,8 % |
-| 2023 | 151.452 | 7.435 | Segundo valor más alto |
+| 2014 | 152.086 | 8.160 | Máximo de la serie |
+| 2017 | 113.298 | 5.876 | Caída de 17,5 % respecto de 2016 |
+| 2020 | 111.076 | 5.581 | Primer año de la pandemia |
+| 2021 | 140.829 | 7.005 | Suba de 26,8 % |
+| 2023 | 151.452 | 7.434 | Segundo valor más alto |
 | 2024 | 144.319 | 7.067 | Baja de 4,7 % |
-| 2025 | 145.678 | 7.117 | Suba de 0,9 % |
+| 2025 | 145.678 | 7.116 | Suba de 0,9 % |
 
 Respecto de 2019, el último año antes de la pandemia, los hechos aumentaron **16,0 %**. Respecto del máximo de 2014, están un 4,2 % abajo.
 
@@ -67,7 +67,7 @@ Dentro de "otros delitos contra la propiedad", las **estafas y defraudaciones** 
 
 ## 4. Mendoza y el resto del país {#provincias}
 
-Con 7.117 hechos cada 100 mil habitantes, **Mendoza está 2° de 24 jurisdicciones**, detrás de Salta (11.629) y por delante de la Ciudad de Buenos Aires (6.893). Su tasa es un 69 % más alta que la del total del país.
+Con 7.116 hechos cada 100 mil habitantes, **Mendoza está 2° de 24 jurisdicciones**, detrás de Salta (11.628) y por delante de la Ciudad de Buenos Aires (6.893). Su tasa es un 69 % más alta que la del total del país.
 
 Esta comparación tiene un límite: el SNIC registra hechos conocidos por las autoridades. Las diferencias entre jurisdicciones pueden reflejar tanto más delitos como más denuncias y mejor registro.
 
@@ -75,7 +75,7 @@ Esta comparación tiene un límite: el SNIC registra hechos conocidos por las au
 
 ## 5. Homicidios dolosos {#homicidios}
 
-La tasa de 3,1 cada 100 mil ubica a Mendoza **11° de 24**, por debajo del total del país (3,5). Las tasas más altas son las de Neuquén (5,6), Santa Fe (5,3) y Santa Cruz (4,5), y las más bajas, las de Corrientes (0,9), San Luis (1,1) y Catamarca (1,4).
+La tasa de 3,1 cada 100 mil ubica a Mendoza **11° de 24**, por debajo del total del país (3,5). Las tasas más altas son las de Neuquén (5,5), Santa Fe (5,3) y Santa Cruz (4,5), y las más bajas, las de Corrientes (0,9), San Luis (1,1) y Catamarca (1,4).
 
 Los homicidios bajaron en la última década: de 168 en 2014 a 63 en 2025.
 
@@ -93,7 +93,7 @@ El SNIC desagrega de forma confiable las víctimas por sexo en homicidios doloso
 | **Mujeres** | **11 (17 %)** |
 | **Total** | 65 |
 
-Una de cada seis víctimas de homicidio doloso fue mujer. El SNIC no identifica femicidios: para eso hay que recurrir a registros específicos.
+Una de cada seis víctimas de homicidio doloso fue mujer. Estas bases del SNIC no identifican femicidios; el Ministerio los publica en un informe específico.
 
 ---
 

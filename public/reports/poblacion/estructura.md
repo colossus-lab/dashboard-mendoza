@@ -3,7 +3,7 @@
 ## Cuántos somos, dónde vivimos y cómo nos distribuimos por edad y sexo
 
 **Fuente**: Censo Nacional de Población, Hogares y Viviendas 2022 (INDEC). Cuadros `c2022_mendoza_est_*_13.xlsx`.
-**Cobertura**: 2.043.540 personas censadas en Mendoza. De ellas, 2.030.773 viven en viviendas particulares y 12.636 en viviendas colectivas (geriátricos, hospitales, hogares de menores, cuarteles). Las aperturas por sexo y edad suman 2.043.409 personas porque no incluyen a quienes viven en situación de calle.
+**Cobertura**: 2.043.540 personas censadas en Mendoza. De ellas, 2.030.773 viven en viviendas particulares y 12.636 en viviendas colectivas. Las aperturas por sexo y edad suman 2.043.409 personas porque no incluyen a quienes viven en situación de calle.
 
 ---
 
@@ -85,7 +85,7 @@ La densidad provincial de **13,7 hab/km²** esconde un contraste extremo:
 | 15-64 años | 1.319.994 | **64,6 %** |
 | 65 años o más | 253.400 | **12,4 %** |
 
-La cohorte de 0 a 4 años (131.049 personas) es **menor** que la de 35 a 39 (143.116), y la pirámide se angosta en su base. Es un rasgo habitual cuando la fecundidad baja.
+La cohorte de 0 a 4 años (131.049 personas) es **menor** que la de 35 a 39 (143.116), y la pirámide se angosta en su base.
 
 ### Edad mediana por departamento
 

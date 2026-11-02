@@ -20,7 +20,7 @@
 | 2023 | 119 | 5,84 |
 | 2024 | **121** | **5,92** |
 
-Las víctimas bajaron de 214 en 2017 a 121 en 2024, un 43 % menos. El mínimo fue en 2020, primer año de la pandemia. Desde entonces subieron levemente.
+Las víctimas bajaron de 214 en 2017 a 121 en 2024, un 43 % menos. El mínimo fue en 2020, primer año de la pandemia, con 101. Desde entonces subieron hasta 121.
 
 ---
 

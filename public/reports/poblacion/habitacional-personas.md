@@ -25,7 +25,7 @@
 
 ---
 
-## 2. Saneamiento: la mayor brecha {#saneamiento}
+## 2. Saneamiento: muy por debajo del agua {#saneamiento}
 
 | Indicador | Valor |
 |---|---:|
@@ -69,5 +69,5 @@ Malargüe es el único departamento fuera del Gran Mendoza entre los cinco prime
 ## 5. Conclusiones {#conclusiones}
 
 - El agua está muy extendida: 91,9 % por red pública y 94,6 % con cañería dentro de la vivienda.
-- La **cloaca** es la mayor brecha: 35,6 % de la población, más de 720 mil personas, no tiene desagüe a la red.
+- La **cloaca** queda muy por debajo del agua: 35,6 % de la población, más de 720 mil personas, no tiene desagüe a la red.
 - El **gas de red** llega al 60,7 %, con extremos que van de 82,7 % en Godoy Cruz a 22,2 % en Lavalle.

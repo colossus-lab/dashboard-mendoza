@@ -42,6 +42,7 @@ function useChartTheme() {
 
   return {
     colors: isDark ? COLORS : COLORS_LIGHT,
+    labelColor: isDark ? '#06090F' : '#FFFFFF',
     ink,
     isDark,
     tooltip,
@@ -167,7 +168,7 @@ function ChartRenderer({ chart }: { chart: ChartConfig }) {
 
 // ─── Bar Chart ───
 function BarChartView({ chart }: { chart: ChartConfig }) {
-  const { theme, colors, tooltip } = useChartTheme();
+  const { theme, colors, labelColor, tooltip } = useChartTheme();
   const mobile = useIsMobile();
   const format: ValueFormat = chart.config?.format ?? 'int';
   const indexBy = chart.config?.xAxis || 'id';
@@ -187,7 +188,7 @@ function BarChartView({ chart }: { chart: ChartConfig }) {
   const valueAxis = {
     tickSize: 0,
     tickPadding: 6,
-    tickValues: 4,
+    tickValues: mobile ? 3 : 4,
     format: (v: number) => formatCompact(v, format),
   };
   const categoryAxis = {
@@ -213,14 +214,14 @@ function BarChartView({ chart }: { chart: ChartConfig }) {
         valueFormat={fmt}
         axisBottom={isHorizontal ? valueAxis : categoryAxis}
         axisLeft={isHorizontal ? categoryAxis : valueAxis}
-        gridXValues={isHorizontal ? 4 : undefined}
+        gridXValues={isHorizontal ? (mobile ? 3 : 4) : undefined}
         gridYValues={isHorizontal ? undefined : 4}
         enableGridX={isHorizontal}
         enableGridY={!isHorizontal}
         theme={theme}
         labelSkipWidth={56}
         labelSkipHeight={14}
-        labelTextColor="#06090F"
+        labelTextColor={labelColor}
         animate={false}
         tooltip={({ id, value, indexValue }) => (
           <div style={tooltip}>
@@ -237,7 +238,7 @@ function BarChartView({ chart }: { chart: ChartConfig }) {
 
 // ─── Pie Chart ───
 function PieChartView({ chart }: { chart: ChartConfig }) {
-  const { theme, colors, tooltip } = useChartTheme();
+  const { theme, colors, labelColor, tooltip } = useChartTheme();
   const total = chart.config?.total ?? chart.data.reduce((a: number, d: { value: number }) => a + d.value, 0);
   const format = chart.config?.format;
 
@@ -253,7 +254,7 @@ function PieChartView({ chart }: { chart: ChartConfig }) {
           colors={colors}
           enableArcLinkLabels={false}
           arcLabelsSkipAngle={22}
-          arcLabelsTextColor="#06090F"
+          arcLabelsTextColor={labelColor}
           arcLabel={d => formatShare(d.value, total)}
           theme={theme}
           animate={false}

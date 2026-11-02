@@ -2,14 +2,14 @@
 
 ## Hechos delictivos registrados en cada uno de los 18 departamentos
 
-**Fuente**: Sistema Nacional de Información Criminal (SNIC), Ministerio de Seguridad de la Nación. Base departamental, 2000-2025.
+**Fuente**: Sistema Nacional de Información Criminal (SNIC), Ministerio de Seguridad de la Nación. Base departamental, con apertura por departamento desde 2009.
 **Cobertura**: 145.678 hechos registrados en 2025, el mismo total que la base provincial. Solo 9 figuran sin departamento determinado.
 
 ---
 
 ## 1. Tasas por departamento {#tasas}
 
-Capital registra **14.012 hechos cada 100 mil habitantes**, bastante por encima del segundo departamento: Tunuyán (8.449), seguido por Tupungato (8.157). Las tasas más bajas son las de Lavalle (4.766), Santa Rosa (5.322) y Junín (5.387).
+Capital registra **14.011 hechos cada 100 mil habitantes**, bastante por encima del segundo departamento: Tunuyán (8.449), seguido por Tupungato (8.157). Las tasas más bajas son las de Lavalle (4.766), Santa Rosa (5.322) y Junín (5.387).
 
 La tasa se calcula con la población residente. En un departamento con mucha circulación diaria, como Capital, se registran hechos que afectan también a quienes no viven allí, y eso puede elevarla.
 
@@ -37,9 +37,9 @@ Con tan pocos hechos, las tasas departamentales de homicidio cambian mucho de un
 
 ## 5. Tendencia {#tendencia}
 
-Entre los cinco departamentos con más casos, Capital tiene siempre la tasa más alta: 15.470 en 2023, 13.121 en 2024 y 14.012 en 2025.
+Entre los cinco departamentos con más casos, Capital tiene la tasa más alta desde 2009: 15.469 en 2023, 13.121 en 2024 y 14.011 en 2025.
 
-**Una serie para leer con cautela**: la tasa de San Rafael se multiplicó por tres entre 2017 (2.314) y 2025 (7.389). Los datos no permiten saber qué parte es un aumento real y qué parte es un cambio en el registro.
+**Una serie para leer con cautela**: la tasa de San Rafael cayó de 5.077 en 2009 a 2.313 en 2017, y subió a 7.388 en 2025. Los datos no permiten saber qué parte es un aumento real y qué parte es un cambio en el registro.
 
 ---
 
@@ -52,6 +52,6 @@ Entre los cinco departamentos con más casos, Capital tiene siempre la tasa más
 
 ## 7. Conclusiones {#conclusiones}
 
-- **Capital tiene la tasa más alta** (14.012 cada 100 mil), aunque **Guaymallén registra más hechos** (22.278).
+- **Capital tiene la tasa más alta** (14.011 cada 100 mil), aunque **Guaymallén registra más hechos** (22.278).
 - Cinco departamentos reúnen el **59,0 % de los hechos**, y tres, más de la mitad de los homicidios dolosos.
 - Las diferencias son amplias: la tasa de Capital casi triplica a la de Lavalle.

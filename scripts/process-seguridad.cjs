@@ -47,6 +47,19 @@ function num(v) {
   return Number.isFinite(n) ? n : 0;
 }
 
+// La tasa total es hechos / población. No se suman las tasas por delito porque la
+// de suicidios usa otra base (población de más de 5 años). La población sale de la
+// categoría con más hechos de cada año.
+function registrarPoblacion(acc, r, hechos, tasa) {
+  if (r.codigo_delito_snic_id === '31' || tasa <= 0 || hechos <= (acc.hechosRef || 0)) return;
+  acc.hechosRef = hechos;
+  acc.poblacion = (hechos / tasa) * 100000;
+}
+
+function tasaDesdePoblacion(acc) {
+  return acc.poblacion ? (acc.hechos / acc.poblacion) * 100000 : 0;
+}
+
 function signo(v) {
   return `${v >= 0 ? '+' : ''}${fmtDec(v)} %`;
 }
@@ -105,13 +118,18 @@ function processSNIC() {
     if (!provByYear[provNombre]) provByYear[provNombre] = {};
     if (!provByYear[provNombre][year]) provByYear[provNombre][year] = { hechos: 0, tasa: 0 };
     provByYear[provNombre][year].hechos += hechos;
-    provByYear[provNombre][year].tasa += tasa;
+    registrarPoblacion(provByYear[provNombre][year], r, hechos, tasa);
 
     if (/^Homicidios dolosos$/.test(delito)) {
       if (!homByYear[provNombre]) homByYear[provNombre] = {};
       homByYear[provNombre][year] = tasa;
     }
   }
+
+  for (const byYear of Object.values(provByYear)) {
+    for (const d of Object.values(byYear)) d.tasa = tasaDesdePoblacion(d);
+  }
+  for (const [y, d] of Object.entries(mendozaByYear)) d.tasaSum = provByYear.Mendoza[y].tasa;
 
   const years = Object.keys(mendozaByYear).map(Number).sort((a, b) => a - b);
   const lastYear = years[years.length - 1];
@@ -162,10 +180,12 @@ function processSNIC() {
   for (const r of readCsv(SNIC_PAIS_FILE)) {
     const y = parseInt(r.anio, 10);
     if (!y || esSubcategoria(r.codigo_delito_snic_id)) continue;
-    if (!paisByYear[y]) paisByYear[y] = { tasa: 0, hom: 0 };
-    paisByYear[y].tasa += num(r.tasa_hechos);
+    if (!paisByYear[y]) paisByYear[y] = { hechos: 0, tasa: 0, hom: 0 };
+    paisByYear[y].hechos += num(r.cantidad_hechos);
+    registrarPoblacion(paisByYear[y], r, num(r.cantidad_hechos), num(r.tasa_hechos));
     if (/^Homicidios dolosos$/.test(r.codigo_delito_snic_nombre)) paisByYear[y].hom = num(r.tasa_hechos);
   }
+  for (const d of Object.values(paisByYear)) d.tasa = tasaDesdePoblacion(d);
   if (!paisByYear[lastYear]) throw new Error(`El panel total país no tiene datos de ${lastYear}`);
 
   // Series temporales para Mendoza

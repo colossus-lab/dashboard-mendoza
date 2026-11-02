@@ -83,6 +83,6 @@ Capital tiene **58.152 viviendas** para **127.160 habitantes**: 2,19 habitantes 
 ## 6. Conclusiones {#conclusiones}
 
 - Mendoza tiene **702.009 viviendas**, de las cuales 639.467 tenían personas presentes al momento del censo.
-- El **82 % son casas**; los departamentos se concentran en Capital y Godoy Cruz.
+- El **82 % de las viviendas ocupadas son casas**; los departamentos pesan más en Capital y Godoy Cruz.
 - Hay **61.890 viviendas particulares sin personas presentes**, por uso temporal, oficina, alquiler o venta, construcción, ausencia u otra situación.
 - Guaymallén es el departamento con más viviendas (15,3 %).
