@@ -14,11 +14,9 @@ const ROOT = path.resolve(__dirname, '..', '..');
 // Cuadros del Censo: viven en <repo>/Poblacion/ (no se commitean).
 const CENSO_DIR = process.env.MENDOZA_CENSO_DIR || path.join(ROOT, 'Poblacion');
 
-// Datasets de seguridad: viven en el pipeline de OpenArg, hermano de DASHBOARDS/.
-const PIPELINE_DIR =
-  process.env.OPENARG_PIPELINE_DIR ||
-  path.resolve(ROOT, '..', '..', 'Pipelines de datos', 'Pipeline OpenArg');
-const SEG_BASE = path.join(PIPELINE_DIR, 'datos_abiertos', 'datasets', 'seguridad');
+// Bases del Ministerio de Seguridad: viven en <repo>/Seguridad/ (no se commitean).
+// Se bajan con npm run download-seguridad.
+const SEG_BASE = process.env.MENDOZA_SEGURIDAD_DIR || path.join(ROOT, 'Seguridad');
 
 // Busca un cuadro por nombre dentro de CENSO_DIR y sus subcarpetas.
 let censoIndex = null;

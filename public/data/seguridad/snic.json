@@ -1,64 +1,64 @@
 {
   "meta": {
     "id": "seguridad-snic",
-    "title": "Seguridad Ciudadana — Mendoza (SNIC 2000-2024)",
+    "title": "Seguridad Ciudadana — Mendoza (SNIC 2000-2025)",
     "category": "Seguridad",
     "subcategory": "SNIC Provincial",
     "source": "Sistema Nacional de Información Criminal (SNIC) — Ministerio de Seguridad de la Nación",
-    "date": "2024",
+    "date": "2025",
     "scope": "Provincia de Mendoza · SNIC. Los rankings comparan las 24 jurisdicciones del país."
   },
   "kpis": [
     {
       "id": "hechos-ult",
-      "label": "Hechos delictivos 2024",
-      "value": 145268,
-      "formatted": "145.268",
-      "comparison": "-4,1 % vs 2023",
-      "status": "good"
+      "label": "Hechos delictivos 2025",
+      "value": 145678,
+      "formatted": "145.678",
+      "comparison": "+0,9 % vs 2024",
+      "status": "warning"
     },
     {
       "id": "tasa-total",
-      "label": "Tasa 2024 cada 100 mil habitantes",
-      "value": 7024.212347957,
-      "formatted": "7.024",
-      "comparison": "Total país: 4.350"
+      "label": "Tasa 2025 cada 100 mil habitantes",
+      "value": 7116.678326261999,
+      "formatted": "7.117",
+      "comparison": "Total país: 4.213"
     },
     {
-      "id": "var-5y",
-      "label": "Variación 2019-2024",
-      "value": 15.626094431532364,
-      "formatted": "+15,6 %",
+      "id": "var-base",
+      "label": "Variación 2019-2025",
+      "value": 15.952434015727976,
+      "formatted": "+16,0 %",
       "status": "warning",
-      "comparison": "125.636 hechos en 2019"
+      "comparison": "125.636 hechos en 2019, antes de la pandemia"
     },
     {
       "id": "robos-hurtos",
       "label": "Robos y hurtos (% del total)",
-      "value": 35.91293333700471,
-      "formatted": "35,9 %",
-      "comparison": "52.170 hechos"
+      "value": 31.30603110970771,
+      "formatted": "31,3 %",
+      "comparison": "45.606 hechos"
     },
     {
       "id": "propiedad",
       "label": "Robos, hurtos y otros contra la propiedad (% del total)",
-      "value": 53.40336481537572,
-      "formatted": "53,4 %",
-      "comparison": "77.578 hechos"
+      "value": 48.197394253078706,
+      "formatted": "48,2 %",
+      "comparison": "70.213 hechos"
     },
     {
       "id": "homicidios",
-      "label": "Homicidios dolosos 2024",
-      "value": 69,
-      "formatted": "69",
+      "label": "Homicidios dolosos 2025",
+      "value": 63,
+      "formatted": "63",
       "status": "critical",
-      "comparison": "Tasa: 3,3 cada 100 mil · País: 3,7"
+      "comparison": "Tasa: 3,1 cada 100 mil · País: 3,5"
     },
     {
       "id": "pos-tasa-pais",
       "label": "Posición por tasa de hechos",
-      "value": 3,
-      "formatted": "3° de 24",
+      "value": 2,
+      "formatted": "2° de 24",
       "comparison": "1° = tasa más alta"
     },
     {
@@ -70,26 +70,26 @@
     },
     {
       "id": "estafas",
-      "label": "Estafas y defraudaciones 2024",
-      "value": 18908,
-      "formatted": "18.908",
+      "label": "Estafas y defraudaciones 2025",
+      "value": 17570,
+      "formatted": "17.570",
       "status": "warning",
-      "comparison": "Dentro de otros delitos contra la propiedad · 1.286 asistidas virtualmente"
+      "comparison": "Dentro de otros delitos contra la propiedad · 840 asistidas virtualmente"
     },
     {
       "id": "fem-homicidios",
-      "label": "Víctimas mujeres en homicidios 2024",
-      "value": 10,
-      "formatted": "10",
+      "label": "Víctimas mujeres en homicidios 2025",
+      "value": 11,
+      "formatted": "11",
       "status": "critical",
-      "comparison": "61 varones · 71 víctimas en 69 hechos"
+      "comparison": "54 varones · 65 víctimas en 63 hechos"
     }
   ],
   "charts": [
     {
       "id": "serie-hechos",
       "type": "line",
-      "title": "Hechos delictivos — Mendoza (2000-2024)",
+      "title": "Hechos delictivos — Mendoza (2000-2025)",
       "sectionId": "panorama",
       "data": [
         {
@@ -185,15 +185,19 @@
             },
             {
               "x": "2022",
-              "y": 145163
+              "y": 145162
             },
             {
               "x": "2023",
-              "y": 151443
+              "y": 151452
             },
             {
               "x": "2024",
-              "y": 145268
+              "y": 144319
+            },
+            {
+              "x": "2025",
+              "y": 145678
             }
           ]
         }
@@ -301,15 +305,19 @@
             },
             {
               "x": "2022",
-              "y": 7151.6
+              "y": 7141.8
             },
             {
               "x": "2023",
-              "y": 7390.5
+              "y": 7434.9
             },
             {
               "x": "2024",
-              "y": 7024.2
+              "y": 7067.4
+            },
+            {
+              "x": "2025",
+              "y": 7116.7
             }
           ]
         },
@@ -406,15 +414,19 @@
             },
             {
               "x": "2022",
-              "y": 3977.4
+              "y": 3985.8
             },
             {
               "x": "2023",
-              "y": 4277.3
+              "y": 4330.1
             },
             {
               "x": "2024",
-              "y": 4349.6
+              "y": 4471
+            },
+            {
+              "x": "2025",
+              "y": 4213
             }
           ]
         }
@@ -426,40 +438,40 @@
     {
       "id": "top-delitos",
       "type": "bar",
-      "title": "Principales delitos en Mendoza — 2024",
+      "title": "Principales delitos en Mendoza — 2025",
       "sectionId": "delitos",
       "data": [
         {
           "id": "Robos (excluye los agravados por el resultado de lesiones y/o muertes)",
-          "Hechos": 31234
+          "Hechos": 26973
         },
         {
           "id": "Otros delitos contra la propiedad",
-          "Hechos": 25408
-        },
-        {
-          "id": "Hurtos",
-          "Hechos": 20936
+          "Hechos": 24607
         },
         {
           "id": "Amenazas",
-          "Hechos": 17237
+          "Hechos": 19099
+        },
+        {
+          "id": "Hurtos",
+          "Hechos": 18633
         },
         {
           "id": "Lesiones dolosas",
-          "Hechos": 14876
+          "Hechos": 14803
         },
         {
           "id": "Lesiones culposas por otros hechos",
-          "Hechos": 9998
+          "Hechos": 12082
         },
         {
           "id": "Delitos contra la administración pública",
-          "Hechos": 6779
+          "Hechos": 8123
         },
         {
           "id": "Delitos previstos en otras leyes",
-          "Hechos": 4912
+          "Hechos": 6803
         }
       ],
       "config": {
@@ -471,47 +483,47 @@
     {
       "id": "apertura-propiedad",
       "type": "pie",
-      "title": "Qué incluye \"otros delitos contra la propiedad\" — 2024",
+      "title": "Qué incluye \"otros delitos contra la propiedad\" — 2025",
       "sectionId": "delitos",
       "data": [
         {
           "id": "Estafas y defraudaciones (no incluye virtuales) y usura",
-          "value": 17622
+          "value": 16730
         },
         {
           "id": "Daños (no incluye informáticos)",
-          "value": 4628
+          "value": 4877
         },
         {
           "id": "Otros delitos contra la propiedad",
-          "value": 1514
+          "value": 1649
         },
         {
           "id": "Estafas y defraudaciones asistidas virtualmente",
-          "value": 1286
+          "value": 840
         },
         {
           "id": "Extorsiones",
-          "value": 292
+          "value": 458
         },
         {
           "id": "Acceso ilegal a sistemas informáticos y daños informáticos",
-          "value": 55
+          "value": 51
         },
         {
           "id": "Secuestros extorsivos",
-          "value": 11
+          "value": 2
         }
       ],
       "config": {
-        "total": 25408,
+        "total": 24607,
         "format": "int"
       }
     },
     {
       "id": "serie-homicidios",
       "type": "line",
-      "title": "Homicidios dolosos — Mendoza (2000-2024)",
+      "title": "Homicidios dolosos — Mendoza (2000-2025)",
       "sectionId": "homicidios",
       "data": [
         {
@@ -607,15 +619,19 @@
             },
             {
               "x": "2022",
-              "y": 67
+              "y": 66
             },
             {
               "x": "2023",
-              "y": 64
+              "y": 63
             },
             {
               "x": "2024",
               "y": 69
+            },
+            {
+              "x": "2025",
+              "y": 63
             }
           ]
         }
@@ -628,105 +644,105 @@
   "rankings": [
     {
       "id": "rank-prov-tasa",
-      "title": "Jurisdicciones por tasa de hechos cada 100 mil (2024)",
+      "title": "Jurisdicciones por tasa de hechos cada 100 mil (2025)",
       "sectionId": "provincias",
       "items": [
         {
           "name": "Salta",
-          "value": 10905.211336056
-        },
-        {
-          "name": "Ciudad Autónoma de Buenos Aires",
-          "value": 7452.986465751998
+          "value": 11629.414299329
         },
         {
           "name": "Mendoza",
-          "value": 7024.212347957,
+          "value": 7116.678326261999,
           "municipioId": "50"
         },
         {
+          "name": "Ciudad Autónoma de Buenos Aires",
+          "value": 6893.440447571002
+        },
+        {
           "name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
-          "value": 6233.206060420001
+          "value": 6177.344954065
         },
         {
           "name": "Jujuy",
-          "value": 6173.405312700001
-        },
-        {
-          "name": "Córdoba",
-          "value": 5697.798420688999
-        },
-        {
-          "name": "Catamarca",
-          "value": 5481.7599331400015
-        },
-        {
-          "name": "San Juan",
-          "value": 4918.82417032
+          "value": 5743.74256876
         },
         {
           "name": "Tucumán",
-          "value": 4908.741147172
+          "value": 5127.477412181999
         },
         {
-          "name": "Formosa",
-          "value": 4562.349263079999
+          "name": "Córdoba",
+          "value": 5047.949970048001
         },
         {
           "name": "Chubut",
-          "value": 4424.8717692
+          "value": 4732.63939412
         },
         {
-          "name": "Neuquén",
-          "value": 4389.75439889
+          "name": "Catamarca",
+          "value": 4704.340629299
         },
         {
           "name": "La Pampa",
-          "value": 4263.684502030001
+          "value": 4581.528366947
+        },
+        {
+          "name": "Formosa",
+          "value": 4478.229438671
+        },
+        {
+          "name": "San Juan",
+          "value": 4253.030169084999
         },
         {
           "name": "Santiago del Estero",
-          "value": 4163.663605885999
-        },
-        {
-          "name": "San Luis",
-          "value": 4128.632417089999
-        },
-        {
-          "name": "Entre Ríos",
-          "value": 3911.7043383
-        },
-        {
-          "name": "Santa Fe",
-          "value": 3828.266015836001
+          "value": 4244.008110484001
         },
         {
           "name": "Santa Cruz",
-          "value": 3710.96714527
+          "value": 4229.733392486999
         },
         {
-          "name": "Río Negro",
-          "value": 3692.4310937300006
+          "name": "San Luis",
+          "value": 3760.3784056749996
+        },
+        {
+          "name": "Neuquén",
+          "value": 3738.7859768880003
+        },
+        {
+          "name": "Santa Fe",
+          "value": 3669.825030371
         },
         {
           "name": "La Rioja",
-          "value": 3242.21487085
+          "value": 3597.0348350599998
+        },
+        {
+          "name": "Entre Ríos",
+          "value": 3484.3820844389998
+        },
+        {
+          "name": "Río Negro",
+          "value": 3334.847361027
         },
         {
           "name": "Buenos Aires",
-          "value": 3076.8733054782006
-        },
-        {
-          "name": "Chaco",
-          "value": 2852.633873042
+          "value": 3022.793087382999
         },
         {
           "name": "Misiones",
-          "value": 2535.6583678730003
+          "value": 2443.3398705699997
+        },
+        {
+          "name": "Chaco",
+          "value": 2407.6520415950004
         },
         {
           "name": "Corrientes",
-          "value": 2080.1577013669994
+          "value": 1940.9159932579998
         }
       ],
       "order": "desc",
@@ -734,105 +750,105 @@
     },
     {
       "id": "rank-prov-hom",
-      "title": "Jurisdicciones por tasa de homicidios cada 100 mil (2024)",
+      "title": "Jurisdicciones por tasa de homicidios cada 100 mil (2025)",
       "sectionId": "homicidios",
       "items": [
         {
-          "name": "Santa Fe",
-          "value": 4.6402273
-        },
-        {
-          "name": "Chaco",
-          "value": 4.4800286
-        },
-        {
-          "name": "Buenos Aires",
-          "value": 4.3404565
-        },
-        {
           "name": "Neuquén",
-          "value": 4.305192
+          "value": 5.549105313
         },
         {
-          "name": "Salta",
-          "value": 4.2853851
-        },
-        {
-          "name": "Chubut",
-          "value": 4.2470317
-        },
-        {
-          "name": "Río Negro",
-          "value": 4.2053485
-        },
-        {
-          "name": "Tucumán",
-          "value": 3.553941
-        },
-        {
-          "name": "Formosa",
-          "value": 3.3675163
-        },
-        {
-          "name": "Entre Ríos",
-          "value": 3.3445351
-        },
-        {
-          "name": "Mendoza",
-          "value": 3.3359182,
-          "municipioId": "50"
-        },
-        {
-          "name": "Santiago del Estero",
-          "value": 3.2434728
-        },
-        {
-          "name": "Misiones",
-          "value": 3.1946111
-        },
-        {
-          "name": "Córdoba",
-          "value": 2.915982
-        },
-        {
-          "name": "San Luis",
-          "value": 2.8135357
-        },
-        {
-          "name": "Corrientes",
-          "value": 2.7648511
-        },
-        {
-          "name": "Ciudad Autónoma de Buenos Aires",
-          "value": 2.4631476
-        },
-        {
-          "name": "Jujuy",
-          "value": 1.9912708
-        },
-        {
-          "name": "Catamarca",
-          "value": 1.8638982
+          "name": "Santa Fe",
+          "value": 5.265259142
         },
         {
           "name": "Santa Cruz",
-          "value": 1.4925967
+          "value": 4.478240231
         },
         {
-          "name": "La Pampa",
-          "value": 1.3511797
+          "name": "Buenos Aires",
+          "value": 4.24803186
         },
         {
-          "name": "San Juan",
-          "value": 1.2286854
+          "name": "Chaco",
+          "value": 4.223224755
         },
         {
-          "name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
-          "value": 1.0493125
+          "name": "Jujuy",
+          "value": 3.496748024
+        },
+        {
+          "name": "Chubut",
+          "value": 3.486356724
+        },
+        {
+          "name": "Misiones",
+          "value": 3.272913369
+        },
+        {
+          "name": "Río Negro",
+          "value": 3.169941851
+        },
+        {
+          "name": "Salta",
+          "value": 3.16175328
+        },
+        {
+          "name": "Mendoza",
+          "value": 3.077402535,
+          "municipioId": "50"
+        },
+        {
+          "name": "Formosa",
+          "value": 3.03200037
         },
         {
           "name": "La Rioja",
-          "value": 0.96680242
+          "value": 2.725626089
+        },
+        {
+          "name": "Tucumán",
+          "value": 2.650026754
+        },
+        {
+          "name": "Ciudad Autónoma de Buenos Aires",
+          "value": 2.40285173
+        },
+        {
+          "name": "Córdoba",
+          "value": 2.375197881
+        },
+        {
+          "name": "Entre Ríos",
+          "value": 2.330072602
+        },
+        {
+          "name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+          "value": 2.197765971
+        },
+        {
+          "name": "Santiago del Estero",
+          "value": 1.987179851
+        },
+        {
+          "name": "La Pampa",
+          "value": 1.592382044
+        },
+        {
+          "name": "San Juan",
+          "value": 1.413232805
+        },
+        {
+          "name": "Catamarca",
+          "value": 1.366667881
+        },
+        {
+          "name": "San Luis",
+          "value": 1.119041802
+        },
+        {
+          "name": "Corrientes",
+          "value": 0.913693356
         }
       ],
       "order": "desc",
@@ -843,10 +859,10 @@
     {
       "municipioId": "50",
       "municipioNombre": "Mendoza",
-      "value": 145268,
-      "formatted": "145.268",
-      "caption": "Hechos delictivos en Mendoza 2024",
-      "label": "145.268 · Hechos delictivos en Mendoza 2024"
+      "value": 145678,
+      "formatted": "145.678",
+      "caption": "Hechos delictivos en Mendoza 2025",
+      "label": "145.678 · Hechos delictivos en Mendoza 2025"
     }
   ]
 }

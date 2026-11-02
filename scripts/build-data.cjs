@@ -8,7 +8,7 @@
  *
  * Fuentes:
  *   - Censo: <repo>/Poblacion/ (o MENDOZA_CENSO_DIR)
- *   - Seguridad: <Laboratorio>/Pipelines de datos/Pipeline OpenArg (o OPENARG_PIPELINE_DIR)
+ *   - Seguridad: <repo>/Seguridad/ (o MENDOZA_SEGURIDAD_DIR); ver npm run download-seguridad
  */
 
 const { execSync } = require("child_process");

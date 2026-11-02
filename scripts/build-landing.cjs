@@ -29,7 +29,7 @@ const REPORTS = {
   'poblacion-fecundidad': ['poblacion/fecundidad.json', r => `${kpi(r, 'promedio-hijos')} hijos por mujer`],
   'seguridad-snic': ['seguridad/snic.json', r => `${kpi(r, 'pos-tasa-pais')} en tasa de hechos`],
   'seguridad-departamentos': ['seguridad/departamentos.json', r => `${kpi(r, 'hechos')} hechos`],
-  'seguridad-viales': ['seguridad/viales.json', r => `${kpi(r, 'victimas-ult')} víctimas en 2023`],
+  'seguridad-viales': ['seguridad/viales.json', r => `${kpi(r, 'victimas-ult')} víctimas en ${r.meta.date}`],
 };
 
 const miniStats = {};

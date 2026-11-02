@@ -23,9 +23,9 @@
 
 | # | Informe | Qué responde |
 |---|---|---|
-| 9 | Hechos delictivos en la provincia | Serie 2000-2024 y comparación con las 24 jurisdicciones. |
+| 9 | Hechos delictivos en la provincia | Serie 2000-2025 y comparación con las 24 jurisdicciones. |
 | 10 | Seguridad por departamento | Tasas, cantidades, robos, hurtos y homicidios en los 18 departamentos. |
-| 11 | Muertes viales | Víctimas fatales 2017-2023, por año, departamento y tipo de usuario. |
+| 11 | Muertes viales | Víctimas fatales 2017-2024, por año, departamento y tipo de usuario. |
 
 ## Cómo se lee un informe
 
@@ -36,8 +36,8 @@ Todos siguen la misma estructura: foto y cifra destacada, indicadores, índice y
 | Fuente | Período | Uso |
 |---|---|---|
 | INDEC, Censo 2022 | 2022 | Informes de población. Cuadros `c2022_mendoza_*_13.xlsx`. |
-| SNIC, Ministerio de Seguridad | 2000-2024 | Hechos delictivos por provincia, departamento y total país. |
-| SNIC-SAT, Ministerio de Seguridad | 2017-2023 | Muertes viales. |
+| SNIC, Ministerio de Seguridad | 2000-2025 | Hechos delictivos por provincia, departamento y total país. |
+| SNIC-SAT, Ministerio de Seguridad | 2017-2024 | Muertes viales. |
 | IGN / JGM | 2024 | Geometría de los 18 departamentos. |
 
 Autores y licencias de las fotos, y detalle de fuentes, en [/creditos](https://mendoza.openarg.org/creditos).
@@ -45,7 +45,7 @@ Autores y licencias de las fotos, y detalle de fuentes, en [/creditos](https://m
 ## Limitaciones
 
 - **El SNIC depende de la denuncia y del registro.** Una variación puede reflejar cambios reales o cambios en cómo se denuncia y se carga.
-- **Categorías y subcategorías del SNIC.** Desde 2017, el panel provincial publica ambas como filas separadas. Los totales suman solo categorías; sumar todas las filas cuenta dos veces. El método se validó contra el total oficial de Mendoza 2023 (151.443).
+- **Categorías y subcategorías del SNIC.** Desde 2017, la base provincial publica ambas como filas separadas. Los totales suman solo categorías; sumar todas las filas cuenta dos veces, como advierte el manual del SNIC.
 - **La fecundidad del censo es acumulada**, no la tasa global de fecundidad, que surge de estadísticas vitales.
 - **La desocupación censal** es una medición puntual, no comparable directamente con la de la EPH.
 - **El nivel mínimo es el departamento.** No hay datos por barrio ni radio censal.
@@ -74,6 +74,7 @@ npm install @rollup/rollup-win32-arm64-msvc --no-save
 | Comando | Qué hace |
 |---|---|
 | `npm run build-data` | Regenera JSON, portada y sitemap desde las fuentes. Falla con código 1 si algo se rompe. |
+| `npm run download-seguridad` | Baja las bases actuales del Ministerio de Seguridad a `Seguridad/`. |
 | `npm run build-images` | Baja las fotos de Commons, genera WebP y actualiza los créditos. |
 | `npm run validate` | Controla informes, totales, mapas, fotos, rutas y emojis. |
 | `npm run check` | `validate` + TypeScript + build. Es lo que corre en CI. |
@@ -81,7 +82,7 @@ npm install @rollup/rollup-win32-arm64-msvc --no-save
 `build-data` necesita las fuentes, que no están en el repo:
 
 - **Censo:** cuadros de INDEC en `Poblacion/`, o donde indique `MENDOZA_CENSO_DIR`.
-- **Seguridad:** el pipeline de OpenArg en `../../Pipelines de datos/Pipeline OpenArg`, o donde indique `OPENARG_PIPELINE_DIR`.
+- **Seguridad:** bases del Ministerio en `Seguridad/`, o donde indique `MENDOZA_SEGURIDAD_DIR`. Se bajan con `npm run download-seguridad`.
 
 ### Agregar un informe
 

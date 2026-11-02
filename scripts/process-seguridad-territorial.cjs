@@ -4,9 +4,10 @@
 //   public/data/seguridad/departamentos.json  SNIC departamental
 //   public/data/seguridad/viales.json         Muertes viales (SNIC-SAT)
 //
-// El panel departamental no repite categorías y subcategorías: sus filas se
-// pueden sumar directamente. El provincial sí (ver process-seguridad.cjs).
-// El total de ambos debe coincidir; si no, el script falla.
+// La base departamental solo trae el nivel más desagregado, así que sus filas se
+// suman directamente. La provincial repite categorías y subcategorías: suma solo
+// categorías (ver process-seguridad.cjs). Ambos totales deben coincidir; si no,
+// el script falla.
 // ════════════════════════════════════════════════════════════════════
 
 const fs = require('fs');
@@ -28,31 +29,20 @@ const SOURCE_SAT = 'Sistema de Alerta Temprana de Muertes Viales (SNIC-SAT) — 
 const SIN_DETERMINAR = '50999';
 const NOMBRES = Object.fromEntries(MENDOZA_DEPTOS.map(d => [d.codigo, d.nombre]));
 
-const DEP_FILE = path.join(
-  SEG_BASE,
-  'seguridad-snic-departamental-estadisticas-criminales-republica-argentina-por-departamentos',
-  'estadísticas-criminales-en-la-república-argentina-por-departamentos-(panel)-(.csv).csv'
-);
-const PROV_FILE = path.join(
-  SEG_BASE,
-  'seguridad-snic-provincial-estadisticas-criminales-republica-argentina-por-provincias',
-  'estadísticas-criminales-en-la-república-argentina-por-provincias-(panel)-(.csv).csv'
-);
-const VIALES_FILE = path.join(
-  SEG_BASE,
-  'seguridad-muertes-viales-sistema-alerta-temprana-estadisticas-criminales-republica-argentina',
-  'hechos-y-víctimas-de-muertes-viales-en-la-república-argentina.-total-nacional-(panel)-(.csv).csv'
-);
+const DEP_FILE = path.join(SEG_BASE, 'snic-departamentos-anual.csv');
+const PROV_FILE = path.join(SEG_BASE, 'snic-provincias.csv');
+const VIALES_FILE = path.join(SEG_BASE, 'SAT-MV-BU.csv');
 
-function readCsv(file, delimiter) {
-  const content = fs.readFileSync(file, 'utf8').replace(/^﻿/, '');
+function readCsv(file, delimiter, encoding = 'utf8') {
+  const content = fs.readFileSync(file, encoding).replace(/^\uFEFF/, '');
   return Papa.parse(content, { header: true, skipEmptyLines: true, delimiter }).data;
 }
 
 const num = v => {
-  const n = Number(v);
+  const n = Number(String(v).replace(',', '.'));
   return Number.isFinite(n) ? n : 0;
 };
+const esSubcategoria = id => String(id).includes('_');
 const esMendoza = r => String(r.provincia_id).padStart(2, '0') === '50';
 
 function ranking(valores, order = 'desc') {
@@ -177,7 +167,7 @@ function processDepartamentos(provincial) {
 // ════════════════════════════════════════════════════════════════════
 function processViales(poblacionPorProvincia, poblacionDepto) {
   console.log('\n─── Muertes viales ───');
-  const victimas = readCsv(VIALES_FILE, ';').filter(r => r.tipo_persona === 'Víctima');
+  const victimas = readCsv(VIALES_FILE, ',').filter(r => r.tipo_persona === 'Víctima');
   const mendoza = victimas.filter(esMendoza);
   const years = [...new Set(victimas.map(r => +r.anio))].sort((a, b) => a - b);
   const lastYear = years[years.length - 1];
@@ -274,11 +264,11 @@ function processViales(poblacionPorProvincia, poblacionDepto) {
 
 function main() {
   // Panel provincial: total por año (solo categorías) y población implícita.
-  const provinciales = readCsv(PROV_FILE, ',');
+  const provinciales = readCsv(PROV_FILE, ';', 'latin1');
   const totalMendoza = {};
   const poblacion = {};
   for (const r of provinciales) {
-    if (String(r.codigo_delito_snic_id).includes('_')) continue;
+    if (esSubcategoria(r.codigo_delito_snic_id)) continue;
     if (esMendoza(r)) totalMendoza[+r.anio] = (totalMendoza[+r.anio] || 0) + num(r.cantidad_hechos);
     if (r.codigo_delito_snic_nombre === 'Lesiones dolosas' && num(r.tasa_hechos) > 0) {
       if (!poblacion[+r.anio]) poblacion[+r.anio] = {};

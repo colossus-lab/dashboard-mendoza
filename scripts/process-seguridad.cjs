@@ -1,12 +1,14 @@
 // ════════════════════════════════════════════════════════════════════
 // process-seguridad.cjs — Dashboard Mendoza
-// Procesa SNIC provincial 2000–2024 (Ministerio de Seguridad de la Nación).
+// Procesa SNIC provincial (Ministerio de Seguridad de la Nación).
 // Genera 1 informe: SNIC para Mendoza con comparativa contra 24 jurisdicciones.
 //
-// Atención: desde 2017 el panel publica categorías (ej. 21) y sus subcategorías
+// Fuente: bases del Ministerio de Seguridad (npm run download-seguridad).
+//
+// Atención: desde 2017 la base publica categorías (ej. 21) y sus subcategorías
 // (ej. 21_3) como filas separadas. Los totales suman SOLO categorías: si se suman
-// todas las filas se cuenta dos veces. Verificado contra el informe oficial del
-// SNIC para Mendoza 2023: "Total de hechos: 151.443".
+// todas las filas se cuenta dos veces, como advierte el manual del SNIC.
+// Verificado contra el informe oficial para Mendoza 2023: "Total de hechos: 151.443".
 //
 // Output: public/data/seguridad/snic.json
 // ════════════════════════════════════════════════════════════════════
@@ -23,16 +25,8 @@ const {
   buildFeatured,
 } = require('./lib/mendoza-utils.cjs');
 
-const SNIC_FILE = path.join(
-  SEG_BASE,
-  'seguridad-snic-provincial-estadisticas-criminales-republica-argentina-por-provincias',
-  'estadísticas-criminales-en-la-república-argentina-por-provincias-(panel)-(.csv).csv'
-);
-const SNIC_PAIS_FILE = path.join(
-  SEG_BASE,
-  'seguridad-snic-total-pais-estadisticas-criminales-republica-argentina',
-  'estadísticas-criminales-en-la-república-argentina-(panel)-(.csv).csv'
-);
+const SNIC_FILE = path.join(SEG_BASE, 'snic-provincias.csv');
+const SNIC_PAIS_FILE = path.join(SEG_BASE, 'snic-pais.csv');
 const OUT_DIR = path.join(__dirname, '..', 'public', 'data', 'seguridad');
 
 const MENDOZA_PROV_ID = '50';
@@ -40,15 +34,16 @@ const SOURCE = 'Sistema Nacional de Información Criminal (SNIC) — Ministerio 
 
 const esSubcategoria = id => String(id).includes('_');
 
-function readCsv(file) {
-  const content = fs.readFileSync(file, 'utf8').replace(/^﻿/, '');
-  const parsed = Papa.parse(content, { header: true, skipEmptyLines: true, delimiter: ',' });
+// La base de provincias viene en Latin-1 con ";" y coma decimal; la de país, en UTF-8 con ",".
+function readCsv(file, { delimiter = ',', encoding = 'utf8' } = {}) {
+  const content = fs.readFileSync(file, encoding).replace(/^\uFEFF/, '');
+  const parsed = Papa.parse(content, { header: true, skipEmptyLines: true, delimiter });
   return parsed.data;
 }
 
 function num(v) {
   if (v == null || v === '') return 0;
-  const n = Number(v);
+  const n = Number(String(v).replace(',', '.'));
   return Number.isFinite(n) ? n : 0;
 }
 
@@ -59,7 +54,7 @@ function signo(v) {
 function processSNIC() {
   console.log('\n─── SNIC Provincial ───');
   console.log('Leyendo:', SNIC_FILE);
-  const rows = readCsv(SNIC_FILE);
+  const rows = readCsv(SNIC_FILE, { delimiter: ';', encoding: 'latin1' });
   console.log(`  ${rows.length} filas leídas`);
 
   // Agregaciones:
@@ -122,14 +117,16 @@ function processSNIC() {
   const lastYear = years[years.length - 1];
   const last = mendozaByYear[lastYear] || {};
   const prev = mendozaByYear[lastYear - 1] || {};
-  const fiveYearsAgo = mendozaByYear[lastYear - 5] || {};
+  // Base de comparación: último año previo a la pandemia.
+  const BASE_YEAR = 2019;
+  const baseYear = mendozaByYear[BASE_YEAR] || {};
 
   const delitoEnAnio = (year, patron) => Object.entries(mendozaByYear[year]?.delitos || {})
     .filter(([nombre]) => patron.test(nombre))
     .reduce((acc, [, hechos]) => acc + hechos, 0);
 
   const variacionAnual = prev.hechos ? ((last.hechos - prev.hechos) / prev.hechos) * 100 : null;
-  const variacion5y = fiveYearsAgo.hechos ? ((last.hechos - fiveYearsAgo.hechos) / fiveYearsAgo.hechos) * 100 : null;
+  const variacionBase = baseYear.hechos ? ((last.hechos - baseYear.hechos) / baseYear.hechos) * 100 : null;
 
   const totalHechos = last.hechos || 0;
   const homicidios = last.homicidios || 0;
@@ -203,7 +200,7 @@ function processSNIC() {
     kpis: [
       { id: 'hechos-ult', label: `Hechos delictivos ${lastYear}`, value: totalHechos, formatted: fmtInt(totalHechos), comparison: variacionAnual != null ? `${signo(variacionAnual)} vs ${lastYear - 1}` : undefined, status: variacionAnual != null && variacionAnual < 0 ? 'good' : 'warning' },
       { id: 'tasa-total', label: `Tasa ${lastYear} cada 100 mil habitantes`, value: tasaTotal, formatted: fmtInt(tasaTotal), comparison: `Total país: ${fmtInt(paisByYear[lastYear].tasa)}` },
-      { id: 'var-5y', label: `Variación ${lastYear - 5}-${lastYear}`, value: variacion5y, formatted: variacion5y != null ? signo(variacion5y) : '—', status: variacion5y != null && variacion5y < 0 ? 'good' : 'warning', comparison: `${fmtInt(fiveYearsAgo.hechos)} hechos en ${lastYear - 5}` },
+      { id: 'var-base', label: `Variación ${BASE_YEAR}-${lastYear}`, value: variacionBase, formatted: variacionBase != null ? signo(variacionBase) : '—', status: variacionBase != null && variacionBase < 0 ? 'good' : 'warning', comparison: `${fmtInt(baseYear.hechos)} hechos en ${BASE_YEAR}, antes de la pandemia` },
       { id: 'robos-hurtos', label: 'Robos y hurtos (% del total)', value: pctRobosHurtos, formatted: fmtPct(pctRobosHurtos), comparison: `${fmtInt(robosHurtos)} hechos` },
       { id: 'propiedad', label: 'Robos, hurtos y otros contra la propiedad (% del total)', value: pctPropiedad, formatted: fmtPct(pctPropiedad), comparison: `${fmtInt(propiedad)} hechos` },
       { id: 'homicidios', label: `Homicidios dolosos ${lastYear}`, value: homicidios, formatted: fmtInt(homicidios), status: 'critical', comparison: `Tasa: ${fmtDec(tasaHomicidios)} cada 100 mil · País: ${fmtDec(paisByYear[lastYear].hom)}` },

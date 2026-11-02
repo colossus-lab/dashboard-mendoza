@@ -4,6 +4,7 @@
 # (Vercel hace match case-insensitive de los patrones gitignore-style).
 # Los JSONs procesados viven en public/data/ y sí se publican.
 /Poblacion/
+/Seguridad/
 
 # Archivos de desarrollo
 .vscode/
