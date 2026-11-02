@@ -5,7 +5,8 @@
     "category": "Población",
     "subcategory": "Habitacional Personas",
     "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
-    "date": "2026-05-07"
+    "date": "2022-05-18",
+    "scope": "Provincia de Mendoza · Censo 2022. Los rankings y mapas comparan los 18 departamentos."
   },
   "kpis": [
     {
@@ -17,10 +18,27 @@
     },
     {
       "id": "agua-canieria",
-      "label": "Acceso a agua por cañería",
+      "label": "Agua por cañería dentro de la vivienda",
       "value": 94.5853130802901,
       "formatted": "94,6%",
-      "status": "good"
+      "status": "good",
+      "comparison": "1.920.813 personas"
+    },
+    {
+      "id": "agua-red",
+      "label": "Agua de red pública",
+      "value": 91.92292787032326,
+      "formatted": "91,9%",
+      "status": "good",
+      "comparison": "1.866.746 personas"
+    },
+    {
+      "id": "cloaca",
+      "label": "Desagüe a red cloacal",
+      "value": 64.43093344258565,
+      "formatted": "64,4%",
+      "status": "warning",
+      "comparison": "722.327 personas sin red"
     },
     {
       "id": "gas-red",
@@ -63,97 +81,85 @@
           "value": 14399
         },
         {
-          "id": "Transporte por cisterna, agua ",
+          "id": "Cisterna, lluvia, río, canal o acequia",
           "value": 28797
         },
         {
           "id": "Otra procedencia",
           "value": 24664
         }
-      ]
+      ],
+      "config": {
+        "total": 2030773,
+        "format": "int"
+      }
     },
     {
-      "id": "rank-gas-red",
-      "type": "bar",
-      "title": "% de población con gas de red por departamento",
-      "sectionId": "departamentos",
+      "id": "desague",
+      "type": "pie",
+      "title": "Desagüe del inodoro — Mendoza",
+      "sectionId": "saneamiento",
       "data": [
         {
-          "id": "Godoy Cruz",
-          "% Gas red": 82.68836382139938
+          "id": "Red pública (cloaca)",
+          "value": 1308446
         },
         {
-          "id": "Capital",
-          "% Gas red": 78.43592127066242
+          "id": "Cámara séptica y pozo ciego",
+          "value": 402701
         },
         {
-          "id": "Malargüe",
-          "% Gas red": 72.35243588170329
+          "id": "Solo pozo ciego",
+          "value": 274727
         },
         {
-          "id": "Guaymallén",
-          "% Gas red": 70.26312754970066
+          "id": "Hoyo o excavación",
+          "value": 24754
         },
         {
-          "id": "Las Heras",
-          "% Gas red": 63.9119223055179
-        },
-        {
-          "id": "Luján de Cuyo",
-          "% Gas red": 62.92478022841118
-        },
-        {
-          "id": "La Paz",
-          "% Gas red": 58.44566483607922
-        },
-        {
-          "id": "Maipú",
-          "% Gas red": 57.81065115790339
-        },
-        {
-          "id": "General Alvear",
-          "% Gas red": 55.014414173619194
-        },
-        {
-          "id": "Rivadavia",
-          "% Gas red": 51.423988425671105
-        },
-        {
-          "id": "San Rafael",
-          "% Gas red": 51.32455301026248
-        },
-        {
-          "id": "Tunuyán",
-          "% Gas red": 47.338758087107315
-        },
-        {
-          "id": "Junín",
-          "% Gas red": 46.82819762437597
-        },
-        {
-          "id": "San Carlos",
-          "% Gas red": 45.212819480780844
-        },
-        {
-          "id": "San Martín",
-          "% Gas red": 44.55547107011176
-        },
-        {
-          "id": "Tupungato",
-          "% Gas red": 37.776914108045084
-        },
-        {
-          "id": "Santa Rosa",
-          "% Gas red": 33.319572733371174
-        },
-        {
-          "id": "Lavalle",
-          "% Gas red": 22.180690651148964
+          "id": "No tiene",
+          "value": 20145
         }
       ],
       "config": {
-        "xAxis": "id",
-        "layout": "horizontal"
+        "total": 2030773,
+        "format": "int"
+      }
+    },
+    {
+      "id": "combustible",
+      "type": "pie",
+      "title": "Combustible para cocinar — Mendoza",
+      "sectionId": "energia",
+      "data": [
+        {
+          "id": "Gas de red",
+          "value": 1231756
+        },
+        {
+          "id": "Gas en garrafa",
+          "value": 682019
+        },
+        {
+          "id": "Electricidad",
+          "value": 61564
+        },
+        {
+          "id": "Gas en tubo o a granel",
+          "value": 39440
+        },
+        {
+          "id": "Leña o carbón",
+          "value": 12754
+        },
+        {
+          "id": "Otro combustible",
+          "value": 3240
+        }
+      ],
+      "config": {
+        "total": 2030773,
+        "format": "int"
       }
     },
     {
@@ -234,13 +240,16 @@
           "id": "50126",
           "value": 37.776914108045084
         }
-      ]
+      ],
+      "config": {
+        "format": "pct"
+      }
     }
   ],
   "rankings": [
     {
       "id": "rank-gas",
-      "title": "Departamentos por % de gas de red",
+      "title": "Departamentos por % de población con gas de red",
       "sectionId": "departamentos",
       "items": [
         {
@@ -334,17 +343,117 @@
           "value": 22.180690651148964
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "pct"
+    },
+    {
+      "id": "rank-garrafa",
+      "title": "Departamentos por % de población que cocina con garrafa",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 72.29749819479251
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 62.78961762732855
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 57.68315196268947
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 51.172268061984305
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 48.901051604665504
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 47.248716067498165
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 45.48330177311069
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 43.75599553381874
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 42.879120466782986
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 40.08667595792207
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 36.819770344483274
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 36.32604951413286
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 30.693767934347992
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 29.388595730816892
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 24.664117355572802
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 22.186771382991775
+        },
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 14.22382087863234
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 12.150680777355737
+        }
+      ],
+      "order": "desc",
+      "format": "pct"
     }
   ],
   "mapData": [
     {
       "municipioId": "50",
       "municipioNombre": "Mendoza",
-      "value": 60.654538936651214,
-      "formatted": "60,7%",
-      "caption": "Población con gas de red en Mendoza",
-      "label": "60,7% · Población con gas de red en Mendoza"
+      "value": 64.43093344258565,
+      "formatted": "64,4%",
+      "caption": "Población con desagüe a red cloacal",
+      "label": "64,4% · Población con desagüe a red cloacal"
     }
   ]
 }

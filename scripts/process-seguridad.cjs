@@ -1,7 +1,11 @@
 // ════════════════════════════════════════════════════════════════════
 // process-seguridad.cjs — Dashboard Mendoza
 // Procesa SNIC provincial 2000–2024 (Ministerio de Seguridad de la Nación).
-// Genera 1 informe: SNIC para Mendoza con comparativa contra 24 provincias.
+// Genera 1 informe: SNIC para Mendoza con comparativa contra 24 jurisdicciones.
+//
+// La serie tiene rupturas: 21 categorías aparecen en 2017 y 9 en 2023. Por eso
+// se publica también una serie de "categorías comparables" (las que ya tenían
+// datos antes de 2017) y los gráficos marcan esos años.
 //
 // Output: public/data/seguridad/snic.json
 // ════════════════════════════════════════════════════════════════════
@@ -11,7 +15,6 @@ const path = require('path');
 const Papa = require('papaparse');
 const {
   SEG_BASE,
-  MENDOZA,
   writeJson,
   fmtInt,
   fmtPct,
@@ -24,10 +27,19 @@ const SNIC_FILE = path.join(
   'seguridad-snic-provincial-estadisticas-criminales-republica-argentina-por-provincias',
   'estadísticas-criminales-en-la-república-argentina-por-provincias-(panel)-(.csv).csv'
 );
+const SNIC_PAIS_FILE = path.join(
+  SEG_BASE,
+  'seguridad-snic-total-pais-estadisticas-criminales-republica-argentina',
+  'estadísticas-criminales-en-la-república-argentina-(panel)-(.csv).csv'
+);
 const OUT_DIR = path.join(__dirname, '..', 'public', 'data', 'seguridad');
-const DATE = new Date().toISOString().slice(0, 10);
 
 const MENDOZA_PROV_ID = '50';
+const SOURCE = 'Sistema Nacional de Información Criminal (SNIC) — Ministerio de Seguridad de la Nación';
+const ANOTACIONES = [
+  { x: '2017', label: '2017: nuevas categorías' },
+  { x: '2023', label: '2023: nuevas categorías' },
+];
 
 function readCsv(file) {
   const content = fs.readFileSync(file, 'utf8').replace(/^﻿/, '');
@@ -41,8 +53,12 @@ function num(v) {
   return Number.isFinite(n) ? n : 0;
 }
 
+function signo(v) {
+  return `${v >= 0 ? '+' : ''}${fmtDec(v)}%`;
+}
+
 function processSNIC() {
-  console.log('\n─── SNIC Provincial (2000-2024) ───');
+  console.log('\n─── SNIC Provincial ───');
   console.log('Leyendo:', SNIC_FILE);
   const rows = readCsv(SNIC_FILE);
   console.log(`  ${rows.length} filas leídas`);
@@ -71,11 +87,8 @@ function processSNIC() {
     provNames.add(provNombre);
 
     if (provId === MENDOZA_PROV_ID) {
-      if (!mendozaByYear[year]) mendozaByYear[year] = { hechos: 0, victimas: 0, masc: 0, fem: 0, tasaSum: 0, delitos: {}, homMasc: 0, homFem: 0 };
+      if (!mendozaByYear[year]) mendozaByYear[year] = { hechos: 0, tasaSum: 0, delitos: {}, homMasc: 0, homFem: 0 };
       mendozaByYear[year].hechos += hechos;
-      mendozaByYear[year].victimas += victimas;
-      mendozaByYear[year].masc += masc;
-      mendozaByYear[year].fem += fem;
       mendozaByYear[year].tasaSum += tasa;
       mendozaByYear[year].delitos[delito] = (mendozaByYear[year].delitos[delito] || 0) + hechos;
       if (/^Homicidios dolosos$/.test(delito)) {
@@ -84,15 +97,6 @@ function processSNIC() {
         mendozaByYear[year].homMasc = masc;
         mendozaByYear[year].homFem = fem;
         mendozaByYear[year].homVictimas = victimas;
-      }
-      if (/^Robos \(excluye/.test(delito)) {
-        mendozaByYear[year].robos = (mendozaByYear[year].robos || 0) + hechos;
-      }
-      if (/Hurto/i.test(delito)) {
-        mendozaByYear[year].hurtos = (mendozaByYear[year].hurtos || 0) + hechos;
-      }
-      if (/Estafas y defraudaciones/i.test(delito)) {
-        mendozaByYear[year].estafas = (mendozaByYear[year].estafas || 0) + hechos;
       }
     }
 
@@ -113,28 +117,48 @@ function processSNIC() {
   const prev = mendozaByYear[lastYear - 1] || {};
   const fiveYearsAgo = mendozaByYear[lastYear - 5] || {};
 
+  const delitoEnAnio = (year, patron) => Object.entries(mendozaByYear[year]?.delitos || {})
+    .filter(([nombre]) => patron.test(nombre))
+    .reduce((acc, [, hechos]) => acc + hechos, 0);
+
+  // Rupturas de serie: primer año con hechos > 0 por categoría.
+  const primerAnio = {};
+  for (const y of years) {
+    for (const [nombre, hechos] of Object.entries(mendozaByYear[y].delitos)) {
+      if (hechos > 0 && primerAnio[nombre] == null) primerAnio[nombre] = y;
+    }
+  }
+  const CORTE_COMPARABLE = 2017;
+  const comparables = Object.keys(primerAnio).filter(nombre => primerAnio[nombre] < CORTE_COMPARABLE);
+  const hechosComparables = y => comparables.reduce((acc, nombre) => acc + (mendozaByYear[y]?.delitos[nombre] || 0), 0);
+  const nuevas = corte => Object.keys(primerAnio).filter(nombre => primerAnio[nombre] === corte);
+  const hechosNuevos2023 = nuevas(2023).reduce((acc, nombre) => acc + (last.delitos[nombre] || 0), 0);
+  console.log(`  Categorías: comparables=${comparables.length} · nuevas 2017=${nuevas(2017).length} · nuevas 2023=${nuevas(2023).length}`);
+
   const variacionAnual = prev.hechos ? ((last.hechos - prev.hechos) / prev.hechos) * 100 : null;
   const variacion5y = fiveYearsAgo.hechos ? ((last.hechos - fiveYearsAgo.hechos) / fiveYearsAgo.hechos) * 100 : null;
+  const baseComparable = hechosComparables(lastYear - 5);
+  const variacion5yComparable = baseComparable ? ((hechosComparables(lastYear) - baseComparable) / baseComparable) * 100 : null;
+
   const totalHechos = last.hechos || 0;
   const homicidios = last.homicidios || 0;
   const tasaHomicidios = last.homicidiosTasa || 0;
-  const robos = last.robos || 0;
-  const hurtos = last.hurtos || 0;
-  const estafas = last.estafas || 0;
-  const patrimoniales = robos + hurtos;
-  const pctPatrimoniales = totalHechos ? (patrimoniales / totalHechos) * 100 : null;
-  const pctMujeres = last.victimas ? (last.fem / last.victimas) * 100 : null;
+  const robos = delitoEnAnio(lastYear, /^Robos \(excluye/);
+  const hurtos = delitoEnAnio(lastYear, /^Hurtos$/);
+  const otrosPropiedad = delitoEnAnio(lastYear, /^Otros delitos contra la propiedad$/);
+  const estafas = delitoEnAnio(lastYear, /Estafas y defraudaciones/i);
+  const estafasVirtuales = delitoEnAnio(lastYear, /asistidas virtualmente/i);
+  const robosHurtos = robos + hurtos;
+  const pctRobosHurtos = totalHechos ? (robosHurtos / totalHechos) * 100 : null;
+  const propiedad = robosHurtos + otrosPropiedad;
+  const pctPropiedad = totalHechos ? (propiedad / totalHechos) * 100 : null;
   const tasaTotal = last.tasaSum || 0;
 
   // Ranking de provincias por tasa de hechos último año
   const provRankTasa = Object.entries(provByYear)
-    .map(([nombre, byYr]) => ({
-      name: nombre,
-      value: byYr[lastYear]?.tasa || 0,
-    }))
+    .map(([nombre, byYr]) => ({ name: nombre, value: byYr[lastYear]?.tasa || 0 }))
     .filter(p => p.value > 0)
     .sort((a, b) => b.value - a.value);
-
   const posMendozaTasa = provRankTasa.findIndex(p => p.name === 'Mendoza') + 1;
 
   // Ranking por tasa de homicidios
@@ -144,24 +168,29 @@ function processSNIC() {
     .sort((a, b) => b.value - a.value);
   const posMendozaHom = homRankTasa.findIndex(p => p.name === 'Mendoza') + 1;
 
+  // Tasa nacional oficial: suma de tasas por delito del panel total país.
+  const paisByYear = {};
+  for (const r of readCsv(SNIC_PAIS_FILE)) {
+    const y = parseInt(r.anio, 10);
+    if (!y) continue;
+    if (!paisByYear[y]) paisByYear[y] = { tasa: 0, hom: 0 };
+    paisByYear[y].tasa += num(r.tasa_hechos);
+    if (/^Homicidios dolosos$/.test(r.codigo_delito_snic_nombre)) paisByYear[y].hom = num(r.tasa_hechos);
+  }
+  if (!paisByYear[lastYear]) throw new Error(`El panel total país no tiene datos de ${lastYear}`);
+
   // Series temporales para Mendoza
+  const redondear = v => Math.round(v * 10) / 10;
   const seriesHechos = years.map(y => ({ x: String(y), y: mendozaByYear[y].hechos || 0 }));
+  const seriesComparables = years.map(y => ({ x: String(y), y: hechosComparables(y) }));
   const seriesHomicidios = years.map(y => ({ x: String(y), y: mendozaByYear[y].homicidios || 0 }));
-  const seriesTasaTotal = years.map(y => ({ x: String(y), y: Math.round((mendozaByYear[y].tasaSum || 0) * 10) / 10 }));
+  const seriesTasaTotal = years.map(y => ({ x: String(y), y: redondear(mendozaByYear[y].tasaSum || 0) }));
+  const seriesTasaPais = years.map(y => ({ x: String(y), y: redondear(paisByYear[y]?.tasa || 0) }));
 
-  // Promedio nacional por año (de todas las provincias)
-  const seriesPromPais = years.map(y => {
-    let sum = 0, n = 0;
-    for (const prov of Object.keys(provByYear)) {
-      if (provByYear[prov][y]) { sum += provByYear[prov][y].tasa; n++; }
-    }
-    return { x: String(y), y: n ? Math.round((sum / n) * 10) / 10 : 0 };
-  });
-
-  // Top 5 delitos en Mendoza último año
+  // Top delitos en Mendoza último año
   const topDelitos = Object.entries(last.delitos || {})
-    .map(([nombre, hechos]) => ({ id: nombre.length > 35 ? nombre.slice(0, 33) + '…' : nombre, value: hechos }))
-    .sort((a, b) => b.value - a.value)
+    .map(([nombre, hechos]) => ({ id: nombre, Hechos: hechos }))
+    .sort((a, b) => b.Hechos - a.Hechos)
     .slice(0, 8);
 
   const json = {
@@ -170,18 +199,20 @@ function processSNIC() {
       title: `Seguridad Ciudadana — Mendoza (SNIC 2000-${lastYear})`,
       category: 'Seguridad',
       subcategory: 'SNIC Provincial',
-      source: 'Sistema Nacional de Información Criminal (SNIC) — Ministerio de Seguridad de la Nación',
-      date: DATE,
+      source: SOURCE,
+      date: String(lastYear),
+      scope: 'Provincia de Mendoza · SNIC. Los rankings comparan las 24 jurisdicciones del país.',
     },
     kpis: [
-      { id: 'hechos-ult', label: `Hechos delictivos ${lastYear}`, value: totalHechos, formatted: fmtInt(totalHechos), comparison: variacionAnual != null ? `${variacionAnual >= 0 ? '+' : ''}${fmtDec(variacionAnual)}% vs ${lastYear - 1}` : undefined, status: variacionAnual != null && variacionAnual < 0 ? 'good' : 'warning' },
-      { id: 'tasa-total', label: `Tasa total ${lastYear} (/100K hab)`, value: tasaTotal, formatted: fmtDec(tasaTotal) + ' / 100K' },
-      { id: 'var-5y', label: `Variación 5 años (${lastYear - 5}→${lastYear})`, value: variacion5y, formatted: variacion5y != null ? `${variacion5y >= 0 ? '+' : ''}${fmtDec(variacion5y)}%` : '—', status: variacion5y != null && variacion5y < 0 ? 'good' : 'warning' },
-      { id: 'patrimoniales', label: '% Delitos patrimoniales', value: pctPatrimoniales, formatted: fmtPct(pctPatrimoniales), comparison: `${fmtInt(patrimoniales)} robos + hurtos` },
-      { id: 'homicidios', label: `Homicidios dolosos ${lastYear}`, value: homicidios, formatted: fmtInt(homicidios), status: 'critical', comparison: `Tasa: ${fmtDec(tasaHomicidios)} / 100K` },
-      { id: 'pos-tasa-pais', label: 'Posición tasa hechos vs provincias', value: posMendozaTasa, formatted: `${posMendozaTasa}° de ${provRankTasa.length}`, comparison: 'Posiciones más altas = mayor tasa' },
-      { id: 'pos-hom', label: 'Posición tasa homicidios', value: posMendozaHom, formatted: posMendozaHom > 0 ? `${posMendozaHom}° de ${homRankTasa.length}` : '—' },
-      { id: 'estafas', label: `Estafas y defraudaciones ${lastYear}`, value: estafas, formatted: fmtInt(estafas), status: 'warning' },
+      { id: 'hechos-ult', label: `Hechos delictivos ${lastYear}`, value: totalHechos, formatted: fmtInt(totalHechos), comparison: variacionAnual != null ? `${signo(variacionAnual)} vs ${lastYear - 1}` : undefined, status: variacionAnual != null && variacionAnual < 0 ? 'good' : 'warning' },
+      { id: 'tasa-total', label: `Tasa ${lastYear} cada 100 mil habitantes`, value: tasaTotal, formatted: fmtInt(tasaTotal), comparison: `Total país: ${fmtInt(paisByYear[lastYear].tasa)}` },
+      { id: 'var-5y', label: `Variación ${lastYear - 5}-${lastYear}, todas las categorías`, value: variacion5y, formatted: variacion5y != null ? signo(variacion5y) : '—', status: 'warning', comparison: variacion5yComparable != null ? `${signo(variacion5yComparable)} en categorías comparables` : undefined },
+      { id: 'robos-hurtos', label: 'Robos y hurtos (% del total)', value: pctRobosHurtos, formatted: fmtPct(pctRobosHurtos), comparison: `${fmtInt(robosHurtos)} hechos` },
+      { id: 'propiedad', label: 'Robos, hurtos y otros contra la propiedad (% del total)', value: pctPropiedad, formatted: fmtPct(pctPropiedad), comparison: `${fmtInt(propiedad)} hechos` },
+      { id: 'homicidios', label: `Homicidios dolosos ${lastYear}`, value: homicidios, formatted: fmtInt(homicidios), status: 'critical', comparison: `Tasa: ${fmtDec(tasaHomicidios)} cada 100 mil · País: ${fmtDec(paisByYear[lastYear].hom)}` },
+      { id: 'pos-tasa-pais', label: 'Posición por tasa de hechos', value: posMendozaTasa, formatted: `${posMendozaTasa}° de ${provRankTasa.length}`, comparison: '1° = tasa más alta' },
+      { id: 'pos-hom', label: 'Posición por tasa de homicidios', value: posMendozaHom, formatted: posMendozaHom > 0 ? `${posMendozaHom}° de ${homRankTasa.length}` : '—', comparison: '1° = tasa más alta' },
+      { id: 'estafas', label: `Estafas y defraudaciones ${lastYear}`, value: estafas, formatted: fmtInt(estafas), status: 'warning', comparison: `${fmtInt(estafasVirtuales)} asistidas virtualmente · categoría nueva en 2023` },
       // Víctimas mujeres en homicidios dolosos: dato confiable porque SNIC desagrega
       // por sexo SOLO en homicidios, muertes viales y suicidios. Sumar víctimas_fem
       // del total provincial es engañoso porque el resto va a `cantidad_victimas_sd`
@@ -192,19 +223,32 @@ function processSNIC() {
       {
         id: 'serie-hechos',
         type: 'line',
-        title: `Evolución de hechos delictivos totales — Mendoza (2000-${lastYear})`,
+        title: `Hechos delictivos — Mendoza (2000-${lastYear})`,
         sectionId: 'panorama',
-        data: [{ id: 'Hechos', data: seriesHechos }],
+        data: [
+          { id: 'Todas las categorías', data: seriesHechos },
+          { id: 'Categorías comparables', data: seriesComparables },
+        ],
+        config: { format: 'int', annotations: ANOTACIONES },
       },
       {
         id: 'serie-tasa-total',
         type: 'line',
-        title: `Tasa de hechos cada 100K — Mendoza vs promedio país`,
+        title: 'Tasa de hechos cada 100 mil habitantes — Mendoza y total país',
         sectionId: 'panorama',
         data: [
           { id: 'Mendoza', data: seriesTasaTotal },
-          { id: 'Promedio país', data: seriesPromPais },
+          { id: 'Total país', data: seriesTasaPais },
         ],
+        config: { format: 'int', annotations: ANOTACIONES },
+      },
+      {
+        id: 'top-delitos',
+        type: 'bar',
+        title: `Principales delitos en Mendoza — ${lastYear}`,
+        sectionId: 'delitos',
+        data: topDelitos,
+        config: { xAxis: 'id', layout: 'horizontal', format: 'int' },
       },
       {
         id: 'serie-homicidios',
@@ -212,43 +256,31 @@ function processSNIC() {
         title: `Homicidios dolosos — Mendoza (2000-${lastYear})`,
         sectionId: 'homicidios',
         data: [{ id: 'Homicidios', data: seriesHomicidios }],
-      },
-      {
-        id: 'top-delitos',
-        type: 'bar',
-        title: `Top delitos en Mendoza — ${lastYear}`,
-        sectionId: 'delitos',
-        data: topDelitos.map(d => ({ id: d.id, Hechos: d.value })),
-        config: { xAxis: 'id', layout: 'horizontal' },
-      },
-      {
-        id: 'rank-prov-tasa',
-        type: 'bar',
-        title: `Tasa de hechos por provincia — ${lastYear}`,
-        sectionId: 'provincias',
-        data: provRankTasa.slice(0, 24).map(p => ({ id: p.name.length > 22 ? p.name.slice(0, 20) + '…' : p.name, 'Tasa /100K': p.value })),
-        config: { xAxis: 'id', layout: 'horizontal' },
+        config: { format: 'int' },
       },
     ],
     rankings: [
       {
         id: 'rank-prov-tasa',
-        title: `Provincias por tasa de hechos delictivos /100K (${lastYear})`,
+        title: `Jurisdicciones por tasa de hechos cada 100 mil (${lastYear})`,
         sectionId: 'provincias',
         items: provRankTasa.map(p => ({ name: p.name, value: p.value, municipioId: p.name === 'Mendoza' ? '50' : undefined })),
         order: 'desc',
+        format: 'int',
       },
       {
         id: 'rank-prov-hom',
-        title: `Provincias por tasa de homicidios /100K (${lastYear})`,
-        sectionId: 'provincias',
+        title: `Jurisdicciones por tasa de homicidios cada 100 mil (${lastYear})`,
+        sectionId: 'homicidios',
         items: homRankTasa.map(p => ({ name: p.name, value: p.value, municipioId: p.name === 'Mendoza' ? '50' : undefined })),
         order: 'desc',
+        format: 'dec1',
       },
     ],
     mapData: buildFeatured(totalHechos, fmtInt(totalHechos), `Hechos delictivos en Mendoza ${lastYear}`),
   };
   writeJson(path.join(OUT_DIR, 'snic.json'), json);
+  console.log(`  Nuevas 2023 en ${lastYear}: ${fmtInt(hechosNuevos2023)} hechos · var comparable ${fmtDec(variacion5yComparable)}%`);
   console.log(`  ✅ SNIC procesado: ${years.length} años, ${provNames.size} provincias`);
 }
 

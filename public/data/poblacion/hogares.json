@@ -5,7 +5,8 @@
     "category": "Población",
     "subcategory": "Hogares",
     "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
-    "date": "2026-05-07"
+    "date": "2022-05-18",
+    "scope": "Provincia de Mendoza · Censo 2022. Los rankings y mapas comparan los 18 departamentos."
   },
   "kpis": [
     {
@@ -20,11 +21,11 @@
       "value": 87.04890031034186,
       "formatted": "87,0%",
       "status": "good",
-      "comparison": "Cerámica/mosaico/baldosa/madera"
+      "comparison": "Cerámica, mosaico, baldosa, alfombra o madera"
     },
     {
       "id": "pct-piso-tierra",
-      "label": "Hogares con piso de tierra/ladrillo suelto",
+      "label": "Hogares con piso de tierra o ladrillo suelto",
       "value": 1.8718643818308944,
       "formatted": "1,9%",
       "status": "critical",
@@ -32,11 +33,26 @@
     },
     {
       "id": "pct-agua-can",
-      "label": "Hogares con agua por cañería",
+      "label": "Hogares con agua por cañería dentro de la vivienda",
       "value": 95.15888154263214,
       "formatted": "95,2%",
       "status": "good",
       "comparison": "620.611 hogares"
+    },
+    {
+      "id": "pct-cloaca",
+      "label": "Hogares con desagüe a red cloacal",
+      "value": 66.8802055861536,
+      "formatted": "66,9%",
+      "status": "warning",
+      "comparison": "436.182 hogares"
+    },
+    {
+      "id": "pct-gas",
+      "label": "Hogares que cocinan con gas de red",
+      "value": 63.7642137801602,
+      "formatted": "63,8%",
+      "comparison": "415.860 hogares"
     }
   ],
   "charts": [
@@ -51,97 +67,55 @@
           "value": 567719
         },
         {
-          "id": "Carpeta/contrapiso",
+          "id": "Carpeta, contrapiso o ladrillo fijo",
           "value": 66751
         },
         {
-          "id": "Tierra/ladrillo suelto",
+          "id": "Tierra o ladrillo suelto",
           "value": 12208
-        }
-      ]
-    },
-    {
-      "id": "rank-hogares",
-      "type": "bar",
-      "title": "Hogares por departamento",
-      "sectionId": "departamentos",
-      "data": [
-        {
-          "id": "Guaymallén",
-          "Hogares": 102156
         },
         {
-          "id": "San Rafael",
-          "Hogares": 72750
-        },
-        {
-          "id": "Las Heras",
-          "Hogares": 69841
-        },
-        {
-          "id": "Godoy Cruz",
-          "Hogares": 67442
-        },
-        {
-          "id": "Maipú",
-          "Hogares": 65240
-        },
-        {
-          "id": "Luján de Cuyo",
-          "Hogares": 52742
-        },
-        {
-          "id": "Capital",
-          "Hogares": 48953
-        },
-        {
-          "id": "San Martín",
-          "Hogares": 42374
-        },
-        {
-          "id": "Rivadavia",
-          "Hogares": 19923
-        },
-        {
-          "id": "Tunuyán",
-          "Hogares": 18666
-        },
-        {
-          "id": "General Alvear",
-          "Hogares": 18200
-        },
-        {
-          "id": "Junín",
-          "Hogares": 14160
-        },
-        {
-          "id": "Lavalle",
-          "Hogares": 13770
-        },
-        {
-          "id": "Tupungato",
-          "Hogares": 12556
-        },
-        {
-          "id": "San Carlos",
-          "Hogares": 12529
-        },
-        {
-          "id": "Malargüe",
-          "Hogares": 11011
-        },
-        {
-          "id": "Santa Rosa",
-          "Hogares": 5975
-        },
-        {
-          "id": "La Paz",
-          "Hogares": 3896
+          "id": "Otro material",
+          "value": 5506
         }
       ],
       "config": {
-        "xAxis": "id",
-        "layout": "horizontal"
+        "total": 652184,
+        "format": "int"
+      }
+    },
+    {
+      "id": "servicios",
+      "type": "bar",
+      "title": "Servicios en el hogar (% de hogares)",
+      "sectionId": "servicios",
+      "data": [
+        {
+          "servicio": "Agua por cañería",
+          "% de hogares": 95.15888154263214
+        },
+        {
+          "servicio": "Baño dentro de la vivienda",
+          "% de hogares": 93.92778725022386
+        },
+        {
+          "servicio": "Agua de red pública",
+          "% de hogares": 92.59534119205622
+        },
+        {
+          "servicio": "Red cloacal",
+          "% de hogares": 66.8802055861536
+        },
+        {
+          "servicio": "Gas de red",
+          "% de hogares": 63.7642137801602
+        }
+      ],
+      "config": {
+        "xAxis": "servicio",
+        "layout": "horizontal",
+        "format": "pct",
+        "max": 100
       }
     },
     {
@@ -222,7 +196,11 @@
           "id": "50126",
           "value": 12556
         }
-      ]
+      ],
+      "config": {
+        "format": "int",
+        "unit": "hogares"
+      }
     }
   ],
   "rankings": [
@@ -233,96 +211,98 @@
       "items": [
         {
           "name": "Guaymallén",
-          "municipioId": "50028",
-          "value": 102156
+          "value": 102156,
+          "municipioId": "50028"
         },
         {
           "name": "San Rafael",
-          "municipioId": "50105",
-          "value": 72750
+          "value": 72750,
+          "municipioId": "50105"
         },
         {
           "name": "Las Heras",
-          "municipioId": "50049",
-          "value": 69841
+          "value": 69841,
+          "municipioId": "50049"
         },
         {
           "name": "Godoy Cruz",
-          "municipioId": "50021",
-          "value": 67442
+          "value": 67442,
+          "municipioId": "50021"
         },
         {
           "name": "Maipú",
-          "municipioId": "50070",
-          "value": 65240
+          "value": 65240,
+          "municipioId": "50070"
         },
         {
           "name": "Luján de Cuyo",
-          "municipioId": "50063",
-          "value": 52742
+          "value": 52742,
+          "municipioId": "50063"
         },
         {
           "name": "Capital",
-          "municipioId": "50007",
-          "value": 48953
+          "value": 48953,
+          "municipioId": "50007"
         },
         {
           "name": "San Martín",
-          "municipioId": "50098",
-          "value": 42374
+          "value": 42374,
+          "municipioId": "50098"
         },
         {
           "name": "Rivadavia",
-          "municipioId": "50084",
-          "value": 19923
+          "value": 19923,
+          "municipioId": "50084"
         },
         {
           "name": "Tunuyán",
-          "municipioId": "50119",
-          "value": 18666
+          "value": 18666,
+          "municipioId": "50119"
         },
         {
           "name": "General Alvear",
-          "municipioId": "50014",
-          "value": 18200
+          "value": 18200,
+          "municipioId": "50014"
         },
         {
           "name": "Junín",
-          "municipioId": "50035",
-          "value": 14160
+          "value": 14160,
+          "municipioId": "50035"
         },
         {
           "name": "Lavalle",
-          "municipioId": "50056",
-          "value": 13770
+          "value": 13770,
+          "municipioId": "50056"
         },
         {
           "name": "Tupungato",
-          "municipioId": "50126",
-          "value": 12556
+          "value": 12556,
+          "municipioId": "50126"
         },
         {
           "name": "San Carlos",
-          "municipioId": "50091",
-          "value": 12529
+          "value": 12529,
+          "municipioId": "50091"
         },
         {
           "name": "Malargüe",
-          "municipioId": "50077",
-          "value": 11011
+          "value": 11011,
+          "municipioId": "50077"
         },
         {
           "name": "Santa Rosa",
-          "municipioId": "50112",
-          "value": 5975
+          "value": 5975,
+          "municipioId": "50112"
         },
         {
           "name": "La Paz",
-          "municipioId": "50042",
-          "value": 3896
+          "value": 3896,
+          "municipioId": "50042"
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "int",
+      "unit": "hogares"
     }
   ],
   "mapData": [

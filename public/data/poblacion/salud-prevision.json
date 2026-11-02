@@ -5,7 +5,8 @@
     "category": "Población",
     "subcategory": "Salud y Previsión",
     "source": "INDEC — Censo Nacional de Población, Hogares y Viviendas 2022",
-    "date": "2026-05-07"
+    "date": "2022-05-18",
+    "scope": "Provincia de Mendoza · Censo 2022. Los rankings y mapas comparan los 18 departamentos."
   },
   "kpis": [
     {
@@ -25,7 +26,7 @@
     },
     {
       "id": "sin-cobertura",
-      "label": "Sin obra social ni plan estatal",
+      "label": "Sin obra social, prepaga ni plan estatal",
       "value": 37.93471746965318,
       "formatted": "37,9%",
       "status": "critical",
@@ -65,180 +66,16 @@
           "id": "Sin cobertura",
           "value": 770368
         }
-      ]
-    },
-    {
-      "id": "rank-obra-social",
-      "type": "bar",
-      "title": "% con obra social/prepaga por departamento",
-      "sectionId": "departamentos",
-      "data": [
-        {
-          "id": "Capital",
-          "% Cobertura": 70.7666814856727
-        },
-        {
-          "id": "Luján de Cuyo",
-          "% Cobertura": 67.87814967157892
-        },
-        {
-          "id": "Godoy Cruz",
-          "% Cobertura": 67.37922562539514
-        },
-        {
-          "id": "Malargüe",
-          "% Cobertura": 60.777395999509146
-        },
-        {
-          "id": "La Paz",
-          "% Cobertura": 60.36778166084207
-        },
-        {
-          "id": "Guaymallén",
-          "% Cobertura": 59.682551554986276
-        },
-        {
-          "id": "Maipú",
-          "% Cobertura": 59.319648951285366
-        },
-        {
-          "id": "Junín",
-          "% Cobertura": 58.52771561370288
-        },
-        {
-          "id": "Santa Rosa",
-          "% Cobertura": 58.39310593941895
-        },
-        {
-          "id": "San Rafael",
-          "% Cobertura": 57.34460891915724
-        },
-        {
-          "id": "Las Heras",
-          "% Cobertura": 55.79223311765787
-        },
-        {
-          "id": "General Alvear",
-          "% Cobertura": 55.64061933217511
-        },
-        {
-          "id": "San Martín",
-          "% Cobertura": 54.73150366555242
-        },
-        {
-          "id": "Rivadavia",
-          "% Cobertura": 54.36946641714761
-        },
-        {
-          "id": "Tunuyán",
-          "% Cobertura": 52.382778630027346
-        },
-        {
-          "id": "San Carlos",
-          "% Cobertura": 49.07677601126987
-        },
-        {
-          "id": "Tupungato",
-          "% Cobertura": 44.41556548775748
-        },
-        {
-          "id": "Lavalle",
-          "% Cobertura": 42.0507157116765
-        }
       ],
       "config": {
-        "xAxis": "id",
-        "layout": "horizontal"
-      }
-    },
-    {
-      "id": "rank-sin-cobertura",
-      "type": "bar",
-      "title": "% sin cobertura por departamento",
-      "sectionId": "departamentos",
-      "data": [
-        {
-          "id": "Lavalle",
-          "% Sin cobertura": 54.7338911778448
-        },
-        {
-          "id": "Tupungato",
-          "% Sin cobertura": 52.39992226972405
-        },
-        {
-          "id": "San Carlos",
-          "% Sin cobertura": 47.36868585228416
-        },
-        {
-          "id": "Tunuyán",
-          "% Sin cobertura": 44.49409724538118
-        },
-        {
-          "id": "San Martín",
-          "% Sin cobertura": 42.54264522330459
-        },
-        {
-          "id": "Rivadavia",
-          "% Sin cobertura": 42.177106103256854
-        },
-        {
-          "id": "General Alvear",
-          "% Sin cobertura": 41.92138070600813
-        },
-        {
-          "id": "Las Heras",
-          "% Sin cobertura": 41.233925906285954
-        },
-        {
-          "id": "San Rafael",
-          "% Sin cobertura": 40.21875762180822
-        },
-        {
-          "id": "Maipú",
-          "% Sin cobertura": 38.262665210816536
-        },
-        {
-          "id": "Guaymallén",
-          "% Sin cobertura": 37.60607845520474
-        },
-        {
-          "id": "Junín",
-          "% Sin cobertura": 37.58822516784301
-        },
-        {
-          "id": "La Paz",
-          "% Sin cobertura": 36.87801630887002
-        },
-        {
-          "id": "Santa Rosa",
-          "% Sin cobertura": 36.72532122400536
-        },
-        {
-          "id": "Malargüe",
-          "% Sin cobertura": 36.40937538348263
-        },
-        {
-          "id": "Luján de Cuyo",
-          "% Sin cobertura": 30.015766538866558
-        },
-        {
-          "id": "Godoy Cruz",
-          "% Sin cobertura": 29.511145833868742
-        },
-        {
-          "id": "Capital",
-          "% Sin cobertura": 26.628945560360506
-        }
-      ],
-      "config": {
-        "xAxis": "id",
-        "layout": "horizontal"
+        "total": 2030773,
+        "format": "int"
       }
     },
     {
       "id": "mapa-cobertura",
       "type": "map",
-      "title": "Mapa: % de cobertura obra social/prepaga",
+      "title": "Mapa: % de población con obra social o prepaga",
       "sectionId": "departamentos",
       "data": [
         {
@@ -313,13 +150,48 @@
           "id": "50126",
           "value": 44.41556548775748
         }
-      ]
+      ],
+      "config": {
+        "format": "pct"
+      }
+    },
+    {
+      "id": "prevision-pie",
+      "type": "pie",
+      "title": "Percepción de jubilación o pensión — Mendoza",
+      "sectionId": "prevision",
+      "data": [
+        {
+          "id": "No percibe",
+          "value": 1635521
+        },
+        {
+          "id": "Solo jubilación",
+          "value": 227500
+        },
+        {
+          "id": "Solo otro tipo de pensión",
+          "value": 84104
+        },
+        {
+          "id": "Jubilación y pensión por fallecimiento",
+          "value": 52896
+        },
+        {
+          "id": "Solo pensión por fallecimiento",
+          "value": 30752
+        }
+      ],
+      "config": {
+        "total": 2030773,
+        "format": "int"
+      }
     }
   ],
   "rankings": [
     {
       "id": "rank-obra",
-      "title": "Departamentos por % con obra social",
+      "title": "Departamentos por % con obra social o prepaga",
       "sectionId": "departamentos",
       "items": [
         {
@@ -413,7 +285,8 @@
           "value": 42.0507157116765
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "pct"
     },
     {
       "id": "rank-sin",
@@ -511,12 +384,13 @@
           "value": 26.628945560360506
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "pct"
     },
     {
       "id": "rank-jubilados",
-      "title": "Departamentos por % de jubilados/pensionados",
-      "sectionId": "departamentos",
+      "title": "Departamentos por % que percibe jubilación o pensión",
+      "sectionId": "prevision",
       "items": [
         {
           "name": "General Alvear",
@@ -609,17 +483,18 @@
           "value": 16.296478095471837
         }
       ],
-      "order": "desc"
+      "order": "desc",
+      "format": "pct"
     }
   ],
   "mapData": [
     {
       "municipioId": "50",
       "municipioNombre": "Mendoza",
-      "value": 59.2872270805255,
-      "formatted": "59,3%",
-      "caption": "Cobertura obra social/prepaga en Mendoza",
-      "label": "59,3% · Cobertura obra social/prepaga en Mendoza"
+      "value": 37.93471746965318,
+      "formatted": "37,9%",
+      "caption": "Población sin obra social, prepaga ni plan estatal",
+      "label": "37,9% · Población sin obra social, prepaga ni plan estatal"
     }
   ]
 }

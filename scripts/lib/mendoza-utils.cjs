@@ -9,10 +9,30 @@ const fs = require('fs');
 const path = require('path');
 const XLSX = require('xlsx');
 
-const INDEC_BASE =
-  'C:/Users/dante/Desktop/Laboratorio Colossus/Pipeline OpenArg/datos_indec';
-const SEG_BASE =
-  'C:/Users/dante/Desktop/Laboratorio Colossus/Pipeline OpenArg/datos_abiertos/datasets/seguridad';
+const ROOT = path.resolve(__dirname, '..', '..');
+
+// Cuadros del Censo: viven en <repo>/Poblacion/ (no se commitean).
+const CENSO_DIR = process.env.MENDOZA_CENSO_DIR || path.join(ROOT, 'Poblacion');
+
+// Datasets de seguridad: viven en el pipeline de OpenArg, hermano de DASHBOARDS/.
+const PIPELINE_DIR =
+  process.env.OPENARG_PIPELINE_DIR ||
+  path.resolve(ROOT, '..', '..', 'Pipelines de datos', 'Pipeline OpenArg');
+const SEG_BASE = path.join(PIPELINE_DIR, 'datos_abiertos', 'datasets', 'seguridad');
+
+// Busca un cuadro por nombre dentro de CENSO_DIR y sus subcarpetas.
+let censoIndex = null;
+function findCuadro(fileName) {
+  if (!censoIndex) {
+    const walk = dir =>
+      fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry =>
+        entry.isDirectory() ? walk(path.join(dir, entry.name)) : [path.join(dir, entry.name)]);
+    censoIndex = new Map(walk(CENSO_DIR).map(file => [path.basename(file), file]));
+  }
+  const found = censoIndex.get(fileName);
+  if (!found) throw new Error(`No se encontró ${fileName} en ${CENSO_DIR}`);
+  return found;
+}
 
 // ── Identidad provincial ────────────────────────────────────────────
 const MENDOZA = {
@@ -200,8 +220,9 @@ function buildMapData(deptoRows, extractor) {
 }
 
 module.exports = {
-  INDEC_BASE,
+  ROOT,
   SEG_BASE,
+  findCuadro,
   MENDOZA,
   MENDOZA_DEPTOS,
   DEPTO_CODIGOS,

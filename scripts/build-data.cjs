@@ -2,46 +2,33 @@
  * build-data.cjs
  *
  * Orquestador del pipeline de datos del Dashboard Mendoza.
+ * Corre los processors en orden y termina con código 1 si alguno falla.
  *
- * Estructura esperada (a medida que se sumen informes):
- *   1. process-<categoria>.cjs  → JSONs intermedios desde CSV/XLSX raw
- *   2. generate-report-data.cjs → data.json finales para scrollytelling + explorer
+ * Uso: npm run build-data
  *
- * Uso: node scripts/build-data.cjs
- *
- * Los processors aún no existen — se agregan a medida que se incorporan
- * fuentes de datos (ver CLAUDE.md § Pipeline de datos).
+ * Fuentes:
+ *   - Censo: <repo>/Poblacion/ (o MENDOZA_CENSO_DIR)
+ *   - Seguridad: <Laboratorio>/Pipelines de datos/Pipeline OpenArg (o OPENARG_PIPELINE_DIR)
  */
 
 const { execSync } = require("child_process");
 const path = require("path");
 
-const SCRIPTS_DIR = __dirname;
-
 const PIPELINE = [
   "process-poblacion.cjs",
   "process-seguridad.cjs",
+  "build-landing.cjs",
 ];
 
-console.log("╔══════════════════════════════════════════════════════════╗");
-console.log("║      Dashboard Mendoza — Data Build Pipeline            ║");
-console.log("╚══════════════════════════════════════════════════════════╝");
-
-if (PIPELINE.length === 0) {
-  console.log("\n  ℹ  Pipeline vacío. Agregá processors en scripts/ y activalos en PIPELINE.\n");
-  process.exit(0);
-}
+console.log("═══ Dashboard Mendoza — Data Build Pipeline ═══");
 
 const start = Date.now();
 let failed = 0;
 
 for (const script of PIPELINE) {
-  const scriptPath = path.join(SCRIPTS_DIR, script);
-  console.log(`\n${"═".repeat(60)}`);
-  console.log(`  Running: ${script}`);
-  console.log("═".repeat(60));
+  console.log(`\n── Running: ${script}`);
   try {
-    execSync(`node "${scriptPath}"`, { stdio: "inherit" });
+    execSync(`node "${path.join(__dirname, script)}"`, { stdio: "inherit" });
   } catch (err) {
     console.error(`  ❌ FAILED: ${script}`);
     failed++;
@@ -49,10 +36,9 @@ for (const script of PIPELINE) {
 }
 
 const elapsed = ((Date.now() - start) / 1000).toFixed(1);
-console.log(`\n${"═".repeat(60)}`);
 if (failed === 0) {
-  console.log(`  ✅ All ${PIPELINE.length} scripts completed in ${elapsed}s`);
+  console.log(`\n  ✅ ${PIPELINE.length} scripts OK en ${elapsed}s`);
 } else {
-  console.log(`  ⚠️  ${failed} script(s) failed out of ${PIPELINE.length} — ${elapsed}s`);
+  console.error(`\n  ❌ ${failed} de ${PIPELINE.length} scripts fallaron (${elapsed}s)`);
+  process.exit(1);
 }
-console.log("═".repeat(60));
