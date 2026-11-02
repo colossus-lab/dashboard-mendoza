@@ -17,7 +17,9 @@ const path = require("path");
 const PIPELINE = [
   "process-poblacion.cjs",
   "process-seguridad.cjs",
+  "process-seguridad-territorial.cjs",
   "build-landing.cjs",
+  "build-sitemap.cjs",
 ];
 
 console.log("═══ Dashboard Mendoza — Data Build Pipeline ═══");

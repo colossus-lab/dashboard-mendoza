@@ -1,7 +1,7 @@
 {
   "name": "dashboard-mendoza",
   "version": "0.1.0",
-  "description": "Dashboard interactivo de datos abiertos de la Provincia de Mendoza — Inteligencia Estratégica Provincial",
+  "description": "Mendoza, en datos: informes interactivos con datos abiertos de la provincia de Mendoza",
   "type": "module",
   "license": "MIT",
   "author": "Laboratorio Colossus",
@@ -19,10 +19,12 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/validate-reports.cjs && tsc -b && vite build",
     "preview": "vite preview",
     "build-data": "node scripts/build-data.cjs",
-    "build-images": "node scripts/process-images.cjs"
+    "build-images": "node scripts/process-images.cjs",
+    "validate": "node scripts/validate-reports.cjs",
+    "check": "npm run build"
   },
   "dependencies": {
     "@fontsource-variable/familjen-grotesk": "^5.3.0",
