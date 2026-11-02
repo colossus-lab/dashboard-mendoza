@@ -2,7 +2,7 @@ import type { ReportEntry } from '../types/report';
 
 // ═══════════════════════════════════════════════════════════════
 // Report Registry — Dashboard Mendoza
-// Informes de Población (Censo 2022) y de Seguridad.
+// Informes de Población (Censo 2022) y de Seguridad (SNIC y SNIC-SAT).
 //
 // Categorías espejadas de la organización de /Poblacion/<n>- <categoria>/
 // (Censo 2022 INDEC, sufijo _13).
@@ -125,6 +125,32 @@ export const REPORTS: ReportEntry[] = [
     mdPath: '/reports/seguridad/snic.md',
     dataPath: '/data/seguridad/snic.json',
     order: 9,
+  },
+  {
+    id: 'seguridad-departamentos',
+    slug: 'seguridad/departamentos',
+    title: 'Seguridad por departamento',
+    shortTitle: 'Por departamento',
+    description: 'Hechos registrados en cada uno de los 18 departamentos: tasas, robos, hurtos y homicidios.',
+    category: 'Seguridad',
+    subcategory: 'SNIC departamental',
+    image: 'atuel',
+    mdPath: '/reports/seguridad/departamentos.md',
+    dataPath: '/data/seguridad/departamentos.json',
+    order: 10,
+  },
+  {
+    id: 'seguridad-viales',
+    slug: 'seguridad/viales',
+    title: 'Muertes viales',
+    shortTitle: 'Muertes viales',
+    description: 'Víctimas fatales en siniestros viales entre 2017 y 2023, por año, departamento y tipo de usuario.',
+    category: 'Seguridad',
+    subcategory: 'Muertes viales',
+    image: 'camino-uco',
+    mdPath: '/reports/seguridad/viales.md',
+    dataPath: '/data/seguridad/viales.json',
+    order: 11,
   },
 ];
 

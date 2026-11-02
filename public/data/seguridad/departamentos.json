@@ -1,0 +1,1172 @@
+{
+  "meta": {
+    "id": "seguridad-departamentos",
+    "title": "Seguridad por departamento — Mendoza (SNIC 2024)",
+    "category": "Seguridad",
+    "subcategory": "SNIC departamental",
+    "source": "Sistema Nacional de Información Criminal (SNIC) — Ministerio de Seguridad de la Nación",
+    "date": "2024",
+    "scope": "Provincia de Mendoza · SNIC departamental. Los rankings y mapas comparan los 18 departamentos."
+  },
+  "kpis": [
+    {
+      "id": "hechos",
+      "label": "Hechos registrados 2024",
+      "value": 145268,
+      "formatted": "145.268",
+      "comparison": "3.775 sin departamento determinado"
+    },
+    {
+      "id": "tasa-max",
+      "label": "Mayor tasa cada 100 mil",
+      "value": 13723.904658199997,
+      "formatted": "13.724",
+      "comparison": "Capital"
+    },
+    {
+      "id": "tasa-min",
+      "label": "Menor tasa cada 100 mil",
+      "value": 4570.8877408,
+      "formatted": "4.571",
+      "comparison": "Lavalle"
+    },
+    {
+      "id": "hechos-max",
+      "label": "Departamento con más hechos",
+      "value": 21541,
+      "formatted": "21.541",
+      "comparison": "Guaymallén"
+    },
+    {
+      "id": "concentracion",
+      "label": "Hechos en los 5 departamentos con más casos",
+      "value": 56.65597378638103,
+      "formatted": "56,7 %",
+      "comparison": "Guaymallén, San Rafael, Capital, Las Heras, Godoy Cruz"
+    },
+    {
+      "id": "homicidios",
+      "label": "Homicidios dolosos 2024",
+      "value": 69,
+      "formatted": "69",
+      "status": "critical",
+      "comparison": "7 departamentos sin casos"
+    }
+  ],
+  "charts": [
+    {
+      "id": "mapa-tasa",
+      "type": "map",
+      "title": "Mapa: hechos cada 100 mil habitantes (2024)",
+      "sectionId": "tasas",
+      "data": [
+        {
+          "id": "50007",
+          "value": 13723.904658199997
+        },
+        {
+          "id": "50014",
+          "value": 6889.999657500002
+        },
+        {
+          "id": "50021",
+          "value": 6344.5088063500025
+        },
+        {
+          "id": "50028",
+          "value": 6189.951509669999
+        },
+        {
+          "id": "50035",
+          "value": 5662.2731724999985
+        },
+        {
+          "id": "50042",
+          "value": 7342.801736099998
+        },
+        {
+          "id": "50049",
+          "value": 5792.225201219998
+        },
+        {
+          "id": "50056",
+          "value": 4570.8877408
+        },
+        {
+          "id": "50063",
+          "value": 7634.934069399999
+        },
+        {
+          "id": "50070",
+          "value": 5967.74367602
+        },
+        {
+          "id": "50077",
+          "value": 5376.9249933
+        },
+        {
+          "id": "50084",
+          "value": 6078.125043000003
+        },
+        {
+          "id": "50091",
+          "value": 4910.367399799999
+        },
+        {
+          "id": "50098",
+          "value": 6399.318059820001
+        },
+        {
+          "id": "50105",
+          "value": 7535.093834640002
+        },
+        {
+          "id": "50112",
+          "value": 5856.1622400000015
+        },
+        {
+          "id": "50119",
+          "value": 7723.693942500001
+        },
+        {
+          "id": "50126",
+          "value": 7527.694182700004
+        }
+      ],
+      "config": {
+        "format": "int",
+        "unit": "cada 100 mil"
+      }
+    },
+    {
+      "id": "serie-tasa",
+      "type": "line",
+      "title": "Tasa de hechos cada 100 mil: los 5 departamentos con más casos",
+      "sectionId": "tendencia",
+      "data": [
+        {
+          "id": "Guaymallén",
+          "data": [
+            {
+              "x": "2000",
+              "y": 0
+            },
+            {
+              "x": "2001",
+              "y": 0
+            },
+            {
+              "x": "2002",
+              "y": 0
+            },
+            {
+              "x": "2003",
+              "y": 0
+            },
+            {
+              "x": "2004",
+              "y": 0
+            },
+            {
+              "x": "2005",
+              "y": 0
+            },
+            {
+              "x": "2006",
+              "y": 0
+            },
+            {
+              "x": "2007",
+              "y": 0
+            },
+            {
+              "x": "2008",
+              "y": 0
+            },
+            {
+              "x": "2009",
+              "y": 8110.7
+            },
+            {
+              "x": "2010",
+              "y": 7659.3
+            },
+            {
+              "x": "2011",
+              "y": 8233.5
+            },
+            {
+              "x": "2012",
+              "y": 8493.1
+            },
+            {
+              "x": "2013",
+              "y": 8741.8
+            },
+            {
+              "x": "2014",
+              "y": 9090.1
+            },
+            {
+              "x": "2015",
+              "y": 8842.2
+            },
+            {
+              "x": "2016",
+              "y": 7972.9
+            },
+            {
+              "x": "2017",
+              "y": 6093.9
+            },
+            {
+              "x": "2018",
+              "y": 5576.4
+            },
+            {
+              "x": "2019",
+              "y": 5645.5
+            },
+            {
+              "x": "2020",
+              "y": 4651.5
+            },
+            {
+              "x": "2021",
+              "y": 6215.4
+            },
+            {
+              "x": "2022",
+              "y": 6127
+            },
+            {
+              "x": "2023",
+              "y": 6297.2
+            },
+            {
+              "x": "2024",
+              "y": 6190
+            }
+          ]
+        },
+        {
+          "id": "San Rafael",
+          "data": [
+            {
+              "x": "2000",
+              "y": 0
+            },
+            {
+              "x": "2001",
+              "y": 0
+            },
+            {
+              "x": "2002",
+              "y": 0
+            },
+            {
+              "x": "2003",
+              "y": 0
+            },
+            {
+              "x": "2004",
+              "y": 0
+            },
+            {
+              "x": "2005",
+              "y": 0
+            },
+            {
+              "x": "2006",
+              "y": 0
+            },
+            {
+              "x": "2007",
+              "y": 0
+            },
+            {
+              "x": "2008",
+              "y": 0
+            },
+            {
+              "x": "2009",
+              "y": 5077.2
+            },
+            {
+              "x": "2010",
+              "y": 5344.3
+            },
+            {
+              "x": "2011",
+              "y": 4698.3
+            },
+            {
+              "x": "2012",
+              "y": 5489.4
+            },
+            {
+              "x": "2013",
+              "y": 5175.2
+            },
+            {
+              "x": "2014",
+              "y": 3631.6
+            },
+            {
+              "x": "2015",
+              "y": 4295.3
+            },
+            {
+              "x": "2016",
+              "y": 3732.9
+            },
+            {
+              "x": "2017",
+              "y": 2313.7
+            },
+            {
+              "x": "2018",
+              "y": 3513.1
+            },
+            {
+              "x": "2019",
+              "y": 5624
+            },
+            {
+              "x": "2020",
+              "y": 5850.9
+            },
+            {
+              "x": "2021",
+              "y": 6806.2
+            },
+            {
+              "x": "2022",
+              "y": 6956.9
+            },
+            {
+              "x": "2023",
+              "y": 7512.7
+            },
+            {
+              "x": "2024",
+              "y": 7535.1
+            }
+          ]
+        },
+        {
+          "id": "Capital",
+          "data": [
+            {
+              "x": "2000",
+              "y": 0
+            },
+            {
+              "x": "2001",
+              "y": 0
+            },
+            {
+              "x": "2002",
+              "y": 0
+            },
+            {
+              "x": "2003",
+              "y": 0
+            },
+            {
+              "x": "2004",
+              "y": 0
+            },
+            {
+              "x": "2005",
+              "y": 0
+            },
+            {
+              "x": "2006",
+              "y": 0
+            },
+            {
+              "x": "2007",
+              "y": 0
+            },
+            {
+              "x": "2008",
+              "y": 0
+            },
+            {
+              "x": "2009",
+              "y": 20103.6
+            },
+            {
+              "x": "2010",
+              "y": 18990.1
+            },
+            {
+              "x": "2011",
+              "y": 19511.3
+            },
+            {
+              "x": "2012",
+              "y": 19833.8
+            },
+            {
+              "x": "2013",
+              "y": 19660.4
+            },
+            {
+              "x": "2014",
+              "y": 20944
+            },
+            {
+              "x": "2015",
+              "y": 20084.8
+            },
+            {
+              "x": "2016",
+              "y": 16795.3
+            },
+            {
+              "x": "2017",
+              "y": 13475.1
+            },
+            {
+              "x": "2018",
+              "y": 12231
+            },
+            {
+              "x": "2019",
+              "y": 12614.6
+            },
+            {
+              "x": "2020",
+              "y": 9714.2
+            },
+            {
+              "x": "2021",
+              "y": 13793.7
+            },
+            {
+              "x": "2022",
+              "y": 15469.4
+            },
+            {
+              "x": "2023",
+              "y": 16238.6
+            },
+            {
+              "x": "2024",
+              "y": 13723.9
+            }
+          ]
+        },
+        {
+          "id": "Las Heras",
+          "data": [
+            {
+              "x": "2000",
+              "y": 0
+            },
+            {
+              "x": "2001",
+              "y": 0
+            },
+            {
+              "x": "2002",
+              "y": 0
+            },
+            {
+              "x": "2003",
+              "y": 0
+            },
+            {
+              "x": "2004",
+              "y": 0
+            },
+            {
+              "x": "2005",
+              "y": 0
+            },
+            {
+              "x": "2006",
+              "y": 0
+            },
+            {
+              "x": "2007",
+              "y": 0
+            },
+            {
+              "x": "2008",
+              "y": 0
+            },
+            {
+              "x": "2009",
+              "y": 5089
+            },
+            {
+              "x": "2010",
+              "y": 5311.7
+            },
+            {
+              "x": "2011",
+              "y": 5950.2
+            },
+            {
+              "x": "2012",
+              "y": 6302.6
+            },
+            {
+              "x": "2013",
+              "y": 6403.7
+            },
+            {
+              "x": "2014",
+              "y": 7147.6
+            },
+            {
+              "x": "2015",
+              "y": 6698.3
+            },
+            {
+              "x": "2016",
+              "y": 6320.6
+            },
+            {
+              "x": "2017",
+              "y": 5502.1
+            },
+            {
+              "x": "2018",
+              "y": 5328.8
+            },
+            {
+              "x": "2019",
+              "y": 5414.9
+            },
+            {
+              "x": "2020",
+              "y": 4622.4
+            },
+            {
+              "x": "2021",
+              "y": 5918.8
+            },
+            {
+              "x": "2022",
+              "y": 6034.4
+            },
+            {
+              "x": "2023",
+              "y": 6041.1
+            },
+            {
+              "x": "2024",
+              "y": 5792.2
+            }
+          ]
+        },
+        {
+          "id": "Godoy Cruz",
+          "data": [
+            {
+              "x": "2000",
+              "y": 0
+            },
+            {
+              "x": "2001",
+              "y": 0
+            },
+            {
+              "x": "2002",
+              "y": 0
+            },
+            {
+              "x": "2003",
+              "y": 0
+            },
+            {
+              "x": "2004",
+              "y": 0
+            },
+            {
+              "x": "2005",
+              "y": 0
+            },
+            {
+              "x": "2006",
+              "y": 0
+            },
+            {
+              "x": "2007",
+              "y": 0
+            },
+            {
+              "x": "2008",
+              "y": 0
+            },
+            {
+              "x": "2009",
+              "y": 8002
+            },
+            {
+              "x": "2010",
+              "y": 7799.8
+            },
+            {
+              "x": "2011",
+              "y": 7695
+            },
+            {
+              "x": "2012",
+              "y": 7973.7
+            },
+            {
+              "x": "2013",
+              "y": 8470.4
+            },
+            {
+              "x": "2014",
+              "y": 9286.4
+            },
+            {
+              "x": "2015",
+              "y": 8866.4
+            },
+            {
+              "x": "2016",
+              "y": 7525.8
+            },
+            {
+              "x": "2017",
+              "y": 5214.1
+            },
+            {
+              "x": "2018",
+              "y": 4943.2
+            },
+            {
+              "x": "2019",
+              "y": 4966
+            },
+            {
+              "x": "2020",
+              "y": 4695.4
+            },
+            {
+              "x": "2021",
+              "y": 6199.3
+            },
+            {
+              "x": "2022",
+              "y": 6507.1
+            },
+            {
+              "x": "2023",
+              "y": 6663.2
+            },
+            {
+              "x": "2024",
+              "y": 6344.5
+            }
+          ]
+        }
+      ],
+      "config": {
+        "format": "int"
+      }
+    },
+    {
+      "id": "mapa-robos",
+      "type": "map",
+      "title": "Mapa: robos y hurtos cada 100 mil habitantes (2024)",
+      "sectionId": "propiedad",
+      "data": [
+        {
+          "id": "50007",
+          "value": 5950.6735
+        },
+        {
+          "id": "50014",
+          "value": 1899.1978900000001
+        },
+        {
+          "id": "50021",
+          "value": 2656.9762
+        },
+        {
+          "id": "50028",
+          "value": 2259.1257699999996
+        },
+        {
+          "id": "50035",
+          "value": 1930.502
+        },
+        {
+          "id": "50042",
+          "value": 1448.4881599999999
+        },
+        {
+          "id": "50049",
+          "value": 2113.06571
+        },
+        {
+          "id": "50056",
+          "value": 1600.32739
+        },
+        {
+          "id": "50063",
+          "value": 2937.66977
+        },
+        {
+          "id": "50070",
+          "value": 2284.39185
+        },
+        {
+          "id": "50077",
+          "value": 1505.69025
+        },
+        {
+          "id": "50084",
+          "value": 2143.95566
+        },
+        {
+          "id": "50091",
+          "value": 1412.7557299999999
+        },
+        {
+          "id": "50098",
+          "value": 2526.499
+        },
+        {
+          "id": "50105",
+          "value": 2538.4779
+        },
+        {
+          "id": "50112",
+          "value": 1798.62067
+        },
+        {
+          "id": "50119",
+          "value": 2135.73139
+        },
+        {
+          "id": "50126",
+          "value": 2114.25781
+        }
+      ],
+      "config": {
+        "format": "int",
+        "unit": "cada 100 mil"
+      }
+    }
+  ],
+  "rankings": [
+    {
+      "id": "rank-tasa",
+      "title": "Departamentos por tasa de hechos cada 100 mil (2024)",
+      "sectionId": "tasas",
+      "items": [
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 13723.904658199997
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 7723.693942500001
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 7634.934069399999
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 7535.093834640002
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 7527.694182700004
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 7342.801736099998
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 6889.999657500002
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 6399.318059820001
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 6344.5088063500025
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 6189.951509669999
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 6078.125043000003
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 5967.74367602
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 5856.1622400000015
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 5792.225201219998
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 5662.2731724999985
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 5376.9249933
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 4910.367399799999
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 4570.8877408
+        }
+      ],
+      "order": "desc",
+      "format": "int"
+    },
+    {
+      "id": "rank-hechos",
+      "title": "Departamentos por cantidad de hechos (2024)",
+      "sectionId": "cantidad",
+      "items": [
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 21541
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 16638
+        },
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 16553
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 14234
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 13337
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 12556
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 11525
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 8970
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 4947
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 3991
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 3573
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 3083
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 2522
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 2122
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 2040
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 1989
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 1061
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 811
+        }
+      ],
+      "order": "desc",
+      "format": "int",
+      "unit": "hechos"
+    },
+    {
+      "id": "rank-robos",
+      "title": "Departamentos por robos y hurtos cada 100 mil (2024)",
+      "sectionId": "propiedad",
+      "items": [
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 5950.6735
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 2937.66977
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 2656.9762
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 2538.4779
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 2526.499
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 2284.39185
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 2259.1257699999996
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 2143.95566
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 2135.73139
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 2114.25781
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 2113.06571
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 1930.502
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 1899.1978900000001
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 1798.62067
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 1600.32739
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 1505.69025
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 1448.4881599999999
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 1412.7557299999999
+        }
+      ],
+      "order": "desc",
+      "format": "int"
+    },
+    {
+      "id": "rank-hom",
+      "title": "Departamentos por homicidios dolosos (2024)",
+      "sectionId": "homicidios",
+      "items": [
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 16
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 14
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 11
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 10
+        },
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 7
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 4
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 3
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 1
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 1
+        },
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 1
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 1
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 0
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 0
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 0
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 0
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 0
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 0
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 0
+        }
+      ],
+      "order": "desc",
+      "format": "int",
+      "unit": "casos"
+    }
+  ],
+  "mapData": [
+    {
+      "municipioId": "50",
+      "municipioNombre": "Mendoza",
+      "value": 13723.904658199997,
+      "formatted": "13.724",
+      "caption": "Hechos cada 100 mil en Capital, la tasa más alta",
+      "label": "13.724 · Hechos cada 100 mil en Capital, la tasa más alta"
+    }
+  ]
+}

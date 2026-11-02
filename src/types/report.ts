@@ -27,11 +27,6 @@ export interface KPI {
 
 export type ChartType = 'bar' | 'line' | 'pie' | 'pyramid' | 'map';
 
-export interface ChartAnnotation {
-  x: string;
-  label: string;
-}
-
 export interface ChartConfig {
   id: string;
   type: ChartType;
@@ -47,7 +42,6 @@ export interface ChartConfig {
     /** Total esperado: lo usa la validación y el cálculo de porcentajes */
     total?: number;
     max?: number;
-    annotations?: ChartAnnotation[];
   };
 }
 

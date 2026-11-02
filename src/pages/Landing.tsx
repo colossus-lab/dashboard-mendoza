@@ -73,7 +73,7 @@ export function Landing() {
           id="seguridad-titulo"
           number="III"
           title="Seguridad"
-          lede="Hechos delictivos registrados, en comparación con el resto del país."
+          lede="Hechos delictivos registrados en la provincia y sus departamentos, y muertes viales."
         />
         <div className="report-grid">
           {getSeguridadReports().map(report => <ReportCard key={report.id} report={report} />)}

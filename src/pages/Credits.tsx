@@ -9,7 +9,7 @@ const SOURCES = [
   },
   {
     name: 'Ministerio de Seguridad de la Nación — SNIC',
-    use: 'Informes de seguridad: hechos delictivos, 2000-2024.',
+    use: 'Informes de seguridad: hechos delictivos por provincia y departamento, 2000-2024, y muertes viales, 2017-2023.',
     url: 'https://datos.gob.ar/dataset/seguridad-snic-provincial',
   },
   {

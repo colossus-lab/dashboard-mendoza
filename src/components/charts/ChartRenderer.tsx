@@ -280,7 +280,7 @@ function PieChartView({ chart }: { chart: ChartConfig }) {
 
 // ─── Line Chart ───
 function LineChartView({ chart }: { chart: ChartConfig }) {
-  const { theme, colors, ink, tooltip } = useChartTheme();
+  const { theme, colors, tooltip } = useChartTheme();
   const mobile = useIsMobile();
   const format: ValueFormat = chart.config?.format ?? 'int';
 
@@ -307,22 +307,12 @@ function LineChartView({ chart }: { chart: ChartConfig }) {
   const multi = lineData.length > 1;
   const fmt = (v: number) => formatValue(v, format);
 
-  const markers = (chart.config?.annotations ?? []).map(a => ({
-    axis: 'x' as const,
-    value: a.x,
-    legend: mobile ? a.x : a.label,
-    legendOrientation: 'horizontal' as const,
-    legendPosition: 'top-left' as const,
-    lineStyle: { stroke: ink, strokeOpacity: 0.45, strokeWidth: 1, strokeDasharray: '4 4' },
-    textStyle: { fill: ink, fontSize: 10, fontFamily: 'JetBrains Mono, monospace' },
-  }));
-
   return (
     <>
     <div style={{ height: 320 }}>
       <ResponsiveLine
         data={lineData}
-        margin={{ top: markers.length ? 26 : 14, right: 18, bottom: 34, left: 52 }}
+        margin={{ top: 14, right: 18, bottom: 34, left: 52 }}
         xScale={{ type: 'point' }}
         yScale={{ type: 'linear', min: 0, max: 'auto' }}
         curve="linear"
@@ -333,7 +323,6 @@ function LineChartView({ chart }: { chart: ChartConfig }) {
         axisLeft={{ tickSize: 0, tickPadding: 6, tickValues: 5, format: (v: number) => formatCompact(v, format) }}
         gridYValues={5}
         enableGridX={false}
-        markers={markers}
         theme={theme}
         animate={false}
         useMesh

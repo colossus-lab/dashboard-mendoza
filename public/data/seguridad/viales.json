@@ -1,0 +1,547 @@
+{
+  "meta": {
+    "id": "seguridad-viales",
+    "title": "Muertes viales — Mendoza (2017-2023)",
+    "category": "Seguridad",
+    "subcategory": "Muertes viales",
+    "source": "Sistema de Alerta Temprana de Muertes Viales (SNIC-SAT) — Ministerio de Seguridad de la Nación",
+    "date": "2023",
+    "scope": "Provincia de Mendoza · SNIC-SAT, 2017-2023. Los rankings comparan las 24 jurisdicciones y los 18 departamentos."
+  },
+  "kpis": [
+    {
+      "id": "victimas-ult",
+      "label": "Víctimas fatales 2023",
+      "value": 119,
+      "formatted": "119",
+      "status": "critical",
+      "comparison": "214 en 2017"
+    },
+    {
+      "id": "tasa-ult",
+      "label": "Tasa 2023 cada 100 mil habitantes",
+      "value": 5.806546254431826,
+      "formatted": "5,81",
+      "comparison": "Total país: 8,48"
+    },
+    {
+      "id": "posicion",
+      "label": "Posición por tasa",
+      "value": 20,
+      "formatted": "20° de 24",
+      "comparison": "1° = tasa más alta"
+    },
+    {
+      "id": "acumulado",
+      "label": "Víctimas 2017-2023",
+      "value": 969,
+      "formatted": "969",
+      "comparison": "15 sin departamento determinado"
+    },
+    {
+      "id": "varones",
+      "label": "Víctimas varones",
+      "value": 75.64499484004128,
+      "formatted": "75,6 %",
+      "comparison": "733 varones · 234 mujeres"
+    }
+  ],
+  "charts": [
+    {
+      "id": "serie-victimas",
+      "type": "line",
+      "title": "Víctimas fatales por año — Mendoza",
+      "sectionId": "tendencia",
+      "data": [
+        {
+          "id": "Víctimas",
+          "data": [
+            {
+              "x": "2017",
+              "y": 214
+            },
+            {
+              "x": "2018",
+              "y": 168
+            },
+            {
+              "x": "2019",
+              "y": 137
+            },
+            {
+              "x": "2020",
+              "y": 101
+            },
+            {
+              "x": "2021",
+              "y": 111
+            },
+            {
+              "x": "2022",
+              "y": 119
+            },
+            {
+              "x": "2023",
+              "y": 119
+            }
+          ]
+        }
+      ],
+      "config": {
+        "format": "int"
+      }
+    },
+    {
+      "id": "serie-tasa",
+      "type": "line",
+      "title": "Tasa cada 100 mil habitantes — Mendoza y total país",
+      "sectionId": "pais",
+      "data": [
+        {
+          "id": "Mendoza",
+          "data": [
+            {
+              "x": "2017",
+              "y": 11.1
+            },
+            {
+              "x": "2018",
+              "y": 8.62
+            },
+            {
+              "x": "2019",
+              "y": 6.95
+            },
+            {
+              "x": "2020",
+              "y": 5.07
+            },
+            {
+              "x": "2021",
+              "y": 5.52
+            },
+            {
+              "x": "2022",
+              "y": 5.86
+            },
+            {
+              "x": "2023",
+              "y": 5.81
+            }
+          ]
+        },
+        {
+          "id": "Total país",
+          "data": [
+            {
+              "x": "2017",
+              "y": 10.74
+            },
+            {
+              "x": "2018",
+              "y": 10.79
+            },
+            {
+              "x": "2019",
+              "y": 9.32
+            },
+            {
+              "x": "2020",
+              "y": 6.57
+            },
+            {
+              "x": "2021",
+              "y": 8.35
+            },
+            {
+              "x": "2022",
+              "y": 9.05
+            },
+            {
+              "x": "2023",
+              "y": 8.48
+            }
+          ]
+        }
+      ],
+      "config": {
+        "format": "dec1"
+      }
+    },
+    {
+      "id": "mapa-deptos",
+      "type": "map",
+      "title": "Mapa: víctimas 2017-2023 cada 100 mil habitantes",
+      "sectionId": "departamentos",
+      "data": [
+        {
+          "id": "50007",
+          "value": 12.582573136206353
+        },
+        {
+          "id": "50014",
+          "value": 66.5601703940362
+        },
+        {
+          "id": "50021",
+          "value": 22.54571913157989
+        },
+        {
+          "id": "50028",
+          "value": 30.748588360261646
+        },
+        {
+          "id": "50035",
+          "value": 53.64346408033645
+        },
+        {
+          "id": "50042",
+          "value": 57.918252523581
+        },
+        {
+          "id": "50049",
+          "value": 40.10221799395054
+        },
+        {
+          "id": "50056",
+          "value": 103.88619161702039
+        },
+        {
+          "id": "50063",
+          "value": 55.4108399597843
+        },
+        {
+          "id": "50070",
+          "value": 52.4152013199515
+        },
+        {
+          "id": "50077",
+          "value": 33.62166457804811
+        },
+        {
+          "id": "50084",
+          "value": 34.52388425083171
+        },
+        {
+          "id": "50091",
+          "value": 115.37786249968646
+        },
+        {
+          "id": "50098",
+          "value": 52.93579031704247
+        },
+        {
+          "id": "50105",
+          "value": 60.924565156729614
+        },
+        {
+          "id": "50112",
+          "value": 123.82623052316583
+        },
+        {
+          "id": "50119",
+          "value": 64.81527646208306
+        },
+        {
+          "id": "50126",
+          "value": 62.984496124031004
+        }
+      ],
+      "config": {
+        "format": "dec1",
+        "unit": "cada 100 mil"
+      }
+    },
+    {
+      "id": "clase-victima",
+      "type": "pie",
+      "title": "Víctimas por tipo de usuario de la vía",
+      "sectionId": "victimas",
+      "data": [
+        {
+          "id": "Conductor",
+          "value": 626
+        },
+        {
+          "id": "Acompañante",
+          "value": 186
+        },
+        {
+          "id": "Peatón",
+          "value": 111
+        },
+        {
+          "id": "Pasajero",
+          "value": 46
+        }
+      ],
+      "config": {
+        "total": 969,
+        "format": "int"
+      }
+    },
+    {
+      "id": "vehiculo-victima",
+      "type": "bar",
+      "title": "Víctimas por vehículo",
+      "sectionId": "victimas",
+      "data": [
+        {
+          "id": "Motocicleta",
+          "Víctimas": 322
+        },
+        {
+          "id": "Automóvil",
+          "Víctimas": 300
+        },
+        {
+          "id": "No corresponde",
+          "Víctimas": 100
+        },
+        {
+          "id": "Camioneta",
+          "Víctimas": 93
+        },
+        {
+          "id": "Bicicleta",
+          "Víctimas": 74
+        },
+        {
+          "id": "Micro larga distancia",
+          "Víctimas": 38
+        },
+        {
+          "id": "Camión",
+          "Víctimas": 25
+        },
+        {
+          "id": "Peatón",
+          "Víctimas": 10
+        }
+      ],
+      "config": {
+        "xAxis": "id",
+        "layout": "horizontal",
+        "format": "int"
+      }
+    }
+  ],
+  "rankings": [
+    {
+      "id": "rank-prov",
+      "title": "Jurisdicciones por tasa cada 100 mil (2023)",
+      "sectionId": "pais",
+      "items": [
+        {
+          "name": "Santiago del Estero",
+          "value": 20.142286433770014
+        },
+        {
+          "name": "Misiones",
+          "value": 16.82385577777778
+        },
+        {
+          "name": "Chaco",
+          "value": 16.384326405367233
+        },
+        {
+          "name": "Catamarca",
+          "value": 14.557921034251176
+        },
+        {
+          "name": "La Pampa",
+          "value": 14.160949853826311
+        },
+        {
+          "name": "Formosa",
+          "value": 14.049480204280156
+        },
+        {
+          "name": "La Rioja",
+          "value": 12.721401421319799
+        },
+        {
+          "name": "Tucumán",
+          "value": 12.37508772119669
+        },
+        {
+          "name": "Jujuy",
+          "value": 12.067290647482015
+        },
+        {
+          "name": "San Luis",
+          "value": 11.953936854304635
+        },
+        {
+          "name": "Salta",
+          "value": 11.648862627958911
+        },
+        {
+          "name": "San Juan",
+          "value": 10.67222588018433
+        },
+        {
+          "name": "Córdoba",
+          "value": 10.664035967228036
+        },
+        {
+          "name": "Entre Ríos",
+          "value": 9.767162363410595
+        },
+        {
+          "name": "Río Negro",
+          "value": 8.63836183860233
+        },
+        {
+          "name": "Santa Fe",
+          "value": 8.517164200496278
+        },
+        {
+          "name": "Neuquén",
+          "value": 8.419829670152856
+        },
+        {
+          "name": "Corrientes",
+          "value": 8.183655373831776
+        },
+        {
+          "name": "Buenos Aires",
+          "value": 6.04229296921674
+        },
+        {
+          "name": "Mendoza",
+          "value": 5.806546254431826,
+          "municipioId": "50"
+        },
+        {
+          "name": "Santa Cruz",
+          "value": 4.83578679245283
+        },
+        {
+          "name": "Chubut",
+          "value": 4.004127406326035
+        },
+        {
+          "name": "Ciudad Autónoma de Buenos Aires",
+          "value": 3.3724954034582133
+        },
+        {
+          "name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+          "value": 3.2208712997347484
+        }
+      ],
+      "order": "desc",
+      "format": "dec1"
+    },
+    {
+      "id": "rank-deptos",
+      "title": "Departamentos por cantidad de víctimas (2017-2023)",
+      "sectionId": "departamentos",
+      "items": [
+        {
+          "name": "San Rafael",
+          "municipioId": "50105",
+          "value": 131
+        },
+        {
+          "name": "Maipú",
+          "municipioId": "50070",
+          "value": 115
+        },
+        {
+          "name": "Guaymallén",
+          "municipioId": "50028",
+          "value": 99
+        },
+        {
+          "name": "Luján de Cuyo",
+          "municipioId": "50063",
+          "value": 97
+        },
+        {
+          "name": "Las Heras",
+          "municipioId": "50049",
+          "value": 94
+        },
+        {
+          "name": "San Martín",
+          "municipioId": "50098",
+          "value": 74
+        },
+        {
+          "name": "Lavalle",
+          "municipioId": "50056",
+          "value": 49
+        },
+        {
+          "name": "San Carlos",
+          "municipioId": "50091",
+          "value": 46
+        },
+        {
+          "name": "Godoy Cruz",
+          "municipioId": "50021",
+          "value": 44
+        },
+        {
+          "name": "Tunuyán",
+          "municipioId": "50119",
+          "value": 39
+        },
+        {
+          "name": "General Alvear",
+          "municipioId": "50014",
+          "value": 35
+        },
+        {
+          "name": "Tupungato",
+          "municipioId": "50126",
+          "value": 26
+        },
+        {
+          "name": "Junín",
+          "municipioId": "50035",
+          "value": 25
+        },
+        {
+          "name": "Santa Rosa",
+          "municipioId": "50112",
+          "value": 24
+        },
+        {
+          "name": "Rivadavia",
+          "municipioId": "50084",
+          "value": 22
+        },
+        {
+          "name": "Capital",
+          "municipioId": "50007",
+          "value": 16
+        },
+        {
+          "name": "Malargüe",
+          "municipioId": "50077",
+          "value": 11
+        },
+        {
+          "name": "La Paz",
+          "municipioId": "50042",
+          "value": 7
+        }
+      ],
+      "order": "desc",
+      "format": "int",
+      "unit": "víctimas"
+    }
+  ],
+  "mapData": [
+    {
+      "municipioId": "50",
+      "municipioNombre": "Mendoza",
+      "value": 119,
+      "formatted": "119",
+      "caption": "Víctimas fatales en siniestros viales 2023",
+      "label": "119 · Víctimas fatales en siniestros viales 2023"
+    }
+  ]
+}

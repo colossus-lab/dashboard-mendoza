@@ -12,39 +12,39 @@
     {
       "id": "hechos-ult",
       "label": "Hechos delictivos 2024",
-      "value": 185458,
-      "formatted": "185.458",
-      "comparison": "-2,8 % vs 2023",
+      "value": 145268,
+      "formatted": "145.268",
+      "comparison": "-4,1 % vs 2023",
       "status": "good"
     },
     {
       "id": "tasa-total",
       "label": "Tasa 2024 cada 100 mil habitantes",
-      "value": 8967.263898021,
-      "formatted": "8.967",
-      "comparison": "Total país: 5.315"
+      "value": 7024.212347957,
+      "formatted": "7.024",
+      "comparison": "Total país: 4.350"
     },
     {
       "id": "var-5y",
-      "label": "Variación 2019-2024, todas las categorías",
-      "value": 35.097649278466164,
-      "formatted": "+35,1 %",
+      "label": "Variación 2019-2024",
+      "value": 15.626094431532364,
+      "formatted": "+15,6 %",
       "status": "warning",
-      "comparison": "+16,7 % en categorías comparables"
+      "comparison": "125.636 hechos en 2019"
     },
     {
       "id": "robos-hurtos",
       "label": "Robos y hurtos (% del total)",
-      "value": 28.13035835606984,
-      "formatted": "28,1 %",
+      "value": 35.91293333700471,
+      "formatted": "35,9 %",
       "comparison": "52.170 hechos"
     },
     {
       "id": "propiedad",
       "label": "Robos, hurtos y otros contra la propiedad (% del total)",
-      "value": 42.6468526566662,
-      "formatted": "42,6 %",
-      "comparison": "79.092 hechos"
+      "value": 53.40336481537572,
+      "formatted": "53,4 %",
+      "comparison": "77.578 hechos"
     },
     {
       "id": "homicidios",
@@ -57,8 +57,8 @@
     {
       "id": "pos-tasa-pais",
       "label": "Posición por tasa de hechos",
-      "value": 4,
-      "formatted": "4° de 24",
+      "value": 3,
+      "formatted": "3° de 24",
       "comparison": "1° = tasa más alta"
     },
     {
@@ -74,7 +74,7 @@
       "value": 18908,
       "formatted": "18.908",
       "status": "warning",
-      "comparison": "1.286 asistidas virtualmente · categoría nueva en 2023"
+      "comparison": "Dentro de otros delitos contra la propiedad · 1.286 asistidas virtualmente"
     },
     {
       "id": "fem-homicidios",
@@ -93,7 +93,7 @@
       "sectionId": "panorama",
       "data": [
         {
-          "id": "Todas las categorías",
+          "id": "Hechos",
           "data": [
             {
               "x": "2000",
@@ -165,156 +165,41 @@
             },
             {
               "x": "2017",
-              "y": 121205
+              "y": 113298
             },
             {
               "x": "2018",
-              "y": 126331
+              "y": 117205
             },
             {
               "x": "2019",
-              "y": 137277
+              "y": 125636
             },
             {
               "x": "2020",
-              "y": 130553
+              "y": 111076
             },
             {
               "x": "2021",
-              "y": 156569
+              "y": 140829
             },
             {
               "x": "2022",
-              "y": 158380
+              "y": 145163
             },
             {
               "x": "2023",
-              "y": 190733
+              "y": 151443
             },
             {
               "x": "2024",
-              "y": 185458
-            }
-          ]
-        },
-        {
-          "id": "Categorías comparables",
-          "data": [
-            {
-              "x": "2000",
-              "y": 92601
-            },
-            {
-              "x": "2001",
-              "y": 99099
-            },
-            {
-              "x": "2002",
-              "y": 108334
-            },
-            {
-              "x": "2003",
-              "y": 109399
-            },
-            {
-              "x": "2004",
-              "y": 104188
-            },
-            {
-              "x": "2005",
-              "y": 108849
-            },
-            {
-              "x": "2006",
-              "y": 121356
-            },
-            {
-              "x": "2007",
-              "y": 123052
-            },
-            {
-              "x": "2008",
-              "y": 124825
-            },
-            {
-              "x": "2009",
-              "y": 125258
-            },
-            {
-              "x": "2010",
-              "y": 124775
-            },
-            {
-              "x": "2011",
-              "y": 138056
-            },
-            {
-              "x": "2012",
-              "y": 137957
-            },
-            {
-              "x": "2013",
-              "y": 143258
-            },
-            {
-              "x": "2014",
-              "y": 152086
-            },
-            {
-              "x": "2015",
-              "y": 149430
-            },
-            {
-              "x": "2016",
-              "y": 137398
-            },
-            {
-              "x": "2017",
-              "y": 114259
-            },
-            {
-              "x": "2018",
-              "y": 118323
-            },
-            {
-              "x": "2019",
-              "y": 126741
-            },
-            {
-              "x": "2020",
-              "y": 111956
-            },
-            {
-              "x": "2021",
-              "y": 141888
-            },
-            {
-              "x": "2022",
-              "y": 146250
-            },
-            {
-              "x": "2023",
-              "y": 154447
-            },
-            {
-              "x": "2024",
-              "y": 147925
+              "y": 145268
             }
           ]
         }
       ],
       "config": {
-        "format": "int",
-        "annotations": [
-          {
-            "x": "2017",
-            "label": "2017: nuevas categorías"
-          },
-          {
-            "x": "2023",
-            "label": "2023: nuevas categorías"
-          }
-        ]
+        "format": "int"
       }
     },
     {
@@ -396,35 +281,35 @@
             },
             {
               "x": "2017",
-              "y": 6286.5
+              "y": 5876.5
             },
             {
               "x": "2018",
-              "y": 6481.8
+              "y": 6013.7
             },
             {
               "x": "2019",
-              "y": 6969.4
+              "y": 6378.4
             },
             {
               "x": "2020",
-              "y": 6560.2
+              "y": 5581.7
             },
             {
               "x": "2021",
-              "y": 7789
+              "y": 7006
             },
             {
               "x": "2022",
-              "y": 7802.7
+              "y": 7151.6
             },
             {
               "x": "2023",
-              "y": 9307.6
+              "y": 7390.5
             },
             {
               "x": "2024",
-              "y": 8967.3
+              "y": 7024.2
             }
           ]
         },
@@ -497,55 +382,45 @@
             },
             {
               "x": "2016",
-              "y": 3655.7
+              "y": 3652.5
             },
             {
               "x": "2017",
-              "y": 4079.8
+              "y": 3791.3
             },
             {
               "x": "2018",
-              "y": 4258.8
+              "y": 3935
             },
             {
               "x": "2019",
-              "y": 4799.6
+              "y": 4313.2
             },
             {
               "x": "2020",
-              "y": 4164.5
+              "y": 3648
             },
             {
               "x": "2021",
-              "y": 4319.7
+              "y": 3869.1
             },
             {
               "x": "2022",
-              "y": 4390.2
+              "y": 3977.4
             },
             {
               "x": "2023",
-              "y": 5199.4
+              "y": 4277.3
             },
             {
               "x": "2024",
-              "y": 5314.5
+              "y": 4349.6
             }
           ]
         }
       ],
       "config": {
-        "format": "int",
-        "annotations": [
-          {
-            "x": "2017",
-            "label": "2017: nuevas categorías"
-          },
-          {
-            "x": "2023",
-            "label": "2023: nuevas categorías"
-          }
-        ]
+        "format": "int"
       }
     },
     {
@@ -560,15 +435,11 @@
         },
         {
           "id": "Otros delitos contra la propiedad",
-          "Hechos": 26922
+          "Hechos": 25408
         },
         {
           "id": "Hurtos",
           "Hechos": 20936
-        },
-        {
-          "id": "Estafas y defraudaciones (no incluye virtuales) y usura",
-          "Hechos": 17622
         },
         {
           "id": "Amenazas",
@@ -585,11 +456,55 @@
         {
           "id": "Delitos contra la administración pública",
           "Hechos": 6779
+        },
+        {
+          "id": "Delitos previstos en otras leyes",
+          "Hechos": 4912
         }
       ],
       "config": {
         "xAxis": "id",
         "layout": "horizontal",
+        "format": "int"
+      }
+    },
+    {
+      "id": "apertura-propiedad",
+      "type": "pie",
+      "title": "Qué incluye \"otros delitos contra la propiedad\" — 2024",
+      "sectionId": "delitos",
+      "data": [
+        {
+          "id": "Estafas y defraudaciones (no incluye virtuales) y usura",
+          "value": 17622
+        },
+        {
+          "id": "Daños (no incluye informáticos)",
+          "value": 4628
+        },
+        {
+          "id": "Otros delitos contra la propiedad",
+          "value": 1514
+        },
+        {
+          "id": "Estafas y defraudaciones asistidas virtualmente",
+          "value": 1286
+        },
+        {
+          "id": "Extorsiones",
+          "value": 292
+        },
+        {
+          "id": "Acceso ilegal a sistemas informáticos y daños informáticos",
+          "value": 55
+        },
+        {
+          "id": "Secuestros extorsivos",
+          "value": 11
+        }
+      ],
+      "config": {
+        "total": 25408,
         "format": "int"
       }
     },
@@ -718,100 +633,100 @@
       "items": [
         {
           "name": "Salta",
-          "value": 13713.209915451998
-        },
-        {
-          "name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
-          "value": 9400.55565272
+          "value": 10905.211336056
         },
         {
           "name": "Ciudad Autónoma de Buenos Aires",
-          "value": 9173.754367550004
+          "value": 7452.986465751998
         },
         {
           "name": "Mendoza",
-          "value": 8967.263898021,
+          "value": 7024.212347957,
           "municipioId": "50"
         },
         {
-          "name": "Jujuy",
-          "value": 8209.47970241
+          "name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+          "value": 6233.206060420001
         },
         {
-          "name": "Catamarca",
-          "value": 6698.885431100002
+          "name": "Jujuy",
+          "value": 6173.405312700001
         },
         {
           "name": "Córdoba",
-          "value": 6584.180255033003
+          "value": 5697.798420688999
         },
         {
-          "name": "Tucumán",
-          "value": 5874.397671433999
-        },
-        {
-          "name": "La Pampa",
-          "value": 5824.567298930002
-        },
-        {
-          "name": "Formosa",
-          "value": 5808.330283129998
+          "name": "Catamarca",
+          "value": 5481.7599331400015
         },
         {
           "name": "San Juan",
-          "value": 5761.08800924
+          "value": 4918.82417032
+        },
+        {
+          "name": "Tucumán",
+          "value": 4908.741147172
+        },
+        {
+          "name": "Formosa",
+          "value": 4562.349263079999
         },
         {
           "name": "Chubut",
-          "value": 5738.56969194
+          "value": 4424.8717692
         },
         {
           "name": "Neuquén",
-          "value": 5494.897266779998
+          "value": 4389.75439889
         },
         {
-          "name": "San Luis",
-          "value": 5251.9834673
-        },
-        {
-          "name": "Entre Ríos",
-          "value": 5146.534610680001
+          "name": "La Pampa",
+          "value": 4263.684502030001
         },
         {
           "name": "Santiago del Estero",
-          "value": 4697.5588802719985
+          "value": 4163.663605885999
         },
         {
-          "name": "Santa Cruz",
-          "value": 4568.2151793600015
+          "name": "San Luis",
+          "value": 4128.632417089999
         },
         {
-          "name": "Río Negro",
-          "value": 4539.362772379999
+          "name": "Entre Ríos",
+          "value": 3911.7043383
         },
         {
           "name": "Santa Fe",
-          "value": 4470.182419513
+          "value": 3828.266015836001
+        },
+        {
+          "name": "Santa Cruz",
+          "value": 3710.96714527
+        },
+        {
+          "name": "Río Negro",
+          "value": 3692.4310937300006
         },
         {
           "name": "La Rioja",
-          "value": 3870.878148529999
+          "value": 3242.21487085
         },
         {
           "name": "Buenos Aires",
-          "value": 3730.8537234985997
+          "value": 3076.8733054782006
         },
         {
           "name": "Chaco",
-          "value": 3204.5561232980003
+          "value": 2852.633873042
         },
         {
           "name": "Misiones",
-          "value": 3094.487136663
+          "value": 2535.6583678730003
         },
         {
           "name": "Corrientes",
-          "value": 2667.342960327
+          "value": 2080.1577013669994
         }
       ],
       "order": "desc",
@@ -928,10 +843,10 @@
     {
       "municipioId": "50",
       "municipioNombre": "Mendoza",
-      "value": 185458,
-      "formatted": "185.458",
+      "value": 145268,
+      "formatted": "145.268",
       "caption": "Hechos delictivos en Mendoza 2024",
-      "label": "185.458 · Hechos delictivos en Mendoza 2024"
+      "label": "145.268 · Hechos delictivos en Mendoza 2024"
     }
   ]
 }
